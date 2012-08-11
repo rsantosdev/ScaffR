@@ -1,11 +1,13 @@
-*resharper.user
-# Visual Studio
-[Dd]ebug/
-[Rr]elease/
-*.sln.cache
+obj
+bin
+*.user
 *.suo
-*.csproj.user
-
-# Resharper
-*[Rr]e[Ss]harper.user
-_ReSharper.*/
+*.orig
+output
+publish-*
+packages
+_ReSharper.*
+*.Resharper
+*.Cache
+*.cache
+~$*

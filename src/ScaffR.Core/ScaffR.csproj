@@ -64,9 +64,8 @@
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Provider\AbstractProvider.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Provider\ScaffR.Provider.ps1" />
     <None Include="Package.nuspec" />
-    <None Include="tools\API.psm1" />
+    <None Include="tools\ScaffR-API.psm1" />
     <None Include="tools\install.ps1" />
-    <None Include="tools\ScaffR.Core.psm1" />
     <None Include="tools\init.ps1" />
     <None Include="NuGet.exe" />
   </ItemGroup>

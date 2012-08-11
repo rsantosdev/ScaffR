@@ -1,1 +1,1 @@
-﻿
+﻿param($installPath, $toolsPath, $package)

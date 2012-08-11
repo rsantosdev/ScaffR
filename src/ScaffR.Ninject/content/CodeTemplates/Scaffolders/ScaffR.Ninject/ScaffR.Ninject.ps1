@@ -6,8 +6,6 @@ param(
 	[switch]$Force = $false
 )
 
-Add-NamespacesToHost $Project
-
 foreach($ns in @("Core.Interfaces.Data", "Core.Interfaces.Service", "Data", "Service")){
 	$toadd = $namespace + "." + $ns
 	Add-Namespace $baseProject.Name "\App_Start\" "NinjectMVC3.cs" $toadd
@@ -15,7 +13,6 @@ foreach($ns in @("Core.Interfaces.Data", "Core.Interfaces.Service", "Data", "Ser
 
 Add-CodeToMethod $baseProject.Name "\App_Start\" "NinjectMVC3.cs" "NinjectMVC3" "RegisterServices" "kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>().InRequestScope();"
 Add-CodeToMethod $baseProject.Name "\App_Start\" "NinjectMVC3.cs" "NinjectMVC3" "RegisterServices" "kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();"
-
 
 ##############################################################
 # register the interfaces and instances to ninject

@@ -16,7 +16,7 @@
     <copyright>World-Class Programmers 2012</copyright>
     <tags></tags>
     <dependencies>
-      <dependency id="ScaffR.Core" version="1.1.1" />
+      <dependency id="ScaffR" version="1.1.1" />
     </dependencies>
   </metadata>
   <files>

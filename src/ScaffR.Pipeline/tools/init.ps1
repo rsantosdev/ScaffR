@@ -1,3 +1,3 @@
-﻿Add-NamespacesToHost (Get-Project).ProjectName
+﻿param($installPath, $toolsPath, $package)
 
 $global:pipelineProjectName = $rootNamespace + ".Pipeline"

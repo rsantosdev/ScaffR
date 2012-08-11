@@ -1,10 +1,10 @@
 ﻿param($installPath, $toolsPath, $package, $project)
 
-add-project $coreProjectName | `
+Add-Project $coreProjectName | `
 	with-reference "System.ServiceModel,System.Configuration,System.Web,System.Runtime.Serialization,System.ComponentModel.DataAnnotations"
-add-project $dataProjectName | `
+Add-Project $dataProjectName | `
 	with-reference "System.ServiceModel,System.Runtime.Serialization,$coreProjectName"
-add-project $serviceProjectName | `
+Add-Project $serviceProjectName | `
 	with-reference "$dataProjectName,$coreProjectName,System.ServiceModel,System.Runtime.Serialization,System.ComponentModel.DataAnnotations"
 
 scaffold ScaffR.Core
