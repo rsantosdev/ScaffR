@@ -1,0 +1,22 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Configuration;
+
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    public partial class EnvironmentConfiguration : ConfigurationElement
+    {
+        [ConfigurationProperty("level", IsRequired = true)]
+        public DevLevel DevLevel
+        {
+            get { return (DevLevel)base["level"]; }
+            set { base["level"] = value; }
+        }
+
+        [ConfigurationProperty("demonstrationMode", DefaultValue = false)]
+        public bool DemonstrationMode
+        {
+            get { return (bool) base["demonstrationMode"]; }
+        }
+    }
+}

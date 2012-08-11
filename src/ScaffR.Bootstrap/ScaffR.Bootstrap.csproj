@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D343EB37-50E2-44AE-A424-FE600ABB3E5F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ScaffR.Bootstrap</RootNamespace>
+    <AssemblyName>ScaffR.Bootstrap</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BuildPublishPackage.cmd" />
+    <Content Include="content\Content\img\glyphicons-halflings-white.png" />
+    <Content Include="content\Content\img\glyphicons-halflings.png" />
+    <Content Include="content\Content\less\accordion.less" />
+    <Content Include="content\Content\less\alerts.less" />
+    <Content Include="content\Content\less\bootstrap.less" />
+    <Content Include="content\Content\less\breadcrumbs.less" />
+    <Content Include="content\Content\less\button-groups.less" />
+    <Content Include="content\Content\less\buttons.less" />
+    <Content Include="content\Content\less\carousel.less" />
+    <Content Include="content\Content\less\close.less" />
+    <Content Include="content\Content\less\code.less" />
+    <Content Include="content\Content\less\component-animations.less" />
+    <Content Include="content\Content\less\dropdowns.less" />
+    <Content Include="content\Content\less\forms.less" />
+    <Content Include="content\Content\less\grid.less" />
+    <Content Include="content\Content\less\hero-unit.less" />
+    <Content Include="content\Content\less\labels-badges.less" />
+    <Content Include="content\Content\less\layouts.less" />
+    <Content Include="content\Content\less\mixins.less" />
+    <Content Include="content\Content\less\modals.less" />
+    <Content Include="content\Content\less\navbar.less" />
+    <Content Include="content\Content\less\navs.less" />
+    <Content Include="content\Content\less\pager.less" />
+    <Content Include="content\Content\less\pagination.less" />
+    <Content Include="content\Content\less\popovers.less" />
+    <Content Include="content\Content\less\progress-bars.less" />
+    <Content Include="content\Content\less\reset.less" />
+    <Content Include="content\Content\less\responsive-1200px-min.less" />
+    <Content Include="content\Content\less\responsive-767px-max.less" />
+    <Content Include="content\Content\less\responsive-768px-979px.less" />
+    <Content Include="content\Content\less\responsive-navbar.less" />
+    <Content Include="content\Content\less\responsive-utilities.less" />
+    <Content Include="content\Content\less\responsive.less" />
+    <Content Include="content\Content\less\scaffolding.less" />
+    <Content Include="content\Content\less\sprites.less" />
+    <Content Include="content\Content\less\tables.less" />
+    <Content Include="content\Content\less\thumbnails.less" />
+    <Content Include="content\Content\less\tooltip.less" />
+    <Content Include="content\Content\less\type.less" />
+    <Content Include="content\Content\less\utilities.less" />
+    <Content Include="content\Content\less\variables.less" />
+    <Content Include="content\Content\less\wells.less" />
+    <None Include="content\Content\Site.less" />
+    <None Include="Package.nuspec" />
+    <None Include="tools\init.ps1" />
+    <None Include="tools\install.ps1" />
+    <None Include="tools\uninstall.ps1" />
+    <None Include="NuGet.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="content\CodeTemplates\Scaffolding\WC.Infrastructure\" />
+    <Folder Include="content\Scripts\" />
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>-->
+  <Target Name="AfterBuild">
+    <!-- Load up the information from the assembly -->
+    <GetAssemblyIdentity AssemblyFiles="$(OutputPath)$(AssemblyName).dll">
+      <Output TaskParameter="Assemblies" ItemName="OutputAssemblyInfo" />
+    </GetAssemblyIdentity>
+    <Message Text="Info: %(OutputAssemblyInfo.Version)" />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version)" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version) Publish" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  </Target>
+</Project>

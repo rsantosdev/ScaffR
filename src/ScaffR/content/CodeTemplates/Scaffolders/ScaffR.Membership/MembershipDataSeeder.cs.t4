@@ -1,0 +1,56 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Collections.ObjectModel;
+using System.Data.Entity.Migrations;
+using <#= Model.Namespace #>.Core.Model;
+using <#= Model.Namespace #>.Core.Configuration;
+
+namespace <#= Model.Namespace #>.Data.Seeders
+{
+	public partial class MembershipDataSeeder
+    {
+        public void Seed(DataContext context)
+        {
+            new List<Role>()
+                {
+                    new Role()
+                        {
+                            Id = 1,
+                            RoleName = "SuperAdmin"
+                        }
+                }.ForEach(a => context.Roles.AddOrUpdate(a));
+
+            new List<User>()
+                {
+                    new User()
+                        {
+                            Id = 1,
+                            Email = Site.Instance.EmailAddress,
+                            Username = "administrator",
+                            FirstName = "John",
+                            LastName = "Doe",
+                            Password = "1scool!!",
+                            IsApproved = true
+                        }
+                }.ForEach(u => context.Users.AddOrUpdate(u));
+
+            var existsInRole = context.UserRoles.Any(ur => ur.UserId == 1 && ur.UserId == 1);
+                               
+            if (!existsInRole)
+            {
+                new List<UserRole>()
+                {
+                    new UserRole()
+                        {
+                            RoleId = 1,
+                            UserId = 1
+                        }
+                }.ForEach(ur => context.UserRoles.Add(ur));
+            }
+
+        }
+    }
+}

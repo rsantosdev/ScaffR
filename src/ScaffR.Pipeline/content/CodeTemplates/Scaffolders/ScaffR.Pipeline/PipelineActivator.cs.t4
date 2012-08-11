@@ -1,0 +1,51 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+
+namespace <#= Model.Namespace #>.Pipeline
+{
+    public static class PipelineActivator
+    {
+        public static void InstantiatePipelineSections(ProcessorSectionSettingsCollection settings, List<PipelineSection> sections)
+        {
+            foreach(ProcessorSectionSettings setting in settings)
+            {
+                sections.Add(InstantiatePipelineSection(setting));
+            }
+        }
+
+        public static PipelineSection InstantiatePipelineSection(ProcessorSectionSettings settings)
+        {
+            PipelineSection section = null;
+            try
+            {
+                string typeName = (settings.Type == null) ? null : settings.Type.Trim();
+                if (string.IsNullOrEmpty(typeName))
+                    throw new ArgumentException("'Type' is required");
+
+                Type t = Type.GetType(typeName);
+
+                Type pipelineType = typeof (PipelineSection);
+
+                if (!pipelineType.IsAssignableFrom(t))
+                    throw new ArgumentException("wrong type");
+
+                section = (PipelineSection)Activator.CreateInstance(t, false);
+
+                NameValueCollection parameters = settings.Parameters;
+                NameValueCollection cloneParameters = new NameValueCollection(parameters.Count, StringComparer.Ordinal);
+
+                foreach (string param in parameters)
+                    cloneParameters[param] = parameters[param];
+
+                // call the code that will initialize the section here...
+
+            } catch(Exception ex) {
+                
+            }
+            return section;
+        }
+    }
+}

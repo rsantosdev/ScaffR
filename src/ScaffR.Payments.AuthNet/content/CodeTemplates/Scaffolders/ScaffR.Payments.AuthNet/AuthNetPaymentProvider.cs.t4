@@ -1,0 +1,35 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+
+namespace <#= Model.Namespace #>.Payments.AuthNet
+{
+    public partial class AuthNetProvider : PaymentProvider
+    {
+        public override PreAuthResponse PreAuth(PreAuthRequest request)
+        {
+            if (request.CcNumber.Contains("fail2"))
+            {
+                return new PreAuthResponse()
+                           {
+                               Approved = false,
+                               ErrorMessage = request.CcNumber
+                           };
+            }
+            return new PreAuthResponse()
+                       {
+                           Approved = true,
+                           ApprovalCode = "asdf"
+                       };
+        }
+
+        public override PostAuthResponse PostAuth(PostAuthRequest request)
+        {
+            return new PostAuthResponse()
+            {
+                Approved = true,
+                ApprovalCode = "asdf"
+            };
+        }
+
+    }
+}

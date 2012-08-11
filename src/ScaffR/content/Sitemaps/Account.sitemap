@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0" xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd" enableLocalization="true">
+  <mvcSiteMapNode title="Profile" controller="Account" action="Profile" imageUrl="icon-user" key="Profile" >
+    <mvcSiteMapNode title="Settings" controller="Account" action="Settings" imageUrl="icon-cog"/>
+    <mvcSiteMapNode title="Emails" controller="Account" action="Emails" imageUrl="icon-envelope"/>
+    <mvcSiteMapNode title="Notifications" controller="Account" action="Notifications" imageUrl="icon-bell"/>
+  </mvcSiteMapNode>
+</mvcSiteMap>

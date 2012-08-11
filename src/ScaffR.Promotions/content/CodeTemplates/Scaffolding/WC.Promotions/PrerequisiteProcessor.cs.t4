@@ -1,0 +1,49 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Collections.Generic;
+using MvcApplication3.Pipeline;
+
+namespace Promotions
+{
+    public partial class PrerequisiteProcessor : GenericProcessor<PipelineSection>
+    {
+        private int _status = 0;
+        private readonly IList<PipelineSection> _prerequisites;
+        private string _code;
+
+        public PrerequisiteProcessor(string code, IList<PipelineSection> prerequisites)
+        {
+            _code = code;
+            _prerequisites = prerequisites;
+        }
+
+        protected override void SectionOnSuccess(object sender, EventArgs e)
+        {
+            _status++;
+            base.SectionOnSuccess(sender, e);
+        }
+
+        protected override void SectionOnFailure(object sender, EventArgs e)
+        {
+            Console.WriteLine("You do not meet the requirements for this promotion");
+            base.SectionOnFailure(sender, e);
+        }
+
+        protected override PipelineSection GetCurrentSection()
+        {
+            return _prerequisites[_status];
+        }
+
+        protected override bool Next()
+        {
+            return _prerequisites.Count > _status;
+        }
+
+        public override bool IsCompleted()
+        {
+            // refactor this
+            return true;
+        }
+    }
+}

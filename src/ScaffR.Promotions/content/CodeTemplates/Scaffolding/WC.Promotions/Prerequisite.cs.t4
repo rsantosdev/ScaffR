@@ -1,0 +1,15 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using MvcApplication3.Pipeline;
+
+namespace Promotions
+{
+    public abstract class Prerequisite : PipelineSection
+    {
+        public override void Process(IProcessor processor)
+        {
+            
+        }
+    }
+}

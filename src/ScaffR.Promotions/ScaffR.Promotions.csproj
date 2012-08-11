@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{78F933CC-D2FA-4FDF-B3E3-B1CF698A301A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ScaffR.Promotions</RootNamespace>
+    <AssemblyName>ScaffR.Promotions</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\Benefit.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\BenefitsProcessor.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\BenefitsSettings.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\BenefitsSettingsCollection.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\IPrerequisitesProcessor.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\Prerequisite.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\PrerequisiteProcessor.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\PrerequisiteSettings.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\PrerequisitesSettingsCollection.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\Promotion.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\PromotionContext.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\PromotionManager.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\PromotionSection.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\PromotionsSettings.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolding\WC.Promotions\PromotionsSettingsCollection.cs.t4" />
+    <None Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BuildPublishPackage.cmd" />
+    <None Include="content\Controllers\PromotionsController.cs.pp" />
+    <None Include="content\Sitemaps\Modules.sitemap.transform" />
+    <None Include="content\Views\Promotions\Index.cshtml.pp" />
+    <None Include="content\web.config.transform" />
+    <None Include="Package.nuspec" />
+    <None Include="tools\init.ps1" />
+    <None Include="tools\install.ps1" />
+    <None Include="tools\uninstall.ps1" />
+    <None Include="NuGet.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>-->
+  <Target Name="AfterBuild">
+    <!-- Load up the information from the assembly -->
+    <GetAssemblyIdentity AssemblyFiles="$(OutputPath)$(AssemblyName).dll">
+      <Output TaskParameter="Assemblies" ItemName="OutputAssemblyInfo" />
+    </GetAssemblyIdentity>
+    <Message Text="Info: %(OutputAssemblyInfo.Version)" />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version)" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version) Publish" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  </Target>
+</Project>

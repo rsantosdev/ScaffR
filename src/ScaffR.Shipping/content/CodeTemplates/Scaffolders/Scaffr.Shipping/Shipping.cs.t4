@@ -1,0 +1,37 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+
+namespace <#= Model.Namespace #>.Core.Model
+{
+    [DisplayColumn("ShippingType")]
+    [DataContract]
+    public partial class Shipping : PersistentEntity
+    {
+        [DataMember]
+        public string ShippingType { get; set; }
+
+        [DataMember]
+        public string Carrier { get; set; }
+
+        [DataMember]
+        public string DeliveryAddress { get; set; }
+
+        [DataMember]
+        public string SendingAddress { get; set; }
+
+        [DataMember]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        public DateTime DeliveryDate { get; set; }
+
+        [DataMember]
+        public decimal ShippingPrice { get; set; }
+
+        [DataMember]
+        public string ShippingDescription { get; set; }
+    }
+}

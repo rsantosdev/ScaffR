@@ -1,0 +1,22 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+
+namespace <#= Model.Namespace #>.Payments
+{
+    public partial class GatewayRequest
+    {
+        public string CardNumber { get; set; }
+        public int ExpMonth { get; set; }
+        public int ExpYear { get; set; }
+
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string City { get; set; }
+        public string Company { get; set; }
+        public string Country { get; set; }
+        public string Email { get; set; }
+        public string Name { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+    }
+}

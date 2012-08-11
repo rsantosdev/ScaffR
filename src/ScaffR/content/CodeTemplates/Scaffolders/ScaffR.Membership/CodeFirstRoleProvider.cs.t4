@@ -1,0 +1,239 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Linq;
+using System.Web.Security;
+using System.Collections.Generic;
+using <#= Model.Namespace #>.Core.Model;
+using <#= Model.Namespace #>.Data;
+
+namespace <#= Model.Namespace #>.Membership.Providers
+{
+    public partial class CodeFirstRoleProvider : RoleProvider
+    {
+        private string _applicationName;
+
+        public override string ApplicationName
+        {
+            get { return _applicationName; }
+            set { _applicationName = GetType().Assembly.GetName().Name; }
+        }
+
+        public override bool RoleExists(string roleName)
+        {
+            if (string.IsNullOrEmpty(roleName))
+            {
+                return false;
+            }
+            using (var context = new DataContext())
+            {
+                Role role = context.Roles.FirstOrDefault(rl => rl.RoleName == roleName);
+                return role != null;
+            }
+        }
+
+        public override bool IsUserInRole(string username, string roleName)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(roleName))
+            {
+                return false;
+            }
+            using (var context = new DataContext())
+            {
+                User user = context.Users.FirstOrDefault(usr => usr.Username == username);
+                if (user == null)
+                {
+                    return false;
+                }
+                Role role = context.Roles.FirstOrDefault(rl => rl.RoleName == roleName);
+                return role != null && user.Roles.Any(x => x.RoleId == role.Id);
+            }
+        }
+
+        public override string[] GetAllRoles()
+        {
+            using (var context = new DataContext())
+            {
+                return context.Roles.Select(rl => rl.RoleName).ToArray();
+            }
+        }
+
+        public override string[] GetUsersInRole(string roleName)
+        {
+            if (string.IsNullOrEmpty(roleName))
+            {
+                return null;
+            }
+            using (var context = new DataContext())
+            {
+                Role role = context.Roles.FirstOrDefault(rl => rl.RoleName == roleName);
+                if (role != null)
+                {
+                    var x = from u in context.Users
+                            join ur in context.UserRoles on u.Id equals ur.UserId
+                            where ur.RoleId == role.Id
+                            select u.Username;
+
+                    return x.ToArray();
+                }
+                return null;
+            }
+        }
+
+        public override string[] GetRolesForUser(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                return null;
+            }
+            using (var context = new DataContext())
+            {
+                User user = context.Users.FirstOrDefault(usr => usr.Username == username);
+                if (user != null)
+                {
+                    var roles = from role in context.Roles
+                                join ur in context.UserRoles on role.Id equals ur.RoleId
+                                where ur.UserId == user.Id
+                                select role.RoleName;
+
+                    return roles.ToArray();
+
+                }
+                return null;
+            }
+        }
+
+        public override string[] FindUsersInRole(string roleName, string usernameToMatch)
+        {
+            if (string.IsNullOrEmpty(roleName))
+            {
+                return null;
+            }
+
+            if (string.IsNullOrEmpty(usernameToMatch))
+            {
+                return null;
+            }
+
+            using (var context = new DataContext())
+            {
+                var u = from users in context.Users
+                        join ur in context.UserRoles on users.Id equals ur.UserId
+                        join r in context.Roles on ur.RoleId equals r.Id
+                        where users.Username.Contains(usernameToMatch) && r.RoleName == roleName
+                        select users.Username;
+
+                return u.ToArray();
+            }
+        }
+
+        public override void CreateRole(string roleName)
+        {
+            if (!string.IsNullOrEmpty(roleName))
+            {
+                using (var context = new DataContext())
+                {
+                    Role role = context.Roles.FirstOrDefault(rl => rl.RoleName == roleName);
+                    if (role == null)
+                    {
+                        var newRole = new Role
+                            {
+                                RoleName = roleName
+                            };
+                        context.Roles.Add(newRole);
+                        context.SaveChanges();
+                    }
+                }
+            }
+        }
+
+        public override bool DeleteRole(string roleName, bool throwOnPopulatedRole)
+        {
+            if (string.IsNullOrEmpty(roleName))
+            {
+                return false;
+            }
+            using (var context = new DataContext())
+            {
+                Role role = context.Roles.FirstOrDefault(rl => rl.RoleName == roleName);
+                if (role == null)
+                {
+                    return false;
+                }
+                if (throwOnPopulatedRole)
+                {
+                    if (role.Users.Any())
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    role.Users.Clear();
+                }
+                context.Roles.Remove(role);
+                context.SaveChanges();
+                return true;
+            }
+        }
+
+        public override void AddUsersToRoles(string[] usernames, string[] roleNames)
+        {
+            using (var context = new DataContext())
+            {
+                var users = context.Users.Where(usr => usernames.Contains(usr.Username)).ToList();
+                var roles = context.Roles.Where(rl => roleNames.Contains(rl.RoleName)).ToList();
+                foreach (var user in users)
+                {
+                    foreach (var role in roles)
+                    {
+                        if (!user.Roles.Any(r => r.RoleId == role.Id))
+                        {
+                            user.Roles.Add(new UserRole
+                                {
+                                    UserId = user.Id,
+                                    RoleId = role.Id
+                                });
+                        }
+                    }
+                }
+                context.SaveChanges();
+            }
+        }
+
+        public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
+        {
+            using (var context = new DataContext())
+            {
+                foreach (var username in usernames)
+                {
+                    var us = username;
+                    var user = context.Users.FirstOrDefault(u => u.Username == us);
+                    if (user != null)
+                    {
+                        foreach (var roleName in roleNames)
+                        {
+                            var role = context.Roles.First(r => r.RoleName == roleName);
+                            if (null != role)
+                            {
+                                new List<UserRole>()
+                                    {
+                                        new UserRole()
+                                            {
+                                                RoleId = role.Id,
+                                                UserId = user.Id
+                                            }
+                                    }.ForEach(ur => context.UserRoles.Remove(ur));
+                            }
+                        }
+                    }
+                }
+                context.SaveChanges();
+            }
+        }
+    }
+}

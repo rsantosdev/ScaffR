@@ -1,0 +1,25 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Configuration;
+using MvcApplication3.Pipeline;
+
+namespace Promotions
+{
+    public partial class PromotionsSettings : ConfigurationElement
+    {
+        [ConfigurationProperty("code")]
+        public string Code { get { return this["code"] as string; } }
+
+        [ConfigurationProperty("prerequisites")]
+        public ProcessorSectionSettingsCollection Prerequisites
+        {
+            get { return (ProcessorSectionSettingsCollection)this["prerequisites"]; }
+        }
+
+        [ConfigurationProperty("benefits")]
+        public ProcessorSectionSettingsCollection Benefits
+        {
+            get { return (ProcessorSectionSettingsCollection)this["benefits"]; }
+        }
+    }
+}

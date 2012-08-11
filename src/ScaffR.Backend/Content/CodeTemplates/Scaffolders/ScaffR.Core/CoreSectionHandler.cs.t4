@@ -1,0 +1,39 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Configuration;
+
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    public partial class CoreSectionHandler : ConfigurationSection
+    {
+        public static CoreSectionHandler GetConfig()
+        {
+            return (CoreSectionHandler) ConfigurationManager.GetSection("<#= Model.Namespace #>/<#= Model.Namespace #>.Core");
+        }
+
+        [ConfigurationProperty("environment", IsRequired = true)]
+        public EnvironmentConfiguration Environment
+        {
+            get { return (EnvironmentConfiguration) base["environment"]; }
+        }
+
+        [ConfigurationProperty("site", IsRequired = true)]
+        public SiteConfiguration Site
+        {
+            get { return (SiteConfiguration) base["site"]; }
+        }
+
+        [ConfigurationProperty("security", IsRequired = true)]
+        public SecurityConfiguration Security
+        {
+            get { return (SecurityConfiguration) base["security"]; }
+        }
+
+        [ConfigurationProperty("logging")]
+        public LoggingConfiguration Logging
+        {
+            get { return (LoggingConfiguration) base["logging"]; }
+        }
+    }
+}

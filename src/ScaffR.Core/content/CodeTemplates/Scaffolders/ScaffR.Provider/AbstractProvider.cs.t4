@@ -1,0 +1,11 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Configuration.Provider;
+
+namespace <#= Model.Namespace #>
+{
+    public abstract class <#= Model.ProviderName #>Provider : ProviderBase
+    {
+        
+    }
+}

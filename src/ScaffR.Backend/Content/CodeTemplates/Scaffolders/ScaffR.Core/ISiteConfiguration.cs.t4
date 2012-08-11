@@ -1,0 +1,55 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Configuration;
+
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    public interface ISiteConfiguration
+    {
+        /// <summary>
+        /// Gets or sets the instance id.
+        /// </summary>
+        /// <value>
+        /// The instance id.
+        /// </value>
+        [ConfigurationProperty("instanceId")]
+        Guid InstanceId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the version.
+        /// </summary>
+        /// <value>
+        /// The version.
+        /// </value>
+        [ConfigurationProperty("version")]
+        string Version { get; set; }
+
+        /// <summary>
+        /// Gets or sets the email address.
+        /// </summary>
+        /// <value>
+        /// The email address.
+        /// </value>
+        [ConfigurationProperty("email", IsRequired = true)]
+        string EmailAddress { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the company.
+        /// </summary>
+        /// <value>
+        /// The name of the company.
+        /// </value>
+        [ConfigurationProperty("companyName", IsRequired = true)]
+        string CompanyName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the website.
+        /// </summary>
+        /// <value>
+        /// The name of the website.
+        /// </value>
+        [ConfigurationProperty("websiteName", IsRequired = true)]
+        string WebsiteName { get; set; }
+    }  
+}

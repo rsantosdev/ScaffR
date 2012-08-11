@@ -1,0 +1,32 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    public partial class Site
+    {
+        public static Site Instance
+        {
+            get
+            {
+                return new Site(CoreSectionHandler.GetConfig().Site);
+            }
+        }
+
+        private readonly ISiteConfiguration _config;
+
+        public Site(ISiteConfiguration config)
+        {
+            _config = config;
+        }
+
+        public string WebsiteName
+        {
+            get { return _config.WebsiteName; }
+        }
+
+        public string EmailAddress
+        {
+            get { return _config.EmailAddress; }
+        }
+    }
+}

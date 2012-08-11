@@ -1,0 +1,32 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Collections.Specialized;
+using System.Configuration;
+
+namespace <#= Model.Namespace #>.Pipeline
+{
+    public partial class ProcessorSectionSettings : ConfigurationElement
+    {
+        [ConfigurationProperty("name", IsRequired = true)]
+        public string Name
+        {
+            get { return (string)base["name"]; }
+            set { base["name"] = value; }
+        }
+
+        [ConfigurationProperty("type", IsRequired = true)]
+        public string Type
+        {
+            get { return (string)base["type"]; }
+            set { base["type"] = value; }
+        }
+
+        public NameValueCollection Parameters
+        {
+            get
+            {
+                return new NameValueCollection();
+            }
+        }
+    }
+}

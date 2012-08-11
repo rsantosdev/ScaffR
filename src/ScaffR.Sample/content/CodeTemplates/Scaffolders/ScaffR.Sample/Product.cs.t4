@@ -1,0 +1,59 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+
+namespace <#= Model.Namespace #>.Core.Model
+{
+    [Serializable]
+    [DataContract]
+    [DisplayColumn("Name")]
+    public partial class Product : PersistentEntity
+    {
+        [DataMember]
+        [MaxLength(50)]
+        [MinLength(5)]
+        [Required]
+        public string Name { get; set; }
+
+        [DataMember]
+        [MaxLength(200)]
+        [DataType(DataType.MultilineText)]
+        public string Information { get; set; }
+
+        [DataMember]
+        public int ProductNumber { get; set; }
+
+        [DataMember]
+        [Range(50, 500)]
+        public int Price { get; set; }
+
+        [DataMember]
+        public bool Active { get; set; }
+
+        [DataMember]
+        [Required]
+        public int ProductCategoryId { get; set; }
+        [DataMember]
+        [ForeignKey("ProductCategoryId")]
+        public virtual ProductCategory ProductCategory { get; set; }
+
+        [DataMember]
+        [Required]
+        public int FactoryId { get; set; }
+        [DataMember]
+        [ForeignKey("FactoryId")]
+        public virtual Factory Factory { get; set; }
+
+        public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (this.FactoryId == 0)
+                yield return new ValidationResult("Factory is required!", new[] { "FactoryId" });
+            if (this.ProductCategoryId == 0)
+                yield return new ValidationResult("ProductCategory is required!", new[] { "ProductCategoryId" });
+        }
+    }
+}

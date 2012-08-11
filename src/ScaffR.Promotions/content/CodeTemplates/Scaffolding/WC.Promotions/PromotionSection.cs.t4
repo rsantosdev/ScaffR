@@ -1,0 +1,20 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Configuration;
+
+namespace Promotions
+{
+    public partial class PromotionSection : ConfigurationSection
+    {
+        public static PromotionSection GetConfig()
+        {
+            return (PromotionSection)ConfigurationManager.GetSection("MvcApplication3/MvcApplication3.Promotions") ?? new PromotionSection();
+        }
+
+        [ConfigurationProperty("promotions")]
+        public PromotionsSettingsCollection Promotions
+        {   
+            get { return (PromotionsSettingsCollection) base["promotions"]; }
+        }
+    }
+}

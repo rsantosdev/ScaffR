@@ -1,0 +1,12 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Common.Modules
+{
+    public partial class EventTracker
+    {
+        public string Name { get; set; }
+        public DataPoint<int> Last24 { get; set; }
+        public DataPoint<int> LastWeek { get; set; }
+        public DataPoint<int> LastYear { get; set; }
+    }
+}

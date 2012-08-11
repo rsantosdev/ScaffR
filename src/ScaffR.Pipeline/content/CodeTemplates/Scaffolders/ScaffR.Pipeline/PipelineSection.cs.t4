@@ -1,0 +1,60 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+
+namespace <#= Model.Namespace #>.Pipeline
+{
+    public partial class ErrorEventArgs : EventArgs
+    {
+        private Exception _exception;
+
+        public ErrorEventArgs(Exception exception)
+        {
+            _exception = exception;
+        }
+    }
+
+    public delegate void SuccessEventHandler(object sender, EventArgs e);
+    public delegate void FailureEventHandler(object sender, EventArgs e);
+    public delegate void ErrorEventHandler(object sender, ErrorEventArgs e);
+    public delegate void CompleteEventHandler(object sender, EventArgs e);
+
+    public abstract class PipelineSection : IDisposable
+    {
+        public event SuccessEventHandler Success;
+        public event FailureEventHandler Failure;
+        public event ErrorEventHandler Error;
+        public event CompleteEventHandler Complete;
+
+        public virtual void OnSuccess(EventArgs e)
+        {
+            if (Success != null)
+                Success(this, e);
+        }
+
+        public virtual void OnFailure(EventArgs e)
+        {
+            if (Failure != null)
+                Failure(this, e);
+        }
+
+        public virtual void OnError(ErrorEventArgs e)
+        {
+            if (Error != null)
+                Error(this, e);
+        }
+
+        public virtual void OnComplete(EventArgs e)
+        {
+            if (Complete != null)
+                Complete(this, e);
+        }
+
+        public abstract void Process(IProcessor processor);
+
+        public void Dispose()
+        {
+            //OnComplete(new EventArgs());
+        }
+    }
+}

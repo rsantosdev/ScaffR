@@ -1,0 +1,53 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Linq;
+using MvcApplication3.Core.Interfaces.Data;
+using MvcApplication3.Core.Interfaces.Service;
+using MvcApplication3.Core.Model;
+
+namespace Promotions
+{
+    public partial class PromotionContext
+    {
+        private IUserPromotionService _repository;
+        private readonly Promotion _promotion;
+        private User _user;
+
+        public PromotionContext(User user, Promotion promotion, IUserPromotionService repository)
+        {
+            _user = user;
+            _promotion = promotion;
+            _repository = repository;
+        }
+
+        public bool HasRedeemedAlready()
+        {
+            var matches = _repository.Find(x => x.PromotionCode == _promotion.Code && x.UserId == _user.Id).ToList();
+            return matches.Count > 0;
+        }
+
+        public bool MeetsRequirements()
+        {
+            var pipeline = new PrerequisiteProcessor(_promotion.Code, _promotion.Prerequisites);
+            pipeline.Process();
+            return pipeline.IsCompleted();
+        }
+
+        private void Save()
+        {
+            _repository.SaveOrUpdate(new UserPromotion()
+            {
+                PromotionCode = _promotion.Code,
+                UserId = _user.Id
+            });
+        }
+
+        public bool ApplyBenefits()
+        {
+            var pipeline = new BenefitsProcessor(_promotion.Code, _promotion.Benefits);
+            pipeline.Process();
+            Save();
+            return pipeline.IsCompleted();            
+        }
+    }
+}

@@ -1,0 +1,75 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Configuration;
+
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    public partial class SiteConfiguration : ConfigurationElement, ISiteConfiguration
+    {
+        /// <summary>
+        /// Gets or sets the instance id.
+        /// </summary>
+        /// <value>
+        /// The instance id.
+        /// </value>
+        [ConfigurationProperty("instanceId")]
+        public Guid InstanceId
+        {
+            get { return (Guid) base["instanceId"]; }
+            set { base["instanceId"] = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the version.
+        /// </summary>
+        /// <value>
+        /// The version.
+        /// </value>
+        [ConfigurationProperty("version")]
+        public string Version
+        {
+            get { return (string) base["version"]; }
+            set { base["version"] = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the email address.
+        /// </summary>
+        /// <value>
+        /// The email address.
+        /// </value>
+        [ConfigurationProperty("email", IsRequired = true)]
+        public string EmailAddress
+        {
+            get { return (string)base["email"]; }
+            set { base["email"] = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the company.
+        /// </summary>
+        /// <value>
+        /// The name of the company.
+        /// </value>
+        [ConfigurationProperty("companyName", IsRequired = true)]
+        public string CompanyName
+        {
+            get { return (string)base["companyName"]; }
+            set { base["companyName"] = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the website.
+        /// </summary>
+        /// <value>
+        /// The name of the website.
+        /// </value>
+        [ConfigurationProperty("websiteName", IsRequired = true)]
+        public string WebsiteName
+        {
+            get { return (string)base["websiteName"]; }
+            set { base["websiteName"] = value; }
+        }
+    }
+}

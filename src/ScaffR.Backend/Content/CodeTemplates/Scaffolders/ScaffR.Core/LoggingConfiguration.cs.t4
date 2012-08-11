@@ -1,0 +1,17 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Configuration;
+
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    public partial class LoggingConfiguration : ConfigurationElement
+    {
+        [ConfigurationProperty("useFriendlyErrors", IsRequired = true)]
+        public bool UseFriendlyErrors
+        {
+            get { return (bool)base["useFriendlyErrors"]; }
+            set { base["useFriendlyErrors"] = value; }
+        }
+    }
+}

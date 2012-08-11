@@ -1,0 +1,45 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Collections.Generic;
+using MvcApplication3.Pipeline;
+
+namespace Promotions
+{
+    public partial class PromotionManager
+    {
+        private static IDictionary<string, Promotion> _promotions; 
+        public static IDictionary<string, Promotion> Promotions
+        {
+            get { 
+                LoadPromotions();
+                return _promotions;
+            }
+        }
+
+        private static void LoadPromotions()
+        {
+            if (_promotions == null)
+            {
+                var section = PromotionSection.GetConfig();
+                if (section!= null)
+                {
+                    _promotions = new Dictionary<string, Promotion>();
+                    foreach(PromotionsSettings settings in section.Promotions)
+                    {
+                        var promotion = new Promotion
+                                            {
+                                                Benefits = new List<PipelineSection>(),
+                                                Prerequisites = new List<PipelineSection>(),
+                                                Code = settings.Code
+                                            };
+
+                        PipelineActivator.InstantiatePipelineSections(settings.Prerequisites, promotion.Prerequisites);
+                        PipelineActivator.InstantiatePipelineSections(settings.Benefits, promotion.Benefits);
+
+                        _promotions.Add(promotion.Code, promotion);
+                    }
+                }
+            }
+        } 
+    }
+}

@@ -1,0 +1,27 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Configuration.Provider;
+
+namespace <#= Model.Namespace #>.Payments
+{
+    public partial class <#= Model.ProviderName #>ProviderCollection : ProviderCollection
+    {
+        public new <#= Model.ProviderName #>Provider this[string name]
+        {
+            get { return (<#= Model.ProviderName #>Provider)base[name]; }
+        }
+
+        public override void Add(ProviderBase provider)
+        {
+            if (provider == null)
+                throw new ArgumentNullException("provider");
+
+            if (!(provider is <#= Model.ProviderName #>Provider))
+                throw new ArgumentException
+                    ("Invalid provider type", "provider");
+
+            base.Add(provider);
+        }
+    }
+}

@@ -1,0 +1,22 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Collections.Generic;
+using MvcApplication3.Pipeline;
+
+namespace Promotions
+{
+    public partial class Promotion
+    {
+        public bool UserMeetsPrerequisites(int userid)
+        {
+            // check for empty userid
+            var processor = new PrerequisiteProcessor(this.Code, this.Prerequisites);
+            processor.Process();
+            return processor.IsCompleted();
+        }
+        
+        public string Code { get; set; }
+        public IList<PipelineSection> Prerequisites { get; set; }
+        public IList<PipelineSection> Benefits { get; set; }         
+    }
+}

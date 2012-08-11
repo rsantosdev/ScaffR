@@ -1,0 +1,74 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Configuration;
+
+namespace <#= Model.Namespace #>.Pipeline
+{
+    [ConfigurationCollection(typeof(ProcessorSectionSettings))]
+    public partial class ProcessorSectionSettingsCollection : ConfigurationElementCollection
+    {
+        internal const string PropertyName = "add";
+
+        protected override bool IsElementName(string elementName)
+        {
+            return elementName.Equals(PropertyName, StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        protected override string ElementName
+        {
+            get { return PropertyName; }
+        }
+
+
+        public void Add(ProviderSettings provider)
+        {
+            if (provider != null)
+            {
+                BaseAdd(provider);
+            }
+        }
+
+        public void Remove(String name)
+        {
+            BaseRemove(name);
+        }
+
+        public void Clear()
+        {
+            BaseClear();
+        }
+
+        protected override ConfigurationElement CreateNewElement()
+        {
+            return new ProcessorSectionSettings();
+        }
+        protected override Object GetElementKey(ConfigurationElement element)
+        {
+            return ((ProcessorSectionSettings)element);
+        }
+
+        public new ProcessorSectionSettings this[string key]
+        {
+            get
+            {
+                return (ProcessorSectionSettings)BaseGet(key);
+            }
+        }
+
+        public ProcessorSectionSettings this[int index]
+        {
+            get
+            {
+                return (ProcessorSectionSettings)BaseGet(index);
+            }
+            set
+            {
+                if (BaseGet(index) != null)
+                    BaseRemoveAt(index);
+
+                BaseAdd(index, value);
+            }
+        } 
+    }
+}

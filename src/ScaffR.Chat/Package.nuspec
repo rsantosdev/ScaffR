@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ScaffR.Chat</id>
+    <version>1.1.1</version>
+    <authors>Rod Johnson</authors>
+    <owners>World-Class Programmers, LLC</owners>
+    <projectUrl>http://scaffr.codeplex.com</projectUrl>
+    <iconUrl>http://www.scaffr.com/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      Core library for developing testing tools using T4 Scaffolding.
+    </description>
+    <releaseNotes>
+    </releaseNotes>
+    <copyright>World-Class Programmers 2012</copyright>
+    <tags></tags>
+    <dependencies>
+      <dependency id="ScaffR.Core" version="1.1.1" />
+      <dependency id="T4Scaffolding" version="1.0.6" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="lib\**" target="lib" />
+    <file src="tools\**" target="tools" />
+    <file src="content\**" target="content" />
+  </files>
+</package>

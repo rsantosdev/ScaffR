@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <$rootnamespace$>
+    <$rootnamespace$.Core>
+      <folders>
+        <add name="Promotions">
+          <modules>
+            <add name="WhatsNew" />
+          </modules>
+        </add>
+      </folders>
+    </$rootnamespace$.Core>
+  </$rootnamespace$>
+</configuration>

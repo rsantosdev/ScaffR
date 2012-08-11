@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64435006-9211-4014-B4AE-CFAA67088021}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ScaffR.Backend</RootNamespace>
+    <AssemblyName>ScaffR.Backend</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\worldclass\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>.\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\PermissionLevel.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\CoreSectionHandler.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\EnvironmentConfiguration.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\LoggingConfiguration.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\SecurityConfiguration.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\SiteConfiguration.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\DevLevel.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\SecurityLevel.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\EventLogElement.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\DataPoint.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\EventTracker.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\Bootstrapper.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\Handles.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IMessageBus.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\INotificationBubble.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\MessageBus.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\NotificationItem.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\Security.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\Site.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ISiteConfiguration.cs.t4" />
+    <None Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BuildPublishPackage.cmd" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ScaffR.Core.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IDatabaseFactory.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IDataContext.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IRepository.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IService.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IUnitOfWork.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IPage.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IValidationContainer.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\Page.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\PersistentEntity.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ValidationContainer.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ValidationEngine.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Repository.For\IRepository.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Repository.For\ScaffR.Repository.For.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Repository.For\Repository.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Data\BaseRepository.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Data\ScaffR.Data.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Data\DatabaseFactory.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Data\DataContext.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Data\UnitOfWork.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Model.For.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Model.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\ScaffR.Service.For.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\IService.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\Service.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\BaseService.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\ScaffR.Services.ps1" />
+    <None Include="content\Web.release.config.transform">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="content\Web.debug.config.transform">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="content\Web.config.transform">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Package.nuspec" />
+    <None Include="tools\init.ps1" />
+    <None Include="tools\install.ps1" />
+    <None Include="tools\ScaffR.Backend.psm1" />
+    <None Include="tools\uninstall.ps1" />
+    <None Include="NuGet.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>-->
+  <Target Name="AfterBuild">
+    <!-- Load up the information from the assembly -->
+    <GetAssemblyIdentity AssemblyFiles="$(OutputPath)$(AssemblyName).dll">
+      <Output TaskParameter="Assemblies" ItemName="OutputAssemblyInfo" />
+    </GetAssemblyIdentity>
+    <Message Text="Info: %(OutputAssemblyInfo.Version)" />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version)" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version) Publish" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>

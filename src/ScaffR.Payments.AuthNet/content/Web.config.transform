@@ -1,0 +1,11 @@
+﻿<configuration>
+
+  <$rootnamespace$>
+    <$rootnamespace$.Payments>
+      <providers>
+        <add name="AuthNet" type="$rootnamespace$.Payments.AuthNet.AuthNetPaymentProvider, $rootnamespace$.Payments.AuthNet"/>
+      </providers>
+    </$rootnamespace$.Payments>      
+  </$rootnamespace$>
+
+</configuration>

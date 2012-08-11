@@ -1,0 +1,39 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+
+namespace <#= Model.Namespace #>.Core.Model
+{
+    [DisplayColumn("Order")]
+    [DataContract]
+    public partial class Order : PersistentEntity
+    {
+        [DataMember]
+        [Required]
+        public int CustomerId { get; set; }
+        [DataMember]
+        [ForeignKey("CustomerId")]
+        public virtual Customer Customer { get; set; }
+        
+        [DataMember]
+        [Required]
+        [ForeignKey("Product")]
+        public int ProductId { get; set; }
+        [DataMember]
+        [ForeignKey("ProductId")]
+        public virtual Product Product { get; set; }
+
+        [DataMember]
+        public int Quantity { get; set; }
+
+        [DataMember]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        public DateTime OrderDate { get; set; }
+
+        [DataMember]
+        public string OrderStatus { get; set; }
+    }
+}

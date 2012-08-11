@@ -1,0 +1,42 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Collections.Generic;
+using MvcApplication3.Pipeline;
+
+namespace Promotions
+{
+    public partial class BenefitsProcessor : GenericProcessor<PipelineSection>
+    {
+        private int _status = 0;
+        private readonly IList<PipelineSection> _benefits;
+        private string _code;
+
+        public BenefitsProcessor(string code, IList<PipelineSection> sections )
+        {
+            _code = code;
+            _benefits = sections;
+        }
+
+        protected override void SectionOnSuccess(object sender, EventArgs e)
+        {
+            _status++;
+            base.SectionOnSuccess(sender, e);
+        }       
+
+        protected override PipelineSection GetCurrentSection()
+        {
+            return _benefits[_status];
+        }
+
+        protected override bool Next()
+        {
+            return _benefits.Count > _status;
+        }
+
+        public override bool IsCompleted()
+        {
+            return true;
+        }
+    }
+}

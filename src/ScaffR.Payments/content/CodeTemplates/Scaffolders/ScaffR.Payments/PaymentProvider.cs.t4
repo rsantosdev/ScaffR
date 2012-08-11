@@ -1,0 +1,12 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Configuration.Provider;
+
+namespace <#= Model.Namespace #>.Payments
+{
+    public abstract class PaymentProvider : ProviderBase
+    {
+        public abstract PreAuthResponse PreAuth(PreAuthRequest request);
+        public abstract PostAuthResponse PostAuth(PostAuthRequest request);
+    }
+}

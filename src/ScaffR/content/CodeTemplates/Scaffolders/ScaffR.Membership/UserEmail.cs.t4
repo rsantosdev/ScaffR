@@ -1,0 +1,22 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+
+namespace <#= Model.Namespace #>.Core.Model
+{
+    [DataContract]
+    public class UserEmail : PersistentEntity
+    {
+        [DataType(DataType.EmailAddress)]
+        [Required]
+        public string EmailAddress { get; set; }
+
+        [Required, DataMember]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        [DataMember]
+        public virtual User User { get; set; }
+    }
+}
