@@ -8,16 +8,7 @@
     <File id="D343EB37-50E2-44AE-A424-FE600ABB3E5F/f:Package.nuspec" caret="0" fromTop="0" />
     <File id="D343EB37-50E2-44AE-A424-FE600ABB3E5F/f:BuildPublishPackage.cmd" caret="934" fromTop="41" />
     <File id="FD7F0A61-FD4C-4E16-A96E-0392AF53467C/f:BuildPublishPackage.cmd" caret="934" fromTop="41" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:CodeTemplates/d:Scaffolders/d:ScaffR.Website/f:_Layout.cs.t4" caret="3334" fromTop="14" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:App_Start/f:Start.cs.pp" caret="84" fromTop="2" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Models/f:UserNotification.cs.pp" caret="62" fromTop="2" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Models/f:INotification.cs.pp" caret="25" fromTop="0" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Hubs/f:NotificationHub.cs.pp" caret="65" fromTop="2" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Handlers/f:NotificationHandler.cs.pp" caret="109" fromTop="3" />
     <File id="FD7F0A61-FD4C-4E16-A96E-0392AF53467C/f:Package.nuspec" caret="599" fromTop="18" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/f:Package.nuspec" caret="884" fromTop="20" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Scripts/f:custom.js" caret="392" fromTop="19" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Sitemaps/f:Modules.sitemap" caret="450" fromTop="4" />
   </RecentFiles>
   <RecentEdits>
     <File id="FD7F0A61-FD4C-4E16-A96E-0392AF53467C/f:Package.nuspec" caret="76" fromTop="3" />
@@ -25,21 +16,9 @@
     <File id="FD7F0A61-FD4C-4E16-A96E-0392AF53467C/f:Package.nuspec" caret="950" fromTop="23" />
     <File id="FD7F0A61-FD4C-4E16-A96E-0392AF53467C/f:Package.nuspec" caret="911" fromTop="23" />
     <File id="FD7F0A61-FD4C-4E16-A96E-0392AF53467C/f:Package.nuspec" caret="947" fromTop="23" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/f:Package.nuspec" caret="1459" fromTop="31" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/f:Package.nuspec" caret="1804" fromTop="36" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Handlers/f:NotificationHandler.cs.pp" caret="138" fromTop="5" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Handlers/f:NotificationHandler.cs.pp" caret="85" fromTop="2" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Hubs/f:NotificationHub.cs.pp" caret="36" fromTop="1" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Models/f:INotification.cs.pp" caret="25" fromTop="0" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Models/f:UserNotification.cs.pp" caret="62" fromTop="2" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:App_Start/f:Start.cs.pp" caret="427" fromTop="7" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:App_Start/f:Start.cs.pp" caret="107" fromTop="3" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Scripts/f:custom.js" caret="392" fromTop="19" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:CodeTemplates/d:Scaffolders/d:ScaffR.Website/f:_Layout.cs.t4" caret="3334" fromTop="14" />
     <File id="FD0F01E9-D8AB-4FF2-93C1-990B4E5CB6C4/f:BuildPublishPackage.cmd" caret="934" fromTop="41" />
     <File id="98B7F5FD-A9C1-4FDE-901F-5C74E517042C/f:BuildPublishPackage.cmd" caret="934" fromTop="41" />
     <File id="D343EB37-50E2-44AE-A424-FE600ABB3E5F/f:BuildPublishPackage.cmd" caret="934" fromTop="41" />
     <File id="FD7F0A61-FD4C-4E16-A96E-0392AF53467C/f:BuildPublishPackage.cmd" caret="934" fromTop="41" />
-    <File id="4394DDA4-EEDB-4300-AD96-F297AC02B231/d:content/d:Sitemaps/f:Modules.sitemap" caret="849" fromTop="7" />
   </RecentEdits>
 </RecentFiles>

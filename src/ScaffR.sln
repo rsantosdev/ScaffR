@@ -7,198 +7,42 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D271F9
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Module", "ScaffR.Module\ScaffR.Module.csproj", "{275BD777-E909-44CB-9B1A-A5227033022E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Facebook", "ScaffR.Facebook\ScaffR.Facebook.csproj", "{FD0F01E9-D8AB-4FF2-93C1-990B4E5CB6C4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Integrations", "ScaffR.Integrations\ScaffR.Integrations.csproj", "{98B7F5FD-A9C1-4FDE-901F-5C74E517042C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Backend", "ScaffR.Backend\ScaffR.Backend.csproj", "{64435006-9211-4014-B4AE-CFAA67088021}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Chat", "ScaffR.Chat\ScaffR.Chat.csproj", "{62C7F0DA-BAFE-4078-838A-AC10E4D70EC0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Payments", "ScaffR.Payments\ScaffR.Payments.csproj", "{FBA2EB3C-7186-4773-BC77-B645E4BB67CE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Payments.AuthNet", "ScaffR.Payments.AuthNet\ScaffR.Payments.AuthNet.csproj", "{85738D2E-F06B-4093-B501-8F747139CF7D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Pipeline", "ScaffR.Pipeline\ScaffR.Pipeline.csproj", "{516FE39E-A4E8-4089-8081-B933B2C5812F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Promotions", "ScaffR.Promotions\ScaffR.Promotions.csproj", "{78F933CC-D2FA-4FDF-B3E3-B1CF698A301A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Sample", "ScaffR.Sample\ScaffR.Sample.csproj", "{66088F3C-9860-44E0-9524-B13979157DB1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Shopping", "ScaffR.Shopping\ScaffR.Shopping.csproj", "{E6DDB88B-8321-4E80-BF05-1A8292CCAD0A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Core", "ScaffR.Core\ScaffR.Core.csproj", "{C9972C4B-0093-4374-879F-28219C0EC1C2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Experimental", "ScaffR.Experimental\ScaffR.Experimental.csproj", "{FD7F0A61-FD4C-4E16-A96E-0392AF53467C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Bootstrap", "ScaffR.Bootstrap\ScaffR.Bootstrap.csproj", "{D343EB37-50E2-44AE-A424-FE600ABB3E5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR", "ScaffR\ScaffR.csproj", "{4394DDA4-EEDB-4300-AD96-F297AC02B231}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Packager", "ScaffR.Packager\ScaffR.Packager.csproj", "{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Ninject", "ScaffR.Ninject\ScaffR.Ninject.csproj", "{1FB53A46-757B-4C8B-96F1-097AE941D188}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.CRM", "ScaffR.CRM\ScaffR.CRM.csproj", "{F352B19A-8CA0-4DEB-9C3B-AA2AD0EC464D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Shipping", "ScaffR.Shipping\ScaffR.Shipping.csproj", "{C98282C7-0C16-4D70-AAEE-BFD62B816199}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Ordering", "ScaffR.Ordering\ScaffR.Ordering.csproj", "{85B63B8A-A3B1-44AC-A8C2-78E1F94C8F0A}"
-EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 21
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs22
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = ScaffR.Module\\ScaffR.Module.csproj
-		SccProjectName1 = ScaffR.Module
-		SccLocalPath1 = ScaffR.Module
-		SccProjectUniqueName2 = ScaffR.Facebook\\ScaffR.Facebook.csproj
-		SccProjectName2 = ScaffR.Facebook
-		SccLocalPath2 = ScaffR.Facebook
-		SccProjectUniqueName3 = ScaffR.Integrations\\ScaffR.Integrations.csproj
-		SccProjectName3 = ScaffR.Integrations
-		SccLocalPath3 = ScaffR.Integrations
-		SccProjectUniqueName4 = ScaffR.Backend\\ScaffR.Backend.csproj
-		SccProjectName4 = ScaffR.Backend
-		SccLocalPath4 = ScaffR.Backend
-		SccProjectUniqueName5 = ScaffR.Chat\\ScaffR.Chat.csproj
-		SccProjectName5 = ScaffR.Chat
-		SccLocalPath5 = ScaffR.Chat
-		SccProjectUniqueName6 = ScaffR.Payments\\ScaffR.Payments.csproj
-		SccProjectName6 = ScaffR.Payments
-		SccLocalPath6 = ScaffR.Payments
-		SccProjectUniqueName7 = ScaffR.Payments.AuthNet\\ScaffR.Payments.AuthNet.csproj
-		SccProjectName7 = ScaffR.Payments.AuthNet
-		SccLocalPath7 = ScaffR.Payments.AuthNet
-		SccProjectUniqueName8 = ScaffR.Pipeline\\ScaffR.Pipeline.csproj
-		SccProjectName8 = ScaffR.Pipeline
-		SccLocalPath8 = ScaffR.Pipeline
-		SccProjectUniqueName9 = ScaffR.Promotions\\ScaffR.Promotions.csproj
-		SccProjectName9 = ScaffR.Promotions
-		SccLocalPath9 = ScaffR.Promotions
-		SccProjectUniqueName10 = ScaffR.Sample\\ScaffR.Sample.csproj
-		SccProjectName10 = ScaffR.Sample
-		SccLocalPath10 = ScaffR.Sample
-		SccProjectUniqueName11 = ScaffR.Shopping\\ScaffR.Shopping.csproj
-		SccProjectName11 = ScaffR.Shopping
-		SccLocalPath11 = ScaffR.Shopping
-		SccProjectUniqueName12 = ScaffR.Core\\ScaffR.Core.csproj
-		SccProjectName12 = ScaffR.Core
-		SccLocalPath12 = ScaffR.Core
-		SccProjectUniqueName13 = ScaffR.Experimental\\ScaffR.Experimental.csproj
-		SccProjectName13 = ScaffR.Experimental
-		SccLocalPath13 = ScaffR.Experimental
-		SccProjectUniqueName14 = ScaffR.Bootstrap\\ScaffR.Bootstrap.csproj
-		SccProjectName14 = ScaffR.Bootstrap
-		SccLocalPath14 = ScaffR.Bootstrap
-		SccProjectUniqueName15 = ScaffR\\ScaffR.csproj
-		SccProjectName15 = ScaffR
-		SccLocalPath15 = ScaffR
-		SccProjectUniqueName16 = ScaffR.Packager\\ScaffR.Packager.csproj
-		SccProjectName16 = ScaffR.Packager
-		SccLocalPath16 = ScaffR.Packager
-		SccProjectUniqueName17 = ScaffR.Ninject\\ScaffR.Ninject.csproj
-		SccProjectName17 = ScaffR.Ninject
-		SccLocalPath17 = ScaffR.Ninject
-		SccProjectUniqueName18 = ScaffR.CRM\\ScaffR.CRM.csproj
-		SccProjectName18 = ScaffR.CRM
-		SccLocalPath18 = ScaffR.CRM
-		SccProjectUniqueName19 = ScaffR.Shipping\\ScaffR.Shipping.csproj
-		SccProjectName19 = ScaffR.Shipping
-		SccLocalPath19 = ScaffR.Shipping
-		SccProjectUniqueName20 = ScaffR.Ordering\\ScaffR.Ordering.csproj
-		SccProjectName20 = ScaffR.Ordering
-		SccLocalPath20 = ScaffR.Ordering
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{275BD777-E909-44CB-9B1A-A5227033022E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{275BD777-E909-44CB-9B1A-A5227033022E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{275BD777-E909-44CB-9B1A-A5227033022E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{275BD777-E909-44CB-9B1A-A5227033022E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD0F01E9-D8AB-4FF2-93C1-990B4E5CB6C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD0F01E9-D8AB-4FF2-93C1-990B4E5CB6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD0F01E9-D8AB-4FF2-93C1-990B4E5CB6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD0F01E9-D8AB-4FF2-93C1-990B4E5CB6C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98B7F5FD-A9C1-4FDE-901F-5C74E517042C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98B7F5FD-A9C1-4FDE-901F-5C74E517042C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98B7F5FD-A9C1-4FDE-901F-5C74E517042C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98B7F5FD-A9C1-4FDE-901F-5C74E517042C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64435006-9211-4014-B4AE-CFAA67088021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64435006-9211-4014-B4AE-CFAA67088021}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64435006-9211-4014-B4AE-CFAA67088021}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64435006-9211-4014-B4AE-CFAA67088021}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62C7F0DA-BAFE-4078-838A-AC10E4D70EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62C7F0DA-BAFE-4078-838A-AC10E4D70EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62C7F0DA-BAFE-4078-838A-AC10E4D70EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62C7F0DA-BAFE-4078-838A-AC10E4D70EC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FBA2EB3C-7186-4773-BC77-B645E4BB67CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBA2EB3C-7186-4773-BC77-B645E4BB67CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBA2EB3C-7186-4773-BC77-B645E4BB67CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBA2EB3C-7186-4773-BC77-B645E4BB67CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85738D2E-F06B-4093-B501-8F747139CF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85738D2E-F06B-4093-B501-8F747139CF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85738D2E-F06B-4093-B501-8F747139CF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85738D2E-F06B-4093-B501-8F747139CF7D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{516FE39E-A4E8-4089-8081-B933B2C5812F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{516FE39E-A4E8-4089-8081-B933B2C5812F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{516FE39E-A4E8-4089-8081-B933B2C5812F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{516FE39E-A4E8-4089-8081-B933B2C5812F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78F933CC-D2FA-4FDF-B3E3-B1CF698A301A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78F933CC-D2FA-4FDF-B3E3-B1CF698A301A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78F933CC-D2FA-4FDF-B3E3-B1CF698A301A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78F933CC-D2FA-4FDF-B3E3-B1CF698A301A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66088F3C-9860-44E0-9524-B13979157DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66088F3C-9860-44E0-9524-B13979157DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66088F3C-9860-44E0-9524-B13979157DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66088F3C-9860-44E0-9524-B13979157DB1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E6DDB88B-8321-4E80-BF05-1A8292CCAD0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6DDB88B-8321-4E80-BF05-1A8292CCAD0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6DDB88B-8321-4E80-BF05-1A8292CCAD0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6DDB88B-8321-4E80-BF05-1A8292CCAD0A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9972C4B-0093-4374-879F-28219C0EC1C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C9972C4B-0093-4374-879F-28219C0EC1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9972C4B-0093-4374-879F-28219C0EC1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9972C4B-0093-4374-879F-28219C0EC1C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD7F0A61-FD4C-4E16-A96E-0392AF53467C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD7F0A61-FD4C-4E16-A96E-0392AF53467C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD7F0A61-FD4C-4E16-A96E-0392AF53467C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD7F0A61-FD4C-4E16-A96E-0392AF53467C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D343EB37-50E2-44AE-A424-FE600ABB3E5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D343EB37-50E2-44AE-A424-FE600ABB3E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D343EB37-50E2-44AE-A424-FE600ABB3E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D343EB37-50E2-44AE-A424-FE600ABB3E5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4394DDA4-EEDB-4300-AD96-F297AC02B231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4394DDA4-EEDB-4300-AD96-F297AC02B231}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4394DDA4-EEDB-4300-AD96-F297AC02B231}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4394DDA4-EEDB-4300-AD96-F297AC02B231}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1FB53A46-757B-4C8B-96F1-097AE941D188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1FB53A46-757B-4C8B-96F1-097AE941D188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FB53A46-757B-4C8B-96F1-097AE941D188}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FB53A46-757B-4C8B-96F1-097AE941D188}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F352B19A-8CA0-4DEB-9C3B-AA2AD0EC464D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F352B19A-8CA0-4DEB-9C3B-AA2AD0EC464D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F352B19A-8CA0-4DEB-9C3B-AA2AD0EC464D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F352B19A-8CA0-4DEB-9C3B-AA2AD0EC464D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C98282C7-0C16-4D70-AAEE-BFD62B816199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C98282C7-0C16-4D70-AAEE-BFD62B816199}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C98282C7-0C16-4D70-AAEE-BFD62B816199}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C98282C7-0C16-4D70-AAEE-BFD62B816199}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85B63B8A-A3B1-44AC-A8C2-78E1F94C8F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85B63B8A-A3B1-44AC-A8C2-78E1F94C8F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85B63B8A-A3B1-44AC-A8C2-78E1F94C8F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85B63B8A-A3B1-44AC-A8C2-78E1F94C8F0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
