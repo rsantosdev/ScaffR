@@ -5,23 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C9972C4B-0093-4374-879F-28219C0EC1C2}</ProjectGuid>
+    <ProjectGuid>{902CF9B9-B0D9-42E1-AC83-B6A0056143A5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScaffR.Core</RootNamespace>
-    <AssemblyName>ScaffR.Core</AssemblyName>
+    <RootNamespace>ScaffR.Provider</RootNamespace>
+    <AssemblyName>ScaffR.Provider</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,19 +47,26 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
+    <None Include="content\CodeTemplates\Scaffolders\Provider\AbstractProvider.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\Provider\ProviderCollection.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\Provider\ProviderManager.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\Provider\ProviderSection.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\Provider\Provider.ps1" />
+    <None Include="content\Web.config.transform">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Package.nuspec" />
-    <None Include="tools\ScaffR-API.psm1" />
-    <None Include="tools\install.ps1" />
     <None Include="tools\init.ps1" />
-    <None Include="NuGet.exe" />
+    <None Include="tools\install.ps1" />
+    <None Include="tools\uninstall.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content\CodeTemplates\Scaffolders\" />
     <Folder Include="lib\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="content\readme.txt" />
+    <Content Include="NuGet.exe" />
+    <Content Include="scaffr.packager.readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
