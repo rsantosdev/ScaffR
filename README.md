@@ -1,7 +1,7 @@
 ScaffR (Alpha)
 ======
 
-ScaffR is a code automation and scaffolding framework, built in powershell, that gives you more flexibility to deliver richer NuGet packages.
+ScaffR is a code automation and scaffolding framework, written in powershell, that gives you more flexibility to deliver richer NuGet packages.
 
 Philosophy
 -----
