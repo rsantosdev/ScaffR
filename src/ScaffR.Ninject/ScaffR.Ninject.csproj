@@ -54,9 +54,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Ninject\ScaffR.Ninject.For.ps1" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Ninject\ScaffR.Ninject.ps1" />
@@ -69,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NuGet.exe" />

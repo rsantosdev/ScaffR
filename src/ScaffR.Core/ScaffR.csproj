@@ -54,9 +54,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Provider\ProviderSection.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Provider\ProviderManager.cs.t4" />
@@ -71,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\readme.txt" />

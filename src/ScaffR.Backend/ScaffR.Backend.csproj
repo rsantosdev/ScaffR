@@ -76,7 +76,6 @@
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\Security.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\Site.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ISiteConfiguration.cs.t4" />
-    <None Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
@@ -125,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
