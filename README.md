@@ -5,7 +5,7 @@ ScaffR is a code automation and scaffolding framework, written in powershell, th
 
 Philosophy
 -----
-ScaffR was designed to reduce the amount of boilerplate code that developers have to produce.  When you use ScaffR, you compose your application powershell,
+ScaffR was designed to reduce the amount of boilerplate code that developers have to produce.  When you use ScaffR, you develop with c# and T4, compose your application with powershell, and
 deliver it with NuGet.  You don't need to store the generated files in source control, just the instructions of how the application is constructed.
  
 Does this work?  Yes.
