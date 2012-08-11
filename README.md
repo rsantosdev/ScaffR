@@ -23,12 +23,14 @@ Usage
 -----
 You can use either the low-level ScaffR libraries, or the high level libraries, depending on how you wish to use ScaffR.
 
+Core Package
+-----
 To use the low-level libraries, you just need to install the core package
 
 <pre>install-package ScaffR.Core</pre>
 
-To use the higher-level libraries, you just install
+High-Level Package
+-----
+The high-level package uses the low-level packages and builds more complicated architectural patterns.
 
 <pre>install-package ScaffR</pre>
-
-
