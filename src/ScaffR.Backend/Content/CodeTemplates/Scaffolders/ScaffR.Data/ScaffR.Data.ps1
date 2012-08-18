@@ -11,7 +11,7 @@ Add-Template $dataProjectName "UnitOfWork" "UnitOfWork" -Force:$Force $TemplateF
 Add-Template $dataProjectName "DatabaseFactory" "DatabaseFactory" -Force:$Force $TemplateFolders
 Add-Template $dataProjectName "DataContext" "DataContext" -Force:$Force $TemplateFolders
 
-Install-Package EntityFramework.SqlServerCompact
+Install-Package EntityFramework.SqlServerCompact -Version 4.3.3
 
 $App_Data = (get-solution).Path + $baseProject.Name  + "\App_Data"
 if(!(Test-Path $App_Data)){
