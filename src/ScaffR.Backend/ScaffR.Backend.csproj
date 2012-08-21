@@ -115,7 +115,9 @@
     <None Include="content\Web.config.transform">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Package.nuspec" />
+    <None Include="Package.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="tools\init.ps1" />
     <None Include="tools\install.ps1" />
     <None Include="tools\ScaffR.Backend.psm1" />
