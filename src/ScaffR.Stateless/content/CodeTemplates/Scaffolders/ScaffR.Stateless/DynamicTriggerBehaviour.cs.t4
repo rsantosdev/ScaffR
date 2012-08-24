@@ -1,0 +1,78 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Stateless
+{
+    using System;
+
+    /// <summary>
+    /// The state machine.
+    /// </summary>
+    /// <typeparam name="TState">
+    /// </typeparam>
+    /// <typeparam name="TTrigger">
+    /// </typeparam>
+    public partial class StateMachine<TState, TTrigger>
+    {
+        /// <summary>
+        /// The dynamic trigger behaviour.
+        /// </summary>
+        internal class DynamicTriggerBehaviour : TriggerBehaviour
+        {
+            #region Fields
+
+            /// <summary>
+            /// The _destination.
+            /// </summary>
+            private readonly Func<object[], TState> _destination;
+
+            #endregion
+
+            #region Constructors and Destructors
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="DynamicTriggerBehaviour"/> class.
+            /// </summary>
+            /// <param name="trigger">
+            /// The trigger.
+            /// </param>
+            /// <param name="destination">
+            /// The destination.
+            /// </param>
+            /// <param name="guard">
+            /// The guard.
+            /// </param>
+            public DynamicTriggerBehaviour(TTrigger trigger, Func<object[], TState> destination, Func<bool> guard)
+                : base(trigger, guard)
+            {
+                this._destination = Enforce.ArgumentNotNull(destination, "destination");
+            }
+
+            #endregion
+
+            #region Public Methods and Operators
+
+            /// <summary>
+            /// The results in transition from.
+            /// </summary>
+            /// <param name="source">
+            /// The source.
+            /// </param>
+            /// <param name="args">
+            /// The args.
+            /// </param>
+            /// <param name="destination">
+            /// The destination.
+            /// </param>
+            /// <returns>
+            /// The System.Boolean.
+            /// </returns>
+            public override bool ResultsInTransitionFrom(TState source, object[] args, out TState destination)
+            {
+                destination = this._destination(args);
+                return true;
+            }
+
+            #endregion
+        }
+    }
+}

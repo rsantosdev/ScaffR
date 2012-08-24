@@ -1,0 +1,65 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Stateless
+{
+    using System;
+
+    /// <summary>
+    /// The state machine.
+    /// </summary>
+    /// <typeparam name="TState">
+    /// </typeparam>
+    /// <typeparam name="TTrigger">
+    /// </typeparam>
+    public partial class StateMachine<TState, TTrigger>
+    {
+        /// <summary>
+        /// The ignored trigger behaviour.
+        /// </summary>
+        internal class IgnoredTriggerBehaviour : TriggerBehaviour
+        {
+            #region Constructors and Destructors
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="IgnoredTriggerBehaviour"/> class.
+            /// </summary>
+            /// <param name="trigger">
+            /// The trigger.
+            /// </param>
+            /// <param name="guard">
+            /// The guard.
+            /// </param>
+            public IgnoredTriggerBehaviour(TTrigger trigger, Func<bool> guard)
+                : base(trigger, guard)
+            {
+            }
+
+            #endregion
+
+            #region Public Methods and Operators
+
+            /// <summary>
+            /// The results in transition from.
+            /// </summary>
+            /// <param name="source">
+            /// The source.
+            /// </param>
+            /// <param name="args">
+            /// The args.
+            /// </param>
+            /// <param name="destination">
+            /// The destination.
+            /// </param>
+            /// <returns>
+            /// The System.Boolean.
+            /// </returns>
+            public override bool ResultsInTransitionFrom(TState source, object[] args, out TState destination)
+            {
+                destination = default(TState);
+                return false;
+            }
+
+            #endregion
+        }
+    }
+}

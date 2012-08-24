@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Deploy", "ScaffR.Dep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.QA", "ScaffR.QA\ScaffR.QA.csproj", "{E8EF0F17-842E-4C63-9D69-D0746AF89CC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Stateless", "ScaffR.Stateless\ScaffR.Stateless.csproj", "{C1ED5556-CFF6-4F67-83DB-1A4323933DAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{E8EF0F17-842E-4C63-9D69-D0746AF89CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8EF0F17-842E-4C63-9D69-D0746AF89CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8EF0F17-842E-4C63-9D69-D0746AF89CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1ED5556-CFF6-4F67-83DB-1A4323933DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1ED5556-CFF6-4F67-83DB-1A4323933DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1ED5556-CFF6-4F67-83DB-1A4323933DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1ED5556-CFF6-4F67-83DB-1A4323933DAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,111 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Stateless
+{
+    /// <summary>
+    /// The state machine.
+    /// </summary>
+    /// <typeparam name="TState">
+    /// </typeparam>
+    /// <typeparam name="TTrigger">
+    /// </typeparam>
+    public partial class StateMachine<TState, TTrigger>
+    {
+        /// <summary>
+        /// Describes a state transition.
+        /// </summary>
+        public class Transition
+        {
+            #region Fields
+
+            /// <summary>
+            /// The _destination.
+            /// </summary>
+            private readonly TState _destination;
+
+            /// <summary>
+            /// The _source.
+            /// </summary>
+            private readonly TState _source;
+
+            /// <summary>
+            /// The _trigger.
+            /// </summary>
+            private readonly TTrigger _trigger;
+
+            #endregion
+
+            #region Constructors and Destructors
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="Transition"/> class. 
+            /// Construct a transition.
+            /// </summary>
+            /// <param name="source">
+            /// The state transitioned from.
+            /// </param>
+            /// <param name="destination">
+            /// The state transitioned to.
+            /// </param>
+            /// <param name="trigger">
+            /// The trigger that caused the transition.
+            /// </param>
+            public Transition(TState source, TState destination, TTrigger trigger)
+            {
+                this._source = source;
+                this._destination = destination;
+                this._trigger = trigger;
+            }
+
+            #endregion
+
+            #region Public Properties
+
+            /// <summary>
+            /// The state transitioned to.
+            /// </summary>
+            public TState Destination
+            {
+                get
+                {
+                    return this._destination;
+                }
+            }
+
+            /// <summary>
+            /// True if the transition is a re-entry, i.e. the identity transition.
+            /// </summary>
+            public bool IsReentry
+            {
+                get
+                {
+                    return this.Source.Equals(this.Destination);
+                }
+            }
+
+            /// <summary>
+            /// The state transitioned from.
+            /// </summary>
+            public TState Source
+            {
+                get
+                {
+                    return this._source;
+                }
+            }
+
+            /// <summary>
+            /// The trigger that caused the transition.
+            /// </summary>
+            public TTrigger Trigger
+            {
+                get
+                {
+                    return this._trigger;
+                }
+            }
+
+            #endregion
+        }
+    }
+}

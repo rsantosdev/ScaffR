@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1ED5556-CFF6-4F67-83DB-1A4323933DAF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ScaffR.Stateless</RootNamespace>
+    <AssemblyName>ScaffR.Stateless</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\DynamicTriggerBehaviour.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\Enforce.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\IgnoredTriggerBehaviour.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\ParameterConversion.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\ParameterConversionResources.Designer.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\ScaffR.Stateless.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\SequentialActionQueue.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateConfiguration.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateConfigurationResources.Designer.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateMachine.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateMachineResources.Designer.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateReference.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateRepresentation.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateRepresentationResources.Designer.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\Transition.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\TransitioningTriggerBehaviour.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\TriggerBehaviour.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\TriggerWithParameters.cs.t4" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BuildPublishPackage.cmd" />
+    <None Include="content\Web.config.transform">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Package.nuspec" />
+    <None Include="tools\init.ps1" />
+    <None Include="tools\install.ps1" />
+    <None Include="tools\uninstall.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NuGet.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\ParameterConversionResources.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateConfigurationResources.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateMachineResources.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateRepresentationResources.cs.t4" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>-->
+  <Target Name="AfterBuild">
+    <!-- Load up the information from the assembly -->
+    <GetAssemblyIdentity AssemblyFiles="$(OutputPath)$(AssemblyName).dll">
+      <Output TaskParameter="Assemblies" ItemName="OutputAssemblyInfo" />
+    </GetAssemblyIdentity>
+    <Message Text="Info: %(OutputAssemblyInfo.Version)" />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version)" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version) Publish" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  </Target>
+</Project>

@@ -1,0 +1,102 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Stateless
+{
+    using System;
+
+    /// <summary>
+    /// The state machine.
+    /// </summary>
+    /// <typeparam name="TState">
+    /// </typeparam>
+    /// <typeparam name="TTrigger">
+    /// </typeparam>
+    public partial class StateMachine<TState, TTrigger>
+    {
+        /// <summary>
+        /// The trigger behaviour.
+        /// </summary>
+        internal abstract class TriggerBehaviour
+        {
+            #region Fields
+
+            /// <summary>
+            /// The _guard.
+            /// </summary>
+            private readonly Func<bool> _guard;
+
+            /// <summary>
+            /// The _trigger.
+            /// </summary>
+            private readonly TTrigger _trigger;
+
+            #endregion
+
+            #region Constructors and Destructors
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="TriggerBehaviour"/> class.
+            /// </summary>
+            /// <param name="trigger">
+            /// The trigger.
+            /// </param>
+            /// <param name="guard">
+            /// The guard.
+            /// </param>
+            protected TriggerBehaviour(TTrigger trigger, Func<bool> guard)
+            {
+                this._trigger = trigger;
+                this._guard = guard;
+            }
+
+            #endregion
+
+            #region Public Properties
+
+            /// <summary>
+            /// Gets a value indicating whether is guard condition met.
+            /// </summary>
+            public bool IsGuardConditionMet
+            {
+                get
+                {
+                    return this._guard();
+                }
+            }
+
+            /// <summary>
+            /// Gets the trigger.
+            /// </summary>
+            public TTrigger Trigger
+            {
+                get
+                {
+                    return this._trigger;
+                }
+            }
+
+            #endregion
+
+            #region Public Methods and Operators
+
+            /// <summary>
+            /// The results in transition from.
+            /// </summary>
+            /// <param name="source">
+            /// The source.
+            /// </param>
+            /// <param name="args">
+            /// The args.
+            /// </param>
+            /// <param name="destination">
+            /// The destination.
+            /// </param>
+            /// <returns>
+            /// The System.Boolean.
+            /// </returns>
+            public abstract bool ResultsInTransitionFrom(TState source, object[] args, out TState destination);
+
+            #endregion
+        }
+    }
+}

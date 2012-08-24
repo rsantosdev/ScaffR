@@ -1,0 +1,98 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Stateless
+{
+    using System;
+
+    /// <summary>
+    /// The parameter conversion.
+    /// </summary>
+    internal static class ParameterConversion
+    {
+        #region Public Methods and Operators
+
+        /// <summary>
+        /// The unpack.
+        /// </summary>
+        /// <param name="args">
+        /// The args.
+        /// </param>
+        /// <param name="argType">
+        /// The arg type.
+        /// </param>
+        /// <param name="index">
+        /// The index.
+        /// </param>
+        /// <returns>
+        /// The System.Object.
+        /// </returns>
+        /// <exception cref="ArgumentException">
+        /// </exception>
+        public static object Unpack(object[] args, Type argType, int index)
+        {
+            Enforce.ArgumentNotNull(args, "args");
+
+            if (args.Length <= index)
+            {
+                throw new ArgumentException(
+                    string.Format(ParameterConversionResources.ArgOfTypeRequiredInPosition, argType, index));
+            }
+
+            object arg = args[index];
+
+            if (arg != null && !argType.IsAssignableFrom(arg.GetType()))
+            {
+                throw new ArgumentException(
+                    string.Format(ParameterConversionResources.WrongArgType, index, arg.GetType(), argType));
+            }
+
+            return arg;
+        }
+
+        /// <summary>
+        /// The unpack.
+        /// </summary>
+        /// <param name="args">
+        /// The args.
+        /// </param>
+        /// <param name="index">
+        /// The index.
+        /// </param>
+        /// <typeparam name="TArg">
+        /// </typeparam>
+        /// <returns>
+        /// The TArg.
+        /// </returns>
+        public static TArg Unpack<TArg>(object[] args, int index)
+        {
+            return (TArg)Unpack(args, typeof(TArg), index);
+        }
+
+        /// <summary>
+        /// The validate.
+        /// </summary>
+        /// <param name="args">
+        /// The args.
+        /// </param>
+        /// <param name="expected">
+        /// The expected.
+        /// </param>
+        /// <exception cref="ArgumentException">
+        /// </exception>
+        public static void Validate(object[] args, Type[] expected)
+        {
+            if (args.Length > expected.Length)
+            {
+                throw new ArgumentException(
+                    string.Format(ParameterConversionResources.TooManyParameters, expected.Length, args.Length));
+            }
+
+            for (int i = 0; i < expected.Length; ++i)
+            {
+                Unpack(args, expected[i], i);
+            }
+        }
+
+        #endregion
+    }
+}

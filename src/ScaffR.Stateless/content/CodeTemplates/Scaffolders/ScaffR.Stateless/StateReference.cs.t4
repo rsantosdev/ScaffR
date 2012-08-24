@@ -1,0 +1,38 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="StateReference.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The state machine.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace <#= Model.Namespace #>.Stateless
+{
+    /// <summary>
+    /// The state machine.
+    /// </summary>
+    /// <typeparam name="TState">
+    /// </typeparam>
+    /// <typeparam name="TTrigger">
+    /// </typeparam>
+    public partial class StateMachine<TState, TTrigger>
+    {
+        /// <summary>
+        /// The state reference.
+        /// </summary>
+        internal class StateReference
+        {
+            #region Public Properties
+
+            /// <summary>
+            /// Gets or sets the state.
+            /// </summary>
+            public TState State { get; set; }
+
+            #endregion
+        }
+    }
+}

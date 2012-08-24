@@ -1,0 +1,124 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Stateless
+{
+    using System;
+    using System.Collections.Concurrent;
+    using System.ComponentModel;
+    using System.Threading.Tasks;
+
+    /// <summary>Executions queued actions in sequence (but still asynchronously).</summary>
+    public class SequentialActionQueue : INotifyPropertyChanged
+    {
+        #region Static Fields
+
+        /// <summary>
+        /// The sync lock.
+        /// </summary>
+        private static readonly object syncLock = new object();
+
+        #endregion
+
+        #region Fields
+
+        /// <summary>
+        /// The queue.
+        /// </summary>
+        private readonly ConcurrentQueue<Action> queue = new ConcurrentQueue<Action>();
+
+        /// <summary>
+        /// The firing task.
+        /// </summary>
+        private Task firingTask;
+
+        /// <summary>
+        /// The is active.
+        /// </summary>
+        private bool isActive;
+
+        #endregion
+
+        #region Public Events
+
+        /// <summary>Raised when a property such as <see cref="IsActive"/> is changed.</summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>This property is true when the queue is processing a queued task.</summary>
+        public bool IsActive
+        {
+            get
+            {
+                return this.isActive;
+            }
+
+            set
+            {
+                if (this.isActive != value)
+                {
+                    this.isActive = value;
+                    this.OnPropertyChanged("IsActive");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Public Methods and Operators
+
+        /// <summary>
+        /// Thread-safe method to synchronize the asynchronous execution of the submitted action.
+        /// </summary>
+        /// <param name="todo">
+        /// The action to execute asynchronously.
+        /// </param>
+        public void Enqueue(Action todo)
+        {
+            this.queue.Enqueue(todo);
+
+            lock (syncLock)
+            {
+                if (this.firingTask == null || this.firingTask.IsCompleted)
+                {
+                    this.firingTask = Task.Factory.StartNew(
+                        () =>
+                            {
+                                this.IsActive = true;
+
+                                Action result;
+                                while (this.queue.TryDequeue(out result))
+                                {
+                                    result();
+                                }
+
+                                this.IsActive = false;
+                            });
+                }
+            }
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// The on property changed.
+        /// </summary>
+        /// <param name="propName">
+        /// The prop name.
+        /// </param>
+        private void OnPropertyChanged(string propName)
+        {
+            PropertyChangedEventHandler e = this.PropertyChanged;
+            if (e != null)
+            {
+                e(this, new PropertyChangedEventArgs(propName));
+            }
+        }
+
+        #endregion
+    }
+}

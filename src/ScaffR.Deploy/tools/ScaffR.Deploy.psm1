@@ -17,6 +17,11 @@ function Publish-Project($Project){
 }
 
 function Deploy-Project($Project){
+
+	if(!$Project){
+		$Project = (Get-Project)
+	}
+
     $sb2 = Get-Interface $DTE.Solution.SolutionBuild ([EnvDTE80.SolutionBuild2])
     $config2 = Get-Interface $sb2.ActiveConfiguration ([EnvDTE80.SolutionConfiguration2])
     $configName = $config2.Name + '|' + $config2.PlatformName
@@ -28,6 +33,11 @@ function Deploy-Project($Project){
 }
 
 function Build-Project($Project){
+
+	if(!$Project){
+		$Project = (Get-Project)
+	}
+
     $sb2 = Get-Interface $DTE.Solution.SolutionBuild ([EnvDTE80.SolutionBuild2])
     $config2 = Get-Interface $sb2.ActiveConfiguration ([EnvDTE80.SolutionConfiguration2])
     $configName = $config2.Name + '|' + $config2.PlatformName
