@@ -100,7 +100,6 @@
     <Content Include="content\Content\less\utilities.less" />
     <Content Include="content\Content\less\variables.less" />
     <Content Include="content\Content\less\wells.less" />
-    <None Include="content\Content\includes.less" />
     <None Include="content\Content\Site.less" />
     <None Include="Package.nuspec" />
     <None Include="tools\init.ps1" />
