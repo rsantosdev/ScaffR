@@ -3,13 +3,13 @@
   <metadata>
     <id>ScaffR.Data</id>
     <version>1.1.1</version>
-    <authors>Rod Johnson</authors>
+    <authors>Rod Johnson,Ulf Björklund</authors>
     <owners>ScaffR</owners>
-    <projectUrl>http://scaffr.codeplex.com</projectUrl>
+    <projectUrl>https://github.com/wcpro/ScaffR</projectUrl>
     <iconUrl>http://www.scaffr.com/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Description required.
+      Builds the default ScaffR data layer.
     </description>
     <releaseNotes>
     </releaseNotes>
