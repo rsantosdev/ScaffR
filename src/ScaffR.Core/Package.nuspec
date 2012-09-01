@@ -3,13 +3,13 @@
   <metadata>
     <id>ScaffR.Core</id>
     <version>1.1.1</version>
-    <authors>Rod Johnson</authors>
+    <authors>Rod Johnson,Ulf Björklund/authors>
     <owners>ScaffR</owners>
-    <projectUrl>http://scaffr.codeplex.com</projectUrl>
+    <projectUrl>https://github.com/wcpro/ScaffR</projectUrl>
     <iconUrl>http://www.scaffr.com/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Description required.
+      Provides a simple domain layer.
     </description>
     <releaseNotes>
     </releaseNotes>
@@ -17,7 +17,6 @@
     <tags></tags>
     <dependencies>
       <dependency id="ScaffR" version="1.1.1" />
-      <dependency id="T4Scaffolding" version="1.0.6" />
     </dependencies>
   </metadata>
   <files>
