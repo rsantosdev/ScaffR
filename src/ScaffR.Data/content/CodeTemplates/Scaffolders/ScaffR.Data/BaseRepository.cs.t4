@@ -1,0 +1,85 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Data
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Linq;
+    using <#= Model.Namespace #>.Core.Common.Paging;
+    using <#= Model.Namespace #>.Core.Interfaces.Data;
+    using <#= Model.Namespace #>.Core.Interfaces.Paging;
+    using <#= Model.Namespace #>.Core.Model;
+
+    /// <summary>
+    /// An abstract baseclass handling basic CRUD operations against the context.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public abstract class BaseRepository<T> : IDisposable, IRepository<T> where T : PersistentEntity
+    {        
+        private readonly IDbSet<T> _dbset;
+        private readonly IDatabaseFactory _databaseFactory;
+        private IDataContext _context;
+
+        protected BaseRepository(IDatabaseFactory databaseFactory)
+        {
+            this._databaseFactory = databaseFactory;            
+            this._dbset = this.DataContext.DbSet<T>();
+        }
+
+        public IDataContext DataContext
+        {
+            get { return this._context ?? (this._context = this._databaseFactory.Get()); }
+        }
+
+        protected string EntitySetName { get; set; }
+
+        public virtual void SaveOrUpdate(T entity)
+        {
+            if (UnitOfWork.IsPersistent(entity))
+            {
+                this.DataContext.Entry(entity).State = EntityState.Modified;
+            }
+            else
+                this._dbset.Add(entity);
+        }
+
+        public virtual T GetById(int id)
+        {
+            return this._dbset.Find(id);
+        }
+
+        public virtual IQueryable<T> GetAll()
+        {
+            return this._dbset;
+        }
+
+        public virtual IQueryable<T> GetAllReadOnly()
+        {
+            return this._dbset.AsNoTracking();
+        }
+
+        public virtual void Delete(T entity)
+        {
+            this._dbset.Remove(entity);
+        }
+
+        public virtual IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> expression, int maxHits = 100)
+        {
+            return this._dbset.Where(expression).Take(maxHits);
+        }
+
+        public IPage<T> Page(int page = 1, int pageSize = 10)
+        {
+            var internalPage = page - 1;
+            var data = this._dbset.OrderBy(k => k.Id).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
+            return new Page<T>(data, this._dbset.Count(), pageSize, page);
+        }
+
+        public void Dispose()
+        {
+            this.DataContext.ObjectContext().Dispose();
+        }
+    }
+}

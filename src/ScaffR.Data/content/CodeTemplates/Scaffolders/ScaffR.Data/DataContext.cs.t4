@@ -1,0 +1,34 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Data
+{
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+
+    using <#= Model.Namespace #>.Core.Interfaces.Data;
+    using <#= Model.Namespace #>.Core.Model;
+
+    public partial class DataContext : DbContext, IDataContext
+    {
+        public DataContext(bool proxyCreation = true)            
+        {
+            this.Configuration.ProxyCreationEnabled = proxyCreation;
+        }
+
+        public ObjectContext ObjectContext()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext;
+        }
+
+        public virtual IDbSet<T> DbSet<T>() where T : PersistentEntity
+        {
+            return Set<T>();
+        }
+
+        public new DbEntityEntry Entry<T>(T entity) where T : PersistentEntity
+        {
+            return base.Entry(entity);
+        }
+    }    
+}

@@ -5,25 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{64435006-9211-4014-B4AE-CFAA67088021}</ProjectGuid>
+    <ProjectGuid>{104D7045-522F-4692-AC73-F70B754B0AE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScaffR.Backend</RootNamespace>
-    <AssemblyName>ScaffR.Backend</AssemblyName>
+    <RootNamespace>ScaffR.Core</RootNamespace>
+    <AssemblyName>ScaffR.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\worldclass\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,20 +46,30 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <None Include="BuildPublishPackage.cmd" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Backend.For.ps1" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Backend.ps1" />
-    <None Include="Package.nuspec">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="tools\init.ps1" />
-    <None Include="tools\install.ps1" />
-    <None Include="tools\ScaffR.Backend.psm1" />
-    <None Include="tools\uninstall.ps1" />
-    <None Include="NuGet.exe" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <None Include="BuildPublishPackage.cmd" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IValidationContainer.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\PersistentEntity.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ScaffR.Core.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ValidationContainer.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ValidationEngine.cs.t4" />
+    <None Include="content\Web.config.transform">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Package.nuspec" />
+    <None Include="tools\init.ps1" />
+    <None Include="tools\install.ps1" />
+    <None Include="tools\ScaffR.Core.psm1" />
+    <None Include="tools\uninstall.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\CodeTemplates\Scaffolders\ScaffR.Core\license.txt" />
+    <Content Include="NuGet.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -85,5 +85,4 @@
     <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version)" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
     <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="BuildPublishPackage.cmd %(OutputAssemblyInfo.Version) Publish" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
   </Target>
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>

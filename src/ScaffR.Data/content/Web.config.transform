@@ -1,0 +1,17 @@
+﻿<configuration>
+
+  <configSections>
+    <sectionGroup name="$rootnamespace$">
+      <section name="$rootnamespace$.Core" type="$rootnamespace$.Core.Configuration.CoreSectionHandler, $rootnamespace$.Core" requirePermission="false"/>
+    </sectionGroup>
+  </configSections>
+
+  <entityFramework>
+    <contexts>
+      <context type="$rootnamespace$.Data.DataContext, $rootnamespace$.Data">
+        <databaseInitializer type="System.Data.Entity.MigrateDatabaseToLatestVersion`2[[$rootnamespace$.Data.DataContext, $rootnamespace$.Data], [$rootnamespace$.Data.Migrations.Configuration, $rootnamespace$.Data]], EntityFramework" />
+      </context>
+    </contexts>
+  </entityFramework>
+  
+</configuration>
