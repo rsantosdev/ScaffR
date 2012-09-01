@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>ScaffR.Backend</id>
     <version>1.1.1</version>
     <authors>Rod Johnson,Ulf Björklund</authors>
     <owners>World-Class Programmers, LLC</owners>
-    <projectUrl>http://scaffr.codeplex.com</projectUrl>
+    <projectUrl>https://github.com/wcpro/ScaffR</projectUrl>
     <iconUrl>http://www.scaffr.com/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
@@ -14,7 +14,7 @@
     <releaseNotes>
     </releaseNotes>
     <copyright>World-Class Programmers 2012</copyright>
-    <tags>CodeFirst, Architecture</tags>
+    <tags>CodeFirst, Architecture, N-Tier</tags>
     <dependencies>      
       <dependency id="ScaffR.Services" version="1.1.1" />
       <dependency id="ScaffR.Data" version="1.1.1" />
