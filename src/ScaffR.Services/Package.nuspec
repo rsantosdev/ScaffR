@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ScaffR.Services</id>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <authors>Rod Johnson,Ulf Björklund</authors>
     <owners>ScaffR</owners>
     <projectUrl>https://github.com/wcpro/ScaffR</projectUrl>
@@ -16,8 +16,8 @@
     <copyright>ScaffR, 2012</copyright>
     <tags></tags>
     <dependencies>
-      <dependency id="ScaffR.Core" version="1.1.1" />
-      <dependency id="ScaffR.Data" version="1.1.1" />
+      <dependency id="ScaffR.Core" version="1.1.2" />
+      <dependency id="ScaffR.Data" version="1.1.2" />
     </dependencies>
   </metadata>
   <files>
