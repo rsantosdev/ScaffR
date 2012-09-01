@@ -17,8 +17,10 @@
     <tags></tags>
     <dependencies>
       <dependency id="WebActivator" version="1.5" />
-      <dependency id="T4Scaffolding" version="1.0.4" />
+      <dependency id="T4Scaffolding" version="1.0.6" />
       <dependency id="Ninject.MVC3" version="2.2.2.0" />
+      <dependency id="ScaffR" version="1.1.2" />
+      <dependency id="ScaffR.Data" version="1.1.2" />
     </dependencies>
   </metadata>
   <files>

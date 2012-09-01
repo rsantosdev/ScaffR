@@ -31,12 +31,9 @@ function Add-Project($projectName){
         
         write-host "Successfully created project $projectName"
 
-		if((get-package -ProjectName $projectName | Select-Object -ExpandProperty ID) -contains 'EntityFramework'){
-			Update-Package EntityFramework -ProjectName $projectName -Version 4.3.1
-		}
-		else{
-			Install-Package EntityFramework -ProjectName $projectName -Version 4.3.1
-		}
+		
+		Install-Package EntityFramework -ProjectName $projectName -Version 5.0.0
+		
         
         get-project $projectName
 	}        

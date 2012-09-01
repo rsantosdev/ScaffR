@@ -11,6 +11,12 @@ namespace <#= Model.Namespace #>.Data
 
     public partial class DataContext : DbContext, IDataContext
     {
+// ReSharper disable RedundantArgumentDefaultValue
+        public DataContext() : this(true)
+// ReSharper restore RedundantArgumentDefaultValue
+        {
+        }
+
         public DataContext(bool proxyCreation = true)            
         {
             this.Configuration.ProxyCreationEnabled = proxyCreation;

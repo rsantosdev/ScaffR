@@ -14,7 +14,7 @@ $classes | ForEach{
 	$current = $_
 	$_.Bases | ForEach{
 		if($_.Name -eq "PersistentEntity"){
-			Scaffold ScaffR.Model.For $current.Name -Force:$Force
+			Scaffold ScaffR.Backend.For $current.Name -Force:$Force
 		}
 	}		
 }

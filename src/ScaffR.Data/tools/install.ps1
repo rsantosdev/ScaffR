@@ -6,7 +6,7 @@ Get-Project | With-Reference $dataProjectName
 
 $App_Data = (get-solution).Path + $baseProject.Name  + "\App_Data"
 if(!(Test-Path $App_Data)){
-	Write-Host "Adding App_Data to" $baseProject
+	Write-Host "Adding App_Data to" $baseProject.Name
 	$baseProject.ProjectItems.AddFolder("App_Data")
 }
 
