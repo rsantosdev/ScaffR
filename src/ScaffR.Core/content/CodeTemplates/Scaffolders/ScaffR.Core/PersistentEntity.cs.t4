@@ -1,12 +1,12 @@
 ﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
 <#@ Output Extension="cs" #>
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
-
 namespace <#= Model.Namespace #>.Core.Model
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Runtime.Serialization;
+
     /// <summary>
     /// Properties common for all entities with CRUD behavior.
     /// </summary>
@@ -35,9 +35,9 @@ namespace <#= Model.Namespace #>.Core.Model
 
         public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            //Override this method to implement custom validation in your entities
+            // Override this method to implement custom validation in your entities
             
-            //This is only for making it compile... and returning null will give an exception.
+            // This is only for making it compile... and returning null will give an exception.
             if (false)
                 yield return new ValidationResult("Well, this should not happend...");
         }

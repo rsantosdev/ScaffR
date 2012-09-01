@@ -1,4 +1,4 @@
-﻿[T4Scaffolding.Scaffolder(Description = "ScaffR.Architecture - Setup of projects and references in solution.")][CmdletBinding()]
+﻿[T4Scaffolding.Scaffolder()][CmdletBinding()]
 param(        
     [string]$Project,
 	[string]$CodeLanguage,

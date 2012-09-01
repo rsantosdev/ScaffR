@@ -32,8 +32,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Services", "ScaffR.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Core", "ScaffR.Core\ScaffR.Core.csproj", "{104D7045-522F-4692-AC73-F70B754B0AE3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture", "Architecture", "{74C45025-DDEF-4ED8-95C6-5D6AD385DC5B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,11 +93,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{104D7045-522F-4692-AC73-F70B754B0AE3} = {74C45025-DDEF-4ED8-95C6-5D6AD385DC5B}
-		{64435006-9211-4014-B4AE-CFAA67088021} = {74C45025-DDEF-4ED8-95C6-5D6AD385DC5B}
-		{C9DEF310-DE39-45DE-BF71-90F101B0BCFA} = {74C45025-DDEF-4ED8-95C6-5D6AD385DC5B}
-		{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708} = {74C45025-DDEF-4ED8-95C6-5D6AD385DC5B}
 	EndGlobalSection
 EndGlobal
