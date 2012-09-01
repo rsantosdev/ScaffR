@@ -1,32 +1,11 @@
-ScaffR (Alpha)
+ScaffR.Core
 ======
 
 Overview
 -----
-ScaffR is a code automation and scaffolding framework, written in powershell, that gives you more flexibility to deliver richer NuGet packages.
-
-Need Help?  Have a Question?
------
-Feel free to ask questions to questions@scaffr.com.
-
-Philosophy
------
-ScaffR was designed to reduce the amount of boilerplate code that developers have to produce.  When you use ScaffR, you develop with c# and T4, compose your application with powershell, and
-deliver it with NuGet.  You don't need to store the generated files in source control, just the instructions of how the application is constructed.
- 
-Does this work?  Yes.
-
-Technology
------
-ScaffR takes full advantage of the following technologies:
-
-+ NuGet
-+ Powershell
-+ T4Scaffolding
-+ Visual Studio DTE
+ScaffR.Core provides a simple domain layer that typically is consumed by higher-level ScaffR libraries, 
+namely ScaffR.Services and ScaffR.Data.
 
 Usage
 -----
-You can use either the low-level ScaffR libraries, or the high level libraries, depending on how you wish to use ScaffR.
-
-<pre>install-package ScaffR</pre>
+<pre>install-package ScaffR.Core</pre>
