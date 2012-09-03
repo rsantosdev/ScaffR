@@ -83,10 +83,10 @@
     <Content Include="NuGet.exe" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\ParameterConversionResources.cs.t4" />
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateConfigurationResources.cs.t4" />
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateMachineResources.cs.t4" />
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateRepresentationResources.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\ParameterConversionResources.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateConfigurationResources.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateMachineResources.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateRepresentationResources.cs.t4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
