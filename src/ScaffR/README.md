@@ -1,10 +1,13 @@
-ScaffR
+﻿ScaffR (1.1.2)
 ======
-
-Overview
------
-Installs the powershell module that extends the Visual Studio DTE and T4Scaffolding.
-
+Installs the powershell commands that make ScaffR work
 Usage
------
-Install-Package ScaffR
+======
+<pre>install-package ScaffR</pre>
+Dependencies (2)
+=====
+
+Other Packages
+------
+* T4Scaffolding(1.0.6)
+* EntityFramework(5.0.0)

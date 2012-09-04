@@ -1,11 +1,15 @@
-ScaffR.Core
+﻿ScaffR.Core (1.1.2)
 ======
-
-Overview
------
-ScaffR.Core provides a simple domain layer that typically is consumed by higher-level ScaffR libraries, 
-namely ScaffR.Services and ScaffR.Data.
-
+Provides a simple domain layer.
 Usage
------
+======
 <pre>install-package ScaffR.Core</pre>
+Dependencies (1)
+=====
+
+ScaffR Packages
+------
+* [ScaffR (1.1.2)](https://github.com/wcpro/ScaffR/tree/master/src/ScaffR)
+
+Other Packages
+------

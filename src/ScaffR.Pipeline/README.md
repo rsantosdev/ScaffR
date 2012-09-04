@@ -1,42 +1,15 @@
-ScaffR (Alpha)
+﻿ScaffR.Pipeline (1.1.2)
 ======
-
-Overview
------
-ScaffR is a code automation and scaffolding framework, written in powershell, that gives you more flexibility to deliver richer NuGet packages.
-
-Need Help?  Have a Question?
------
-Feel free to ask questions to questions@scaffr.com.
-
-Philosophy
------
-ScaffR was designed to reduce the amount of boilerplate code that developers have to produce.  When you use ScaffR, you develop with c# and T4, compose your application with powershell, and
-deliver it with NuGet.  You don't need to store the generated files in source control, just the instructions of how the application is constructed.
- 
-Does this work?  Yes.
-
-Technology
------
-ScaffR takes full advantage of the following technologies:
-
-+ NuGet
-+ Powershell
-+ T4Scaffolding
-+ Visual Studio DTE
-
+Core library for developing testing tools using T4 Scaffolding.
 Usage
------
-You can use either the low-level ScaffR libraries, or the high level libraries, depending on how you wish to use ScaffR.
+======
+<pre>install-package ScaffR.Pipeline</pre>
+Dependencies (1)
+=====
 
-Core Package
------
-To use the low-level libraries, you just need to install the core package
+ScaffR Packages
+------
+* [ScaffR (1.1.2)](https://github.com/wcpro/ScaffR/tree/master/src/ScaffR)
 
-<pre>install-package ScaffR.Core</pre>
-
-High-Level Package
------
-The high-level package uses the low-level packages and builds more complicated architectural patterns.
-
-<pre>install-package ScaffR</pre>
+Other Packages
+------

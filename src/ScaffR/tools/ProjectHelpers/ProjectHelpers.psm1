@@ -4,6 +4,15 @@
 #https://entlibcontrib.svn.codeplex.com/svn/Application%20Block%20Factory/BlockFactory/BlockFactory/Helpers/ProjectItemHelper.cs
 #http://msdn.microsoft.com/en-us/library/envdte.vscmtyperef(v=vs.100).aspx
 
+# initialize the global variables
+$global:baseProject = Get-Project
+$global:namespace = $baseProject.Properties.Item("DefaultNamespace").Value
+$global:rootNamespace = $namespace
+
+if ($namespace.LastIndexOf('.') -gt 0){ 
+	$global:rootNamespace = $namespace.Substring(0,$namespace.LastIndexOf('.'))
+}
+
 function Find-Class([string]$className){
 	$classElements = Find-AllClasses	
 	foreach ($class in $classElements){
@@ -12,6 +21,27 @@ function Find-Class([string]$className){
 		}
 	}
 }
+
+function Add-Project($projectName){
+    if(($DTE.Solution.Projects | Select-Object -ExpandProperty Name) -notcontains $projectName){
+    
+        $path = (get-solution).path
+        
+        $templatePath = (get-solution).object.GetProjectTemplate("ClassLibrary.zip","CSharp")	
+        		
+		(get-solution).object.AddFromTemplate($templatePath, $path+$projectName,$projectName)
+        
+		Get-ProjectItem "Class1.cs" -Project $projectName | %{ $_.Delete() }
+        
+		Install-Package EntityFramework -ProjectName $projectName -Version 5.0.0
+		
+		Get-ProjectItem "App.Config" -Project $projectName | %{ $_.Delete() }
+        
+        get-project $projectName
+	}        
+}
+
+
 
 function Find-AllClasses(){
 	$elements = Get-TopLevelElements
@@ -101,7 +131,7 @@ function Get-CMTypeRef([string]$modifier){
 }
 
 
-
+Export-ModuleMember Add-Project
 Export-ModuleMember Find-CodeElements
 Export-ModuleMember Find-AllClasses
 Export-ModuleMember Find-Class

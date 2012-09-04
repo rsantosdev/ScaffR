@@ -10,35 +10,6 @@
     }
 }
 
-function Add-Project($projectName){
-    if(($DTE.Solution.Projects | Select-Object -ExpandProperty Name) -notcontains $projectName){
-    
-        $path = (get-solution).path
-        
-        $templatePath = (get-solution).object.GetProjectTemplate("ClassLibrary.zip","CSharp")	
-        		
-		(get-solution).object.AddFromTemplate($templatePath, $path+$projectName,$projectName)
-        
-		$file = Get-ProjectItem "Class1.cs" -Project $projectName
-		$file.Remove()
-        
-		$testPath = $path + $projectName + "\Class1.cs"
-        
-		#Write-Host $testPath
-		if(Test-Path $testPath){
-			Remove-Item $testPath
-		}
-        
-        write-host "Successfully created project $projectName"
-
-		
-		Install-Package EntityFramework -ProjectName $projectName -Version 5.0.0
-		
-        
-        get-project $projectName
-	}        
-}
-
 function With-Reference($references){
     
     begin { $project }
