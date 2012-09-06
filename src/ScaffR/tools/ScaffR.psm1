@@ -2,7 +2,8 @@
     $global:baseProject = $project
     $global:namespace = $project.Properties.Item("DefaultNamespace").Value
     $dotIX = $namespace.LastIndexOf('.')
-    if ($dotIX -gt 0){ 
+    if ($dotIX -gt 0)
+	{ 
         $global:rootNamespace = $namespace.Substring(0,$namespace.LastIndexOf('.'))
     }
     else{

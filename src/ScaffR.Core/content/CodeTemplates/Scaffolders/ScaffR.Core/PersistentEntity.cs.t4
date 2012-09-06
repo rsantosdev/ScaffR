@@ -27,6 +27,9 @@ namespace <#= Model.Namespace #>.Core.Model
         [DataMember]
         public DateTime? Created { get; set; }
 
+		[Timestamp]
+		public byte[] RowVersion { get; set; }
+
         /// <summary>
         /// The time when the entity was last saved/updated.
         /// </summary>

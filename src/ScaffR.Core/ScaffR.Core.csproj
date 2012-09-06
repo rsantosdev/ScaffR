@@ -51,7 +51,7 @@
   <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\IValidationContainer.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\PersistentEntity.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Core\PersistentEntity.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ScaffR.Core.ps1" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ValidationContainer.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Core\ValidationEngine.cs.t4" />

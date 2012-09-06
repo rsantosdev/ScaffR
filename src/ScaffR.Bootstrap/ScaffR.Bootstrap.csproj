@@ -54,12 +54,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Bootstrap\CassetteConfiguration.cs.t4" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BuildPublishPackage.cmd" />
-    <Content Include="content\Content\img\glyphicons-halflings-white.png" />
-    <Content Include="content\Content\img\glyphicons-halflings.png" />
     <Content Include="content\Content\less\accordion.less" />
     <Content Include="content\Content\less\alerts.less" />
     <Content Include="content\Content\less\bootstrap.less" />
@@ -100,6 +98,11 @@
     <Content Include="content\Content\less\utilities.less" />
     <Content Include="content\Content\less\variables.less" />
     <Content Include="content\Content\less\wells.less" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Bootstrap\ScaffR.Bootstrap.ps1" />
+    <None Include="content\Content\custom\scaffr.less" />
+    <None Include="BuildPublishPackage.cmd" />
+    <Content Include="content\Content\img\glyphicons-halflings-white.png" />
+    <Content Include="content\Content\img\glyphicons-halflings.png" />
     <None Include="content\Content\Site.less" />
     <None Include="Package.nuspec" />
     <None Include="tools\init.ps1" />
@@ -109,7 +112,6 @@
     <None Include="NuGet.exe" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content\CodeTemplates\Scaffolding\WC.Infrastructure\" />
     <Folder Include="content\Scripts\" />
     <Folder Include="lib\" />
   </ItemGroup>

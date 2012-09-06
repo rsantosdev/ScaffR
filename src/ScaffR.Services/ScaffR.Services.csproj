@@ -46,6 +46,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\ClientFactory.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\IClientFactory.cs.t4" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,8 +55,8 @@
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\IService.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\ScaffR.Service.For.ps1" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\Service.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\BaseService.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\IService.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Services\BaseService.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Services\IService.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\ScaffR.Services.ps1" />
     <None Include="Package.nuspec" />
     <None Include="tools\init.ps1" />

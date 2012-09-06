@@ -32,6 +32,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Stateless", "ScaffR.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Services", "ScaffR.Services\ScaffR.Services.csproj", "{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.scaffr.com", "www.scaffr.com\www.scaffr.com.csproj", "{AF1C65D0-A194-454F-9DDB-E5D484153D71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.MVC", "ScaffR.MVC\ScaffR.MVC.csproj", "{840812F4-1E83-4FB0-B7C7-DF626A670D2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +94,14 @@ Global
 		{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1C65D0-A194-454F-9DDB-E5D484153D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1C65D0-A194-454F-9DDB-E5D484153D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1C65D0-A194-454F-9DDB-E5D484153D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1C65D0-A194-454F-9DDB-E5D484153D71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{840812F4-1E83-4FB0-B7C7-DF626A670D2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{840812F4-1E83-4FB0-B7C7-DF626A670D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{840812F4-1E83-4FB0-B7C7-DF626A670D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{840812F4-1E83-4FB0-B7C7-DF626A670D2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,3 +9,5 @@ param(
 Add-Template $coreProjectName "Interfaces\Service\IService" "IService" -Force:$Force $TemplateFolders
 
 Add-Template $serviceProjectName "BaseService" "BaseService" -Force:$Force $TemplateFolders
+Add-Template $serviceProjectName "IClientFactory" "IClientFactory" -Force:$Force $TemplateFolders
+Add-Template $serviceProjectName "ClientFactory" "ClientFactory" -Force:$Force $TemplateFolders
