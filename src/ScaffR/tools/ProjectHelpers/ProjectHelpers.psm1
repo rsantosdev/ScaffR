@@ -13,6 +13,206 @@ if ($namespace.LastIndexOf('.') -gt 0){
 	$global:rootNamespace = $namespace.Substring(0,$namespace.LastIndexOf('.'))
 }
 
+function With-Reference($references){
+    
+    begin { $project }
+
+    process{                 
+        $project = $_
+        if($project){        
+            $projectName = $project.ProjectName        
+            foreach ($reference in $references.split(",")){            
+                if(($DTE.Solution.Projects | Select-Object -ExpandProperty Name) -notcontains $reference){                                        
+                    $project.Object.References.Add($reference)                     
+                }
+                else{
+                    $project.Object.References.AddProject((Get-Project $reference))
+                }                            
+            }                    
+        }        
+    }
+}
+
+function With-Package($packages){
+    
+    begin { $project }
+
+    process{                 
+        $project = $_
+        if($project){        
+            $projectName = $project.ProjectName        
+            foreach ($package in $packages.split(",")){            
+                install-package $package -ProjectName $projectName                        
+            }                    
+        }        
+    }
+
+    end { return }
+}
+
+
+function Get-Solution(){
+
+    $solution = Get-Interface $dte.Solution ([EnvDTE80.Solution2])
+    $name = [System.IO.Path]::GetFilename($solution.FullName)
+    $path = $solution.FullName.Replace($name,'').Replace('\\','\')	
+    
+    $sln = @()
+    
+    $obj = new-object System.Object
+    
+    $obj | add-member -MemberType noteproperty `
+                      -Name Object  `
+                      -Value $solution
+                      
+    $obj | add-member -MemberType noteproperty `
+                      -Name Name  `
+                      -Value $name
+    
+    $obj | add-member -MemberType noteproperty `
+                      -Name Path `
+                      -Value $path
+    
+    $sln += $obj
+    
+    return $sln
+}
+
+function Get-File([string]$ProjectName, [string]$Folder = "", [string]$FileName){
+	$path = (get-solution).path	
+	return $path.Trim() + $ProjectName.Trim() + $Folder.Trim() + $FileName.Trim()	
+}
+
+
+function Add-Template($projectName, $outputPath, $template, [switch]$force, $templateFolders){
+	Add-ProjectItemViaTemplate $outputPath -Template $template `
+		-Model @{ Namespace = $namespace } `
+		-SuccessMessage "Successfully Added $template at {0}" `
+		-Project $projectName `
+		-Force:$Force `
+		-TemplateFolders $templateFolders
+}
+
+function Add-TemplateWithModel($projectName, $outputPath, $template, $model, $force, $templateFolders){
+		
+	Add-ProjectItemViaTemplate $outputPath -Template $template `
+		-Model $model `
+		-SuccessMessage "Successfully Added $template at {0}" `
+		-Project $projectName `
+		-Force:$Force `
+		-TemplateFolders $templateFolders
+}
+
+function Add-CodeToMethod([string]$ProjectName, [string]$Folder = "", [string]$FileName,[string]$ClassName, [string]$MethodName, [string]$Code){
+
+	$filepath = Get-File $ProjectName $Folder $FileName	
+	$file = $DTE.Solution.FindProjectItem($filepath)
+	if($file -eq $null){
+		return
+	}
+	$file.Open().Activate()
+		
+	$ns = $DTE.ActiveDocument.ProjectItem.FileCodeModel.CodeElements | Where-Object{$_.Kind -eq 5}
+	$classes = $ns | ForEach{$_.Children}	
+	$classes | ForEach{	
+		if(!($_.Name -eq $null)){						
+			if($_.Name -eq $ClassName){
+				$_.Children | ForEach{
+					if($_.Name -eq $MethodName){	
+						$addCode = $true
+						$edit = $_.EndPoint.CreateEditPoint()
+						$edit.GetLines($_.StartPoint.Line,$_.EndPoint.Line).split("`n") | ForEach{													
+							if($_.Contains($Code)){								
+								$addCode = $false
+							}
+						}												
+						if($addCode -eq $true){
+							$edit.StartOfLine()																	
+							$edit.Insert($Code)
+						}
+					}					
+				}	
+			}
+		}
+	}	
+	$DTE.ExecuteCommand("Edit.FormatDocument")
+	$file.Save()	
+	#$file.Close()
+}
+
+
+function Add-Namespace([string]$ProjectName, [string]$Folder = "", [string]$FileName,[string]$Namespace){
+
+	$filepath = Get-File $ProjectName $Folder $FileName
+	
+	$file = $DTE.Solution.FindProjectItem($filepath)
+	$file.Open().Document.Activate()
+	
+	$checkForThis = "using $($Namespace);" 
+	$exists = $false
+	
+	Get-Content $filepath | foreach-Object {  if($_.Contains($checkForThis)){ $exists = $true }}
+	
+	if($exists -eq $false){
+		$DTE.ActiveDocument.Selection.StartOfDocument()
+		$DTE.ActiveDocument.Selection.NewLine()
+		$DTE.ActiveDocument.Selection.LineUp()
+		$DTE.ActiveDocument.Selection.Insert($checkForThis)
+		$DTE.ExecuteCommand("Edit.FormatDocument")
+		$file.Save()
+	}	
+}
+
+function Get-Class($classname){
+
+	$namespaces = $DTE.Documents | ForEach{$_.ProjectItem.FileCodeModel.CodeElements | Where-Object{$_.Kind -eq 5}}	
+	#Write-Host $classname
+	$classes = $namespaces | ForEach{$_.Children}
+	$ret = $null
+	#Write-Host $classes
+	$classes | ForEach{	
+		if(!($_.Name -eq $null)){						
+			if($_.Name.Trim() -eq $classname){					
+				$ret = $_
+			}
+		}
+	}		
+	#Write-Host $ret
+	return $ret
+}
+
+function Get-Properties($type){
+	if($type -eq $null){
+		Write-Host "You have to provide a DTE class. Use Get-Domain 'BaseClass' or Get-Class 'classname' to get the class(es) you want"
+		return $null
+	}
+	return ForEach{$type.Children | Where-Object{$_.Kind -eq 4}}
+}
+
+function Get-LineOfMethod([string]$type, [string]$methodName){	
+	
+	$t = Get-Class($type)
+	$ret = $null
+	$t.Children | ForEach{
+		if($_.Name -eq $methodName){
+			Write-Host "Method found"
+			Write-Host $_
+			$ret = $_.EndPoint.Line
+		}
+	}	
+	return $ret	
+}
+
+function Add-Text([string]$type = "", [string]$methodName, [string]$text){		
+	$m = Get-LineOfMethod($type,$methodName)
+	Write-Host $m
+	return $m	
+}
+
+function Has-Package($project, $package){
+	return (get-package | Select-Object -ExpandProperty ID) -contains $package;
+}
+
 function Find-Class([string]$className){
 	$classElements = Find-AllClasses	
 	foreach ($class in $classElements){
@@ -31,21 +231,22 @@ function Add-Project($projectName){
         		
 		(get-solution).object.AddFromTemplate($templatePath, $path+$projectName,$projectName)
         
-		Get-ProjectItem "Class1.cs" -Project $projectName | %{ $_.Delete() }
+		Get-ProjectItem "Class1.cs" `
+			-Project $projectName | % { $_.Delete() }
         
-		Install-Package EntityFramework -ProjectName $projectName -Version 5.0.0
+		Install-Package EntityFramework `
+			-ProjectName $projectName -Version 5.0.0
 		
-		Get-ProjectItem "App.Config" -Project $projectName | %{ $_.Delete() }
+		Get-ProjectItem "App.Config" `
+			-Project $projectName | % { $_.Delete() }
         
         get-project $projectName
-	}        
+	}
 }
 
-
-
 function Find-AllClasses(){
-	$elements = Get-TopLevelElements
-	Find-CodeElements $elements 'class'
+	$namespaces = $DTE.Documents | ForEach{$_.ProjectItem.FileCodeModel.CodeElements | Where-Object{$_.Kind -eq 5}}		
+	$namespaces | ForEach {$_.Children}
 }
 
 function Find-CodeElements($elements, [string]$type) {	
@@ -57,9 +258,11 @@ function Find-CodeElements($elements, [string]$type) {
 	}
 }
 
-function Find-SuperClasses([string]$baseClass){
-	$classes = Find-AllClasses
-	$classes | % { $_.Bases | ? { $_.FullName -eq $baseClass} }
+function Find-SuperClasses{
+	param (
+		$baseClass
+	)
+	Find-AllClasses | Where-Object { $_.Bases | Where-Object { $_.FullName -eq $baseClass} }
 }
 
 function Add-Variable([string]$className, [string]$access, [string]$type, [string]$variableName, $value)
@@ -130,14 +333,17 @@ function Get-CMTypeRef([string]$modifier){
 	return [int]$enumValue
 }
 
+function Remove-Usings {
+    $dte.ExecuteCommand("ProjectandSolutionContextMenus.Project.RemoveandSortUsings")
+}
 
-Export-ModuleMember Add-Project
-Export-ModuleMember Find-CodeElements
-Export-ModuleMember Find-AllClasses
-Export-ModuleMember Find-Class
-Export-ModuleMember Find-SuperClasses
-Export-ModuleMember Add-Variable
-Export-ModuleMember Add-Var
-Export-ModuleMember Get-TopLevelElements
-Export-ModuleMember Re-Import
+function Find-Symbol {
+    param(
+        [parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]$Name
+    )
 
+    $dte.ExecuteCommand("Edit.FindSymbol", $Name)
+}
+
+Export-ModuleMember -Function *

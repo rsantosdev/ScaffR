@@ -53,7 +53,7 @@
     <Compile Include="content\CodeTemplates\Scaffolders\www.scaffr.com\DeployInfo.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\www.scaffr.com\www.scaffr.com.ps1" />
     <Compile Include="content\CodeTemplates\Scaffolders\www.scaffr.com\Web.Debug.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\www.scaffr.com\Web.Release.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\www.scaffr.com\Web.Release.cs.t4" />
     <None Include="content\Web.config.transform">
       <SubType>Designer</SubType>
     </None>

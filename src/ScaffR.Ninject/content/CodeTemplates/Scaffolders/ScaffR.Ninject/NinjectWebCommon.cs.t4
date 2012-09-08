@@ -1,0 +1,55 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+[assembly: WebActivator.PreApplicationStartMethod(typeof(<#= Model.Namespace #>.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(<#= Model.Namespace #>.App_Start.NinjectWebCommon), "Stop")]
+
+namespace <#= Model.Namespace #>.App_Start
+{
+    using System;
+    using System.Web;
+    using System.Web.Http;
+
+    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+    
+	using <#= Model.Namespace #>.Core.Interfaces.Data;
+	using <#= Model.Namespace #>.Core.Interfaces.Service;
+    using <#= Model.Namespace #>.Data;
+	using <#= Model.Namespace #>.Resolvers;
+	using <#= Model.Namespace #>.Service;	
+
+    using Ninject;
+    using Ninject.Web.Common;
+
+    public static class NinjectWebCommon
+    {
+        private static readonly Bootstrapper _bootstrapper = new Bootstrapper();
+
+        public static void Start()
+        {
+            DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
+            DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
+            _bootstrapper.Initialize(CreateKernel);
+        }
+
+        public static void Stop()
+        {
+            _bootstrapper.ShutDown();
+        }
+
+        private static IKernel CreateKernel()
+        {
+            var kernel = new StandardKernel();
+            kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+            kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+			GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
+            RegisterServices(kernel);
+            return kernel;
+        }
+
+        private static void RegisterServices(IKernel kernel)
+        {
+            kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>().InRequestScope();
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
+        }
+    }
+}

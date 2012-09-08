@@ -6,15 +6,4 @@ param(
 	[switch]$Force = $false
 )
 
-$namespaces = $DTE.Documents | ForEach{$_.ProjectItem.FileCodeModel.CodeElements | Where-Object{$_.Kind -eq 5}}
-	
-$classes = $namespaces | ForEach{$_.Children}
-
-$classes | ForEach{
-	$current = $_
-	$_.Bases | ForEach{
-		if($_.Name -eq "PersistentEntity"){
-			Scaffold ScaffR.Backend.For $current.Name -Force:$Force
-		}
-	}		
-}
+Get-Domain | % { scaffold ScaffR.Backend.For $_.Name -Force:$Force }

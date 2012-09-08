@@ -21,7 +21,6 @@ using <#= ns #>;
 <#
 }
 #>
-using System.Web.Mvc;
 
 namespace <#= Model.Namespace #>.Controllers
 {   

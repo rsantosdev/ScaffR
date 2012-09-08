@@ -2,4 +2,4 @@
 
 $global:coreProjectName = $rootnamespace + ".Core"
 
-Import-Module (Join-Path $toolsPath "ScaffR.Core.psm1")
+Import-Module (Join-Path $toolsPath "CoreHelpers/CoreHelpers.psm1")

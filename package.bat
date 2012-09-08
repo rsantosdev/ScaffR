@@ -19,3 +19,5 @@ for /R %%i in (*.nuspec) do (
  %NUGET% pack %%i -o %path% -Version 1.1.2
 
 )
+
+pause

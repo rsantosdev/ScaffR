@@ -54,7 +54,7 @@
     <None Include="BuildPublishPackage.cmd" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\IService.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\ScaffR.Service.For.ps1" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\Service.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\Service.cs.t4" />
     <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Services\BaseService.cs.t4" />
     <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Services\IService.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\ScaffR.Services.ps1" />

@@ -16,13 +16,13 @@
     <copyright>World-Class Programmers 2012</copyright>
     <tags></tags>
     <dependencies>
-      <dependency id="Cassette.Less" version="2.0.0" />
       <dependency id="ScaffR" version="1.1.2" />
+      <dependency id="Cassette.AspNet" version="2.0.0" />
+      <dependency id="Cassette.Less" version="2.0.0" />
       <dependency id="T4Scaffolding" version="1.0.6" />
     </dependencies>
   </metadata>
   <files>
-    <file src="lib\**" target="lib" />
     <file src="tools\**" target="tools" />
     <file src="content\**" target="content" />
   </files>

@@ -10,6 +10,10 @@ if(!(Test-Path $App_Data)){
 	$baseProject.ProjectItems.AddFolder("App_Data")
 }
 
-Install-Package EntityFramework.SqlServerCompact -Version 4.3.3
-
 Scaffold ScaffR.Data
+
+Enable-Migrations -EnableAutomaticMigrations -ProjectName $dataProjectName
+
+Add-Migration "Database Created" -ProjectName $dataProjectName
+
+update-database -ProjectName $dataProjectName

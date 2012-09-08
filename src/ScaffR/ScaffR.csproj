@@ -58,7 +58,6 @@
     <None Include="Package.nuspec" />
     <None Include="tools\ProjectHelpers\ProjectHelpers.psm1" />
     <None Include="tools\XmlHelpers\XmlHelpers.psm1" />
-    <None Include="tools\ScaffR.psm1" />
     <None Include="tools\install.ps1" />
     <None Include="tools\init.ps1" />
     <None Include="NuGet.exe" />

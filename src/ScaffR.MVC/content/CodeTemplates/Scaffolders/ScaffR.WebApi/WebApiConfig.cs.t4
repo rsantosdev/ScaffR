@@ -1,0 +1,16 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.App_Start
+{
+    using System.Web.Http;
+
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            config.Routes.MapHttpRoute("API Default", "api/{controller}/{id}", new { id = RouteParameter.Optional });
+            config.Formatters.XmlFormatter.UseXmlSerializer = true;
+            config.Formatters.JsonFormatter.UseDataContractJsonSerializer = true;
+        }
+    }
+}

@@ -16,15 +16,11 @@
     <copyright>ScaffR, 2012</copyright>
     <tags></tags>
     <dependencies>
-      <dependency id="WebActivator" version="1.5" />
-      <dependency id="T4Scaffolding" version="1.0.6" />
-      <dependency id="Ninject.MVC3" version="2.2.2.0" />
-      <dependency id="ScaffR" version="1.1.2" />
-      <dependency id="ScaffR.Data" version="1.1.2" />
+      <dependency id="Ninject.MVC3" version="" />
+      <dependency id="ScaffR.Core" version="" />
     </dependencies>
   </metadata>
   <files>
-    <file src="lib\**" target="lib" />
     <file src="tools\**" target="tools" />
     <file src="content\**" target="content" />
   </files>

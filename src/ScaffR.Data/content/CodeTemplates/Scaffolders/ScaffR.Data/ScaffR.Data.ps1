@@ -24,6 +24,9 @@ Add-Template $coreProjectName $outputPath "IPage" -Force:$Force $TemplateFolders
 $outputPath = "Common\Paging\Page"
 Add-Template $coreProjectName $outputPath "Page" -Force:$Force $TemplateFolders
 
+#$outputPath = "Migrations\Configuration"
+#Add-Template $dataProjectName $outputPath "Configuration" -Force:$Force $TemplateFolders
+
 Add-Template $dataProjectName "BaseRepository" "BaseRepository" -Force:$Force $TemplateFolders
 Add-Template $dataProjectName "UnitOfWork" "UnitOfWork" -Force:$Force $TemplateFolders
 Add-Template $dataProjectName "DatabaseFactory" "DatabaseFactory" -Force:$Force $TemplateFolders

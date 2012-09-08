@@ -26,6 +26,3 @@ Add-ProjectItemViaTemplate $outputPath -Template Controller `
 	} `
 	-SuccessMessage "Added Controller of $ModelType output at {0}" `
 	-TemplateFolders $TemplateFolders -Project $baseProject.Name -CodeLanguage $CodeLanguage -Force:$Force
-
-scaffold ScaffR.Backend.For $ModelType
-scaffold ScaffR.Manager.For $ModelType

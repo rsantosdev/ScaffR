@@ -1,0 +1,30 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="asax.cs" #>
+namespace <#= Model.Namespace #>
+{
+	using System.Web.Mvc;
+	using System.Web.Routing;
+
+	using <#= Model.Namespace #>.App_Start;
+
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+			FilterConfig.RegisterGlobalFilters(filters);
+        }
+
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+            RouteConfig.RegisterRoutes(routes);
+        }
+
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+
+            RegisterGlobalFilters(GlobalFilters.Filters);
+            RegisterRoutes(RouteTable.Routes);
+        }
+    }
+}

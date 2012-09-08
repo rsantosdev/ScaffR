@@ -46,6 +46,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Data\Migrations\Configuration.cs.t4" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,7 +86,7 @@
     <Folder Include="lib\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="content\CodeTemplates\Scaffolders\ScaffR.Data\license.txt" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Data\license.txt" />
     <Content Include="NuGet.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -55,6 +55,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Ninject\NinjectWebCommon.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Ninject\ScaffR.Ninject.For.ps1" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Ninject\ScaffR.Ninject.ps1" />
     <None Include="Package.nuspec">
@@ -65,11 +66,18 @@
     <None Include="tools\uninstall.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="lib\" />
+    <Folder Include="content\App_Start\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NuGet.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="content\Resolvers\NinjectResolver.cs.pp" />
+    <None Include="content\Resolvers\NinjectScope.cs.pp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
