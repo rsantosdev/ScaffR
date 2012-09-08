@@ -46,20 +46,20 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\RouteConfig.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\FilterConfig.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Website\RouteConfig.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Website\FilterConfig.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\ScaffR.WebApi.ps1" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\WebApiConfig.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\WebApiConfig.cs.t4" />
     <None Include="content\Areas\Api\ApiAreaRegistration.cs.pp" />
     <None Include="content\Areas\Api\Controllers\ApiController.cs.pp" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Frontend.For.ps1" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Frontend.ps1" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\ScaffR.WebApi.For.ps1" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\Global.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Website\Global.cs.t4" />
     <None Include="content\Controllers\BaseController.cs.pp" />
     <None Include="Properties\AssemblyInfo.cs" />
     <None Include="BuildPublishPackage.cmd" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Controller.For\Controller.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Controller.For\Controller.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Controller.For\ScaffR.Controller.For.ps1" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Manager.For\Manager.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Manager.For\ScaffR.Manager.For.ps1" />
