@@ -1,0 +1,15 @@
+﻿<configuration>
+
+  <configSections>
+    <sectionGroup name="$rootnamespace$">
+      <section name="$rootnamespace$.WebApi" type="$rootnamespace$.WebApi.WebApiSection, $rootnamespace$.WebApi" />
+    </sectionGroup>
+  </configSections>
+  <$rootnamespace$>
+    <$rootnamespace$.WebApi>
+      <providers>
+      </providers>
+    </$rootnamespace$.WebApi>
+  </$rootnamespace$>
+
+</configuration>

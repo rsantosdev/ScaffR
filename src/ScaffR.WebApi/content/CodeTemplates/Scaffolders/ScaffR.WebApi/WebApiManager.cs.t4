@@ -1,0 +1,41 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.WebApi
+{
+    using System.Web.Configuration;
+
+    public partial class WebApiManager
+    {
+        private static readonly object _lock = new object();
+
+        private static WebApiProviderCollection _providers;
+
+        public static WebApiProviderCollection Providers
+        {
+            get
+            {
+                LoadProviders();
+                return _providers;
+            }
+        }
+
+        private static void LoadProviders()
+        {
+            if (_providers == null)
+            {
+                lock (_lock)
+                {
+                    if (_providers == null)
+                    {
+                        var section =
+                            (WebApiSection)
+                            WebConfigurationManager.GetSection("<#= Model.Namespace #>/<#= Model.Namespace #>.WebApi");
+
+                        _providers = new WebApiProviderCollection();
+                        ProvidersHelper.InstantiateProviders(section.Providers, _providers, typeof(WebApiProvider));
+                    }
+                }
+            }
+        }
+    }
+}

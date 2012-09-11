@@ -1,0 +1,25 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.WebApi
+{
+    using System;
+    using System.Configuration.Provider;
+
+    public class WebApiProviderCollection : ProviderCollection
+    {
+        public new WebApiProvider this[string name]
+        {
+            get { return (WebApiProvider)base[name]; }
+        }
+
+        public override void Add(ProviderBase provider)
+        {
+            if (provider == null)
+                throw new ArgumentNullException("provider");
+
+            if (!(provider is WebApiProvider)) throw new ArgumentException("Invalid provider type", "provider");
+
+            base.Add(provider);
+        }
+    }
+}

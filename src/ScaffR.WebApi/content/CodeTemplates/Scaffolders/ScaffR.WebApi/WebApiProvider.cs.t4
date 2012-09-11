@@ -1,0 +1,122 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.WebApi
+{
+    using System;
+    using System.Configuration.Provider;
+
+    public class WebApiProvider : ProviderBase
+    {
+        private Uri _baseUri;
+        public Uri BaseUri
+        {
+            get
+            {
+                return this._baseUri;
+            }
+        }
+
+        private string _contentType;
+        public string ContentType
+        {
+            get
+            {
+                return this._contentType;
+            }
+        }
+
+        private string _acceptType;
+        public string AcceptType
+        {
+            get
+            {
+                return this._acceptType;
+            }
+        }
+
+        private string _username;
+        public string Username
+        {
+            get
+            {
+                return this._username;
+            }
+        }
+
+        private string _password;
+        public string Password
+        {
+            get
+            {
+                return this._password;
+            }
+        }
+
+        public override void Initialize(string name, System.Collections.Specialized.NameValueCollection config)
+        {
+            if (config == null)
+            {
+                throw new ArgumentNullException("config");
+            }
+
+            if (string.IsNullOrEmpty(name))
+            {
+                name = "WebApi";
+            }
+
+            if (string.IsNullOrWhiteSpace(config["description"]))
+            {
+                config.Remove("description");
+                config.Add("description", "Payment provider for Authorize.Net");
+            }
+
+            base.Initialize(name, config);
+
+            this._baseUri = new Uri(config["baseUri"]);
+            if (this._baseUri == null)
+            {
+                throw new ProviderException("Missing or invalid baseUri");
+            }
+
+            config.Remove("baseUri");
+
+            this._acceptType = config["acceptType"];
+            if (string.IsNullOrEmpty(this._acceptType))
+            {
+                throw new ProviderException("Empty or missing Accept Type");
+            }
+
+            config.Remove("acceptType");
+
+            this._contentType = config["contentType"];
+            if (string.IsNullOrEmpty(this._contentType))
+            {
+                throw new ProviderException("Empty or missing Content Type");
+            }
+            config.Remove("contentType");
+
+            this._username = config["username"];
+            if (string.IsNullOrEmpty(this._username))
+            {
+                throw new ProviderException("Empty or missing Username");
+            }
+            config.Remove("username");
+
+            this._password = config["password"];
+            if (string.IsNullOrEmpty(this._contentType))
+            {
+                throw new ProviderException("Empty or missing Password");
+            }
+            config.Remove("password");
+
+            if (config.Count > 0)
+            {
+                var attr = config.GetKey(0);
+                if (!string.IsNullOrWhiteSpace(attr))
+                {
+                    throw new ProviderException("Unrecognized attribute: " + attr);
+                }
+            }
+        }
+    }
+}

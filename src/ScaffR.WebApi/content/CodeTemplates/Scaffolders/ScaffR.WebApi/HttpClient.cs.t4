@@ -1,0 +1,56 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.WebApi
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+
+    public class HttpClient<T> : HttpClient
+    {
+        public HttpClient(Uri uri, string path)
+        {
+            this.BaseAddress = new Uri(uri, path);
+            this.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));            
+        }
+
+        public T Get(int id)
+        {
+            var response = this.GetAsync(new Uri(this.BaseAddress, id.ToString())).Result;
+            response.EnsureSuccessStatusCode();
+            return response.Content.ReadAsAsync<T>().Result;
+        }
+
+        public IEnumerable<T> Get()
+        {
+            var response = this.GetAsync(this.BaseAddress).Result;
+            response.EnsureSuccessStatusCode();
+            return response.Content.ReadAsAsync<IEnumerable<T>>().Result;
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public HttpResponseMessage Post(T entity)
+        {
+            var response = this.PostAsJsonAsync(this.BaseAddress.PathAndQuery, entity).Result;            
+            return response;
+        }
+
+        public HttpResponseMessage Put(int id, T entity)
+        {
+            //entity.Id = id;
+            var response = this.PutAsJsonAsync(this.BaseAddress.PathAndQuery, entity).Result;
+            response.EnsureSuccessStatusCode();
+            return response;
+        }
+
+        public IEnumerable<T> Page(int page, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
