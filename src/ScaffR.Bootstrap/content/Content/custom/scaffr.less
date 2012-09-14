@@ -1,7 +1,11 @@
-﻿body
+﻿@import "../less/mixins.less";
+@import "../less/elements.less";
+
+body
 {
-    padding-top: 45px;
     padding-bottom: 40px;
+	background-image: url('../images/bg-noise-s.jpg');
+	background-repeat: repeat-x;
 }
 
 .nav{
@@ -11,28 +15,28 @@
 		}
 	}
 }
-.hero-unit{
-	padding-top: 30px;
-	margin-bottom: 30px;
-	padding-bottom: 1px;
-	border-radius: 0;
-	margin-top: -20px;
-	background-image: url('images/hero-bg.png');
+#overview{
+	padding-top: 60px;
 }
+.hero-unit{
+	border-radius: 0;
+	margin-bottom: 20px;
+	text-shadow: #333 2px 2px 2px;	
+	.gradient(blue, red, maroon);
+	.rounded(20px);
+	color: white;
+	p{
+		font-size: 28px;
+		line-height: 34px;
+		margin-top: 10px;
+	}
+	.actions{
+		padding-top: 20px;
+	}
 
-.slide2{
-	background-image: url('images/slide-2.png'); 
-	background-repeat: no-repeat;
-	height: 300px;
-	margin-top: 90px;
-	h1{
-		margin-left: 276px;
-		font-size: 50px;
-	}
-	h2{
-		margin-left: 276px;
-		font-size: 60px;
-	}
+}
+.hero-content{
+	text-align: center;
 }
 
 .well.feature{
@@ -43,10 +47,64 @@
 	padding-top: 10px;
 }
 
-.carousel{
+#notifications th.right, #notifications td.right{
+	text-align: right;
+}
+#social-buttons{
+	padding-bottom: 20px;
+	text-align: center;
+	border-bottom: 1px solid #999;
+	.watch, .fork, .follow{
+		margin-right: 30px;
+	}
+}
+#features
+{ 
+	.row{
+		margin-bottom: 20px;
+		i{
+			margin-right: 5px;
+		}
+	}
+}
+#case-studies
+{ 
+	padding-top: 40px;
+	.row{
+		margin-bottom: 20px;
+		i{
+			margin-right: 5px;
+		}
+	}
+}
+footer{
+	border-top: 1px solid #999;
+	margin-top: 20px;
+	padding-top: 20px;
+}
+.tab-content{
+	background-color: #fff;
+	padding: 10px;
+}
+.nav-tabs{
 	margin-bottom: 0;
 }
 
-#notifications th.right, #notifications td.right{
-	text-align: right;
+.form-actions, .breadcrumb{
+	border: 1px solid #DDDDDD;
+	.rounded(10px);
+}
+
+.nuget-badge{
+
+	code{
+		background-color: black;
+		color: white;
+		border: none;
+		font-size: 25px;
+	background-color: black;
+	padding: 10px;
+	text-shadow: none;
+	border: 3px solid white;
+	}
 }

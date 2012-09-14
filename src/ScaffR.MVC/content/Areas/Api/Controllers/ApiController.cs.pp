@@ -37,11 +37,20 @@ namespace $rootnamespace$.Areas.Api.Controllers
             this.Service.Delete(entity);
         }
 
+        public HttpResponseMessage Post(T entity)
+        {
+            this.Service.SaveOrUpdate(entity);
+            var response = new HttpResponseMessage(HttpStatusCode.Created);
+            string uri = Url.Link("DefaultApi", new { id = entity.Id });
+            response.Headers.Location = new Uri(uri);
+            return this.Get(entity.Id);
+        }
+
         public HttpResponseMessage Put(T entity)
         {
             this.Service.SaveOrUpdate(entity);
             var response = Request.CreateResponse(HttpStatusCode.Created, entity);
-            string uri = Url.Link("Api", new { id = entity.Id });
+            string uri = Url.Link("DefaultApi", new { id = entity.Id });
             response.Headers.Location = new Uri(uri);
             return response;
         }

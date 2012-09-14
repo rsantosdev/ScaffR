@@ -50,7 +50,7 @@
     <None Include="content\CodeTemplates\Scaffolders\Provider\AbstractProvider.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\Provider\ProviderCollection.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\Provider\ProviderManager.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\Provider\ProviderSection.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\Provider\ProviderSection.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\Provider\Provider.ps1" />
     <None Include="content\Web.config.transform">
       <SubType>Designer</SubType>

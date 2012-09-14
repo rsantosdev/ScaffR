@@ -7,7 +7,9 @@ namespace <#= Model.Namespace #>.Data
 
 	public partial class <#= Model.ClassName #>Repository : BaseRepository<<#= Model.ClassName #>>, I<#= Model.ClassName #>Repository
     {
-		public <#= Model.ClassName #>Repository(IDatabaseFactory databaseFactory):base(databaseFactory){}
-		//Implement custom code in a partial class
+		public <#= Model.ClassName #>Repository(IDatabaseFactory databaseFactory)
+	        : base(databaseFactory)
+	    {
+	    }
 	}
 }

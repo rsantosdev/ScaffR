@@ -57,8 +57,8 @@
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Pipeline\IConfigInitializer.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Pipeline\IProcessor.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Pipeline\PipelineActivator.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Pipeline\PipelineSection.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Pipeline\ProcessorSectionSettings.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Pipeline\PipelineSection.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Pipeline\ProcessorSectionSettings.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Pipeline\ProcessorSectionSettingsCollection.cs.t4" />
   </ItemGroup>
   <ItemGroup>

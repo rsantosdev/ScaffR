@@ -7,33 +7,14 @@ namespace <#= Model.Namespace #>.Core.Model
     using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// Properties common for all entities with CRUD behavior.
-    /// </summary>
-    [Serializable]
-    [DataContract]
     public abstract class PersistentEntity : IValidatableObject
     {
-        /// <summary>
-        /// The primary key for all entities...
-        /// </summary>
-        [DataMember]
-        [Key]
         public int Id { get; set; }
 
-        /// <summary>
-        /// The time when the entity was first created.
-        /// </summary>
-        [DataMember]
         public DateTime? Created { get; set; }
 
-		[Timestamp]
 		public byte[] RowVersion { get; set; }
 
-        /// <summary>
-        /// The time when the entity was last saved/updated.
-        /// </summary>
-        [DataMember]
         public DateTime? Updated { get; set; }
 
         public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

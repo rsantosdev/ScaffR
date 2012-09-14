@@ -52,7 +52,7 @@
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\WebApiProvider.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\WebApiProviderCollection.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\WebApiSection.cs.t4" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />

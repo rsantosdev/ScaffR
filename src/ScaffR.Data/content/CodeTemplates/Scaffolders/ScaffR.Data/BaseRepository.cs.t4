@@ -73,7 +73,7 @@ namespace <#= Model.Namespace #>.Data
         public IPage<T> Page(int page = 1, int pageSize = 10)
         {
             var internalPage = page - 1;
-            var data = this._dbset.OrderBy(k => k.Id).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
+            var data = this._dbset.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
             return new Page<T>(data, this._dbset.Count(), pageSize, page);
         }
 

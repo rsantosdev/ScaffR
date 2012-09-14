@@ -58,7 +58,7 @@
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateMachine.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateMachineResources.Designer.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateReference.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateRepresentation.cs.t4" />
+    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateRepresentation.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\StateRepresentationResources.Designer.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\Transition.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Stateless\TransitioningTriggerBehaviour.cs.t4" />
