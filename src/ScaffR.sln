@@ -44,6 +44,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Sample", "ScaffR.Sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.WebApi", "ScaffR.WebApi\ScaffR.WebApi.csproj", "{8B96D15D-5A98-483E-B889-532E87866A85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.T4Scaffolding", "ScaffR.T4Scaffolding\ScaffR.T4Scaffolding.csproj", "{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +128,10 @@ Global
 		{8B96D15D-5A98-483E-B889-532E87866A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B96D15D-5A98-483E-B889-532E87866A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B96D15D-5A98-483E-B889-532E87866A85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,23 +1,22 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>ScaffR</id>
-    <version>1.1.2</version>
-    <authors>Rod Johnson, Ulf Bjorklund</authors>
-    <owners>World-Class Programmers, LLC</owners>
-    <projectUrl>https://github.com/wcpro/ScaffR</projectUrl>
+    <id>T4Scaffolding</id>
+    <version>9.9.9</version>
+    <authors>Rod Johnson</authors>
+    <owners>ScaffR</owners>
+    <projectUrl>http://www.github.com/wcpro/scaffr</projectUrl>
     <iconUrl>http://www.scaffr.com/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Installs the powershell commands that make ScaffR work
+      Description required.
     </description>
     <releaseNotes>
     </releaseNotes>
-    <copyright>World-Class Programmers 2012</copyright>
+    <copyright>ScaffR, 2012</copyright>
     <tags></tags>
     <dependencies>
-      <dependency id="T4Scaffolding" />
-     <dependency id="EntityFramework" version="5.0.0" />
+      <dependency id="EntityFramework"/>
     </dependencies>
   </metadata>
   <files>
