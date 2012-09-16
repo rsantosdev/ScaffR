@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708}</ProjectGuid>
+    <ProjectGuid>{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScaffR.Services</RootNamespace>
-    <AssemblyName>ScaffR.Services</AssemblyName>
+    <RootNamespace>ScaffR.MVC.Shell</RootNamespace>
+    <AssemblyName>ScaffR.MVC.Shell</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -46,24 +46,41 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\ClientFactory.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\IClientFactory.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\Application\WebApplication.cs.t4" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\IService.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\ScaffR.Service.For.ps1" />
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Service.For\Service.cs.t4" />
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Services\BaseService.cs.t4" />
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Services\IService.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Services\ScaffR.Services.ps1" />
+    <None Include="content\Areas\Api\ApiAreaRegistration.cs.pp" />
+    <None Include="content\Areas\Api\Controllers\ApiController.cs.pp" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Controller.For\Controller.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Controller.For\ScaffR.Controller.For.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Frontend.For.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Frontend.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Manager.For\Manager.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Manager.For\ScaffR.Manager.For.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Page.For\ScaffR.Page.For.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Page.For\ScaffR.Pages.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\ConcreteApiController.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\ScaffR.WebApi.For.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\ScaffR.WebApi.ps1" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.WebApi\WebApiConfig.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\FilterConfig.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\Global.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\RouteConfig.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\ScaffR.Website.ps1" />
+    <None Include="content\Controllers\BaseController.cs.pp" />
+    <None Include="content\Web.config.transform">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Package.nuspec" />
     <None Include="tools\init.ps1" />
     <None Include="tools\install.ps1" />
     <None Include="tools\uninstall.ps1" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="NuGet.exe" />
   </ItemGroup>

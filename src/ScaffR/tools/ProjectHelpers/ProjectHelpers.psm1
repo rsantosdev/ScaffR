@@ -308,10 +308,6 @@ function Get-TopLevelElements() {
 	$DTE.Solution.Projects | % { $_.ProjectItems | % { $_.FileCodeModel.CodeElements }}
 }
 
-function Re-Import(){
-	import-module ProjectHelpers -force
-}
-
 function Get-CMAccess([string]$modifier){
 	$modifier = (Get-Culture).TextInfo.ToTitleCase($modifier)
 	$enumName = "vsCMAccess$modifier"
@@ -344,6 +340,22 @@ function Find-Symbol {
     )
 
     $dte.ExecuteCommand("Edit.FindSymbol", $Name)
+}
+
+function Build-Project($Project){
+
+	if(!$Project){
+		$Project = (Get-Project)
+	}
+
+    $sb2 = Get-Interface $DTE.Solution.SolutionBuild ([EnvDTE80.SolutionBuild2])
+    $config2 = Get-Interface $sb2.ActiveConfiguration ([EnvDTE80.SolutionConfiguration2])
+    $configName = $config2.Name + '|' + $config2.PlatformName
+	
+	$solutionPath = (Get-Solution).Path
+	$path = $Project.FullName.Replace($solutionPath,"")
+	
+    $sb2.BuildProject($configName, $path, $true)
 }
 
 Export-ModuleMember -Function *

@@ -61,7 +61,6 @@
     <None Include="tools\uninstall.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="lib\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

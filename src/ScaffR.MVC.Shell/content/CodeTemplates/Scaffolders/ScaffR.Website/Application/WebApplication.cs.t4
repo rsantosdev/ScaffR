@@ -1,0 +1,10 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Application
+{
+    using System.Web;
+
+    public partial class WebApplication : HttpApplication
+    {
+    }
+}

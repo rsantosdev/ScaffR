@@ -82,9 +82,7 @@
     <None Include="tools\install.ps1" />
     <None Include="tools\uninstall.ps1" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Data\license.txt" />
     <Content Include="NuGet.exe" />

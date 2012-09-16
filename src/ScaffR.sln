@@ -42,9 +42,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Sitemap", "ScaffR.Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Sample", "ScaffR.Sample\ScaffR.Sample.csproj", "{C99EE612-5215-4A3F-8C8C-68AC3DCE145B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.WebApi", "ScaffR.WebApi\ScaffR.WebApi.csproj", "{8B96D15D-5A98-483E-B889-532E87866A85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.MVC.WebApi", "ScaffR.WebApi\ScaffR.MVC.WebApi.csproj", "{8B96D15D-5A98-483E-B889-532E87866A85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.T4Scaffolding", "ScaffR.T4Scaffolding\ScaffR.T4Scaffolding.csproj", "{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.MVC.Shell", "ScaffR.MVC.Shell\ScaffR.MVC.Shell.csproj", "{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{C3B8C5E8-03C8-4A9B-94DE-F1F708A0FBCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,12 +130,17 @@ Global
 		{8B96D15D-5A98-483E-B889-532E87866A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B96D15D-5A98-483E-B889-532E87866A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B96D15D-5A98-483E-B889-532E87866A85}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F358AB13-019F-4BCE-BDBB-B67E02C15E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{840812F4-1E83-4FB0-B7C7-DF626A670D2D} = {C3B8C5E8-03C8-4A9B-94DE-F1F708A0FBCF}
+		{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5} = {C3B8C5E8-03C8-4A9B-94DE-F1F708A0FBCF}
+		{8B96D15D-5A98-483E-B889-532E87866A85} = {C3B8C5E8-03C8-4A9B-94DE-F1F708A0FBCF}
 	EndGlobalSection
 EndGlobal

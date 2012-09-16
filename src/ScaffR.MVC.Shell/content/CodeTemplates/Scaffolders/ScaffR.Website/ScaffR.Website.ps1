@@ -14,3 +14,6 @@ Add-Template $baseProject.Name $outputPath "RouteConfig" -Force $TemplateFolders
 
 $outputPath = "App_Start\FilterConfig"
 Add-Template $baseProject.Name $outputPath "FilterConfig" -Force $TemplateFolders
+
+$outputPath = "Application\WebApplication"
+Add-Template $baseProject.Name $outputPath "WebApplication" -Force $TemplateFolders

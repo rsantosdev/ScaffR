@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content\CodeTemplates\Scaffolders\" />
-    <Folder Include="lib\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
