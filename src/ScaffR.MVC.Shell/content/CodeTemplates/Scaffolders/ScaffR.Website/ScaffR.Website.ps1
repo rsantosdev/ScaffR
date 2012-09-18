@@ -6,6 +6,9 @@ param(
 	[switch]$Force = $false
 )
 
+$outputPath = "Application\WebApplication"
+Add-Template $baseProject.Name $outputPath "WebApplication" -Force $TemplateFolders
+
 $outputPath = "Global"
 Add-Template $baseProject.Name $outputPath "Global" -Force $TemplateFolders
 
@@ -14,6 +17,3 @@ Add-Template $baseProject.Name $outputPath "RouteConfig" -Force $TemplateFolders
 
 $outputPath = "App_Start\FilterConfig"
 Add-Template $baseProject.Name $outputPath "FilterConfig" -Force $TemplateFolders
-
-$outputPath = "Application\WebApplication"
-Add-Template $baseProject.Name $outputPath "WebApplication" -Force $TemplateFolders

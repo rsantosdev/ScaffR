@@ -2,12 +2,14 @@
 <#@ Output Extension="asax.cs" #>
 namespace <#= Model.Namespace #>
 {
+	using Application;
+
 	using System.Web.Mvc;
 	using System.Web.Routing;
 
 	using <#= Model.Namespace #>.App_Start;
 
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : WebApplication
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
