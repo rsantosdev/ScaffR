@@ -74,9 +74,6 @@
     <None Include="content\Web.debug.config.transform">
       <SubType>Designer</SubType>
     </None>
-    <None Include="content\Web.release.config.transform">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Package.nuspec" />
     <None Include="tools\init.ps1" />
     <None Include="tools\install.ps1" />

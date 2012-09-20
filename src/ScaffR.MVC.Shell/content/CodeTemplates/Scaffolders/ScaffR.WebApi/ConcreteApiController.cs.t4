@@ -2,8 +2,8 @@
 <#@ Output Extension="cs" #>
 namespace <#= Model.Namespace #>.Areas.Api.Controllers
 {
-    using <#= Model.Namespace #>.Core.Interfaces.Service;
-    using <#= Model.Namespace #>.Core.Model;
+    using Core.Interfaces.Service;
+    using Core.Model;
 
     public class <#= Model.PluralizedClassName #>Controller : ApiController<<#= Model.ClassName #>>
     {
@@ -11,7 +11,7 @@ namespace <#= Model.Namespace #>.Areas.Api.Controllers
 
        public <#= Model.PluralizedClassName #>Controller(I<#= Model.ClassName #>Service service)
        {	       
-           this.Service = this.<#= Model.ClassName #>Service = service;
+           Service = <#= Model.ClassName #>Service = service;
        }
     }
 }

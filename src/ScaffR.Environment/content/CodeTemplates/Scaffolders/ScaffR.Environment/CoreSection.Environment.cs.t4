@@ -1,0 +1,19 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    using System.Configuration;
+    using Environment;
+
+    public partial class CoreSection
+    {
+        [ConfigurationProperty("environment", IsRequired = true)]
+        public EnvironmentElement Environment
+        {
+            get
+            {
+                return (EnvironmentElement)base["environment"];
+            }
+        }
+    }
+}

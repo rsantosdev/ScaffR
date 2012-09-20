@@ -1,0 +1,32 @@
+﻿[T4Scaffolding.Scaffolder()][CmdletBinding()]
+param(        
+    [string]$Project,
+	[string]$CodeLanguage,
+	[string[]]$TemplateFolders,
+	[switch]$Force = $false
+)
+
+ $templates = 
+ 	@("Security","SecurityLevel")
+
+foreach ($tml in $templates){
+	$outputPath = "Common\Security\$tml"
+	add-template $coreProjectName $outputPath $tml -Force:$Force $TemplateFolders
+}
+
+ $templates = 
+ 	@("SecurityElement")
+
+foreach ($tml in $templates){
+	$outputPath = "Configuration\Security\$tml"
+	add-template $coreProjectName $outputPath $tml -Force:$Force $TemplateFolders
+}
+
+ $templates = 
+ 	@("CoreSection.Security")
+
+foreach ($tml in $templates){
+	$outputPath = "Configuration\$tml"
+	add-template $coreProjectName $outputPath $tml -Force:$Force $TemplateFolders
+}
+

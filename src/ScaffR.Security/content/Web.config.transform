@@ -1,0 +1,9 @@
+﻿<configuration>
+
+  <$rootnamespace$>
+    <$rootnamespace$.Core>
+      <security securityLevel="None"/>
+    </$rootnamespace$.Core>
+  </$rootnamespace$>
+
+</configuration>

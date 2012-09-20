@@ -7,8 +7,8 @@ namespace $rootnamespace$.Areas.Api.Controllers
     using System.Net.Http;
     using System.Web.Http;
 
-    using $rootnamespace$.Core.Interfaces.Service;
-    using $rootnamespace$.Core.Model;
+    using Core.Interfaces.Service;
+    using Core.Model;
 
     public abstract class ApiController<T> : ApiController where T : PersistentEntity
     {
@@ -16,7 +16,7 @@ namespace $rootnamespace$.Areas.Api.Controllers
 
         public HttpResponseMessage Get(int id)
         {
-            T item = this.Service.GetById(id);
+            T item = Service.GetById(id);
             var response = Request.CreateResponse(HttpStatusCode.Created, item);
             if (item == null)
             {
@@ -28,27 +28,27 @@ namespace $rootnamespace$.Areas.Api.Controllers
 
         public IEnumerable<T> Get()
         {
-            return this.Service.GetAll();
+            return Service.GetAll();
         }
 
         public void Delete(int id)
         {
-            T entity = this.Service.GetById(id);
-            this.Service.Delete(entity);
+            T entity = Service.GetById(id);
+            Service.Delete(entity);
         }
 
         public HttpResponseMessage Post(T entity)
         {
-            this.Service.SaveOrUpdate(entity);
+            Service.SaveOrUpdate(entity);
             var response = new HttpResponseMessage(HttpStatusCode.Created);
             string uri = Url.Link("DefaultApi", new { id = entity.Id });
             response.Headers.Location = new Uri(uri);
-            return this.Get(entity.Id);
+            return Get(entity.Id);
         }
 
         public HttpResponseMessage Put(T entity)
         {
-            this.Service.SaveOrUpdate(entity);
+            Service.SaveOrUpdate(entity);
             var response = Request.CreateResponse(HttpStatusCode.Created, entity);
             string uri = Url.Link("DefaultApi", new { id = entity.Id });
             response.Headers.Location = new Uri(uri);
@@ -57,7 +57,7 @@ namespace $rootnamespace$.Areas.Api.Controllers
 
         public virtual IEnumerable<T> Page(int page, int pageSize)
         {
-            var p = this.Service.Page(page, pageSize);
+            var p = Service.Page(page, pageSize);
             return p.Entities.ToList();
         }
     }

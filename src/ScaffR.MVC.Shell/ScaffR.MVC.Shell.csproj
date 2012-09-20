@@ -47,6 +47,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\Application\WebApplication.cs.t4" />
+    <None Include="content\Helpers\HtmlHelpers.cs.pp" />
+    <None Include="content\Helpers\UrlHelpers.cs.pp" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -18,3 +18,6 @@ Add-Template $coreProjectName $outputPath "ValidationContainer" -Force:$Force $T
 $outputPath = "Common\Validation\ValidationEngine"
 Add-Template $coreProjectName $outputPath "ValidationEngine" -Force:$Force $TemplateFolders
 
+$outputPath = "Configuration\CoreSection"
+Add-Template $coreProjectName $outputPath "CoreSection" -Force:$Force $TemplateFolders
+

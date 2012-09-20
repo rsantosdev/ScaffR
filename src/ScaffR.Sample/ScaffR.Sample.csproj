@@ -46,9 +46,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Sample\Factory.cs.t4" />
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Sample\Product.cs.t4" />
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Sample\ProductCategory.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Sample\Factory.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Sample\Product.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Sample\ProductCategory.cs.t4" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

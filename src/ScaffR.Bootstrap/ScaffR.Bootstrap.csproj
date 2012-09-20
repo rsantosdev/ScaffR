@@ -54,7 +54,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="content\CodeTemplates\Scaffolders\ScaffR.Bootstrap\CassetteConfiguration.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Bootstrap\CassetteConfiguration.cs.t4" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
