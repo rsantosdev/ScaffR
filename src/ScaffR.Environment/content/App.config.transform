@@ -1,0 +1,9 @@
+﻿<configuration>
+
+  <$rootnamespace$>
+    <$rootnamespace$.Core>
+      <environment level="Local" demonstrationMode="false"/>
+    </$rootnamespace$.Core>
+  </$rootnamespace$>
+
+</configuration>

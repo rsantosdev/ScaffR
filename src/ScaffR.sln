@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D271F9BC-C604-46C0-ADCB-11C3F9889B7A}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.targets = .nuget\NuGet.targets
@@ -32,8 +32,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Stateless", "ScaffR.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Services", "ScaffR.Services\ScaffR.Services.csproj", "{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.scaffr.com", "www.scaffr.com\www.scaffr.com.csproj", "{AF1C65D0-A194-454F-9DDB-E5D484153D71}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.MVC", "ScaffR.MVC\ScaffR.MVC.csproj", "{840812F4-1E83-4FB0-B7C7-DF626A670D2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.MvcMailer", "ScaffR.MvcMailer\ScaffR.MvcMailer.csproj", "{A4176962-21F4-44E6-B151-A87E7DC6EE14}"
@@ -46,7 +44,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.MVC.WebApi", "ScaffR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.MVC.Shell", "ScaffR.MVC.Shell\ScaffR.MVC.Shell.csproj", "{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{C3B8C5E8-03C8-4A9B-94DE-F1F708A0FBCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Site", "ScaffR.Site\ScaffR.Site.csproj", "{9AC461C3-184F-4BC9-9AC7-9118CCA59FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Environment", "ScaffR.Environment\ScaffR.Environment.csproj", "{07FD5ED0-3C56-4692-A798-709537DB525A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Security", "ScaffR.Security\ScaffR.Security.csproj", "{B9254E1C-89D4-422B-ADE3-03A5439FF480}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -106,10 +108,6 @@ Global
 		{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C67C4E4A-89A0-493C-9CBD-BDAAD2BCE708}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF1C65D0-A194-454F-9DDB-E5D484153D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF1C65D0-A194-454F-9DDB-E5D484153D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF1C65D0-A194-454F-9DDB-E5D484153D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF1C65D0-A194-454F-9DDB-E5D484153D71}.Release|Any CPU.Build.0 = Release|Any CPU
 		{840812F4-1E83-4FB0-B7C7-DF626A670D2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{840812F4-1E83-4FB0-B7C7-DF626A670D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{840812F4-1E83-4FB0-B7C7-DF626A670D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -134,13 +132,20 @@ Global
 		{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC461C3-184F-4BC9-9AC7-9118CCA59FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC461C3-184F-4BC9-9AC7-9118CCA59FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC461C3-184F-4BC9-9AC7-9118CCA59FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC461C3-184F-4BC9-9AC7-9118CCA59FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07FD5ED0-3C56-4692-A798-709537DB525A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07FD5ED0-3C56-4692-A798-709537DB525A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07FD5ED0-3C56-4692-A798-709537DB525A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07FD5ED0-3C56-4692-A798-709537DB525A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9254E1C-89D4-422B-ADE3-03A5439FF480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9254E1C-89D4-422B-ADE3-03A5439FF480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9254E1C-89D4-422B-ADE3-03A5439FF480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9254E1C-89D4-422B-ADE3-03A5439FF480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{840812F4-1E83-4FB0-B7C7-DF626A670D2D} = {C3B8C5E8-03C8-4A9B-94DE-F1F708A0FBCF}
-		{2675877E-B2F4-4A4F-8967-CDC91DD2A2B5} = {C3B8C5E8-03C8-4A9B-94DE-F1F708A0FBCF}
-		{8B96D15D-5A98-483E-B889-532E87866A85} = {C3B8C5E8-03C8-4A9B-94DE-F1F708A0FBCF}
 	EndGlobalSection
 EndGlobal

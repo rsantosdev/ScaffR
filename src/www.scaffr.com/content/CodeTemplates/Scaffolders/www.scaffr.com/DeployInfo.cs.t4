@@ -1,6 +1,0 @@
-﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
-<#@ Output Extension="xml" #>
-<?xml version="1.0" encoding="utf-8"?>
-<publishData>
-  <publishProfile publishUrl="https://64.72.98.100:8172/msdeploy.axd" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="www.scaffr.com" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="False" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="godeploy" savePWD="True" userPWD="" SelectedForPublish="True" />
-</publishData>

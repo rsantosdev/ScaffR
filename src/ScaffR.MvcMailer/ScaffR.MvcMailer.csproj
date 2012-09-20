@@ -46,10 +46,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <None Include="content\Mailers\Mailer.cs.pp" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
+    <None Include="content\Views\Mailer\_Layout.cshtml.pp" />
     <None Include="content\Views\web.config.transform" />
     <None Include="content\Web.config.transform">
       <SubType>Designer</SubType>

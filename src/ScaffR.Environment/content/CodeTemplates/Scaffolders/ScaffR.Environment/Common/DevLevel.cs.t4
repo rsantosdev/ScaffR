@@ -1,0 +1,12 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Common.Environment
+{
+    public enum DevLevel
+    {
+        Local,
+        Development,
+        Staging,
+        Production
+    }
+}
