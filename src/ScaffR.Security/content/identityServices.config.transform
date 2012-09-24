@@ -1,0 +1,5 @@
+﻿<system.identityModel.services>
+  <federationConfiguration>
+    <cookieHandler mode="Default" requireSsl="false" />
+  </federationConfiguration>
+</system.identityModel.services>

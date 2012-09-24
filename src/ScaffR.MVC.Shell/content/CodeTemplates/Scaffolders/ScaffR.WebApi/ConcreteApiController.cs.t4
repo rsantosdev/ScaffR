@@ -5,7 +5,7 @@ namespace <#= Model.Namespace #>.Areas.Api.Controllers
     using Core.Interfaces.Service;
     using Core.Model;
 
-    public class <#= Model.PluralizedClassName #>Controller : ApiController<<#= Model.ClassName #>>
+    public partial class <#= Model.PluralizedClassName #>Controller : ApiController<<#= Model.ClassName #>>
     {
 	   protected I<#= Model.ClassName #>Service <#= Model.ClassName #>Service;
 

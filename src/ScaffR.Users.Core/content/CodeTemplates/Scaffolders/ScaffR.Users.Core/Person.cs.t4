@@ -1,0 +1,19 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Model
+{
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Person : PersistentEntity
+    {
+        [Required]
+        [DataType(DataType.EmailAddress)]        
+        public virtual string Email { get; set; }
+            
+        public virtual string FirstName { get; set; }
+        
+        public virtual string LastName { get; set; }
+        
+        public Gender Gender { get; set; }
+    }
+}

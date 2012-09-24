@@ -7,7 +7,7 @@ param(
 )
 
  $templates = 
- 	@("Security","SecurityLevel")
+ 	@("ApplicationClaims","ApplicationIdentity","AuthorizationManager","ClaimsTransformationHttpModule","ClaimsTransformer","Security","SecurityLevel")
 
 foreach ($tml in $templates){
 	$outputPath = "Common\Security\$tml"
@@ -29,4 +29,20 @@ foreach ($tml in $templates){
 	$outputPath = "Configuration\$tml"
 	add-template $coreProjectName $outputPath $tml -Force:$Force $TemplateFolders
 }
+
+ $templates = 
+ 	@("IUserService.Security")
+
+foreach ($tml in $templates){
+	$outputPath = "Interfaces\Service\$tml"
+	add-template $coreProjectName $outputPath $tml -Force:$Force $TemplateFolders
+}
+
+ $templates = 
+ 	@("UserService.Security")
+
+foreach ($tml in $templates){
+	add-template $serviceProjectName $tml $tml -Force:$Force $TemplateFolders
+}
+
 

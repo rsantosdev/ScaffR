@@ -11,11 +11,11 @@ namespace <#= Model.Namespace #>.App_Start
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     
-	using <#= Model.Namespace #>.Core.Interfaces.Data;
-	using <#= Model.Namespace #>.Core.Interfaces.Service;
-    using <#= Model.Namespace #>.Data;
-	using <#= Model.Namespace #>.Resolvers;
-	using <#= Model.Namespace #>.Service;	
+	using Core.Interfaces.Data;
+	using Core.Interfaces.Service;
+    using Data;
+	using Resolvers;
+	using Service;	
 
     using Ninject;
     using Ninject.Web.Common;
