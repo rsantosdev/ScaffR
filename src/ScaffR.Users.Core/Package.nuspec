@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>ScaffR.Data</id>
+    <id>ScaffR.Users.Core</id>
     <version>1.1.3</version>
-    <authors>Rod Johnson,Ulf Björklund</authors>
+    <authors>Rod Johnson</authors>
     <owners>ScaffR</owners>
-    <projectUrl>https://github.com/wcpro/ScaffR</projectUrl>
+    <projectUrl>http://scaffr.codeplex.com</projectUrl>
     <iconUrl>http://www.scaffr.com/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Builds the default ScaffR data layer.
+      Description required.
     </description>
     <releaseNotes>
     </releaseNotes>
     <copyright>ScaffR, 2012</copyright>
     <tags></tags>
     <dependencies>
-      <dependency id="ScaffR.Core" version="1.1.2" />      
+      <dependency id="ScaffR.Core"/>
     </dependencies>
   </metadata>
   <files>

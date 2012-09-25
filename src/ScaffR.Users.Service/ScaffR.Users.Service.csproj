@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B9254E1C-89D4-422B-ADE3-03A5439FF480}</ProjectGuid>
+    <ProjectGuid>{388D231C-A29A-433C-8F58-6ADED16BB3C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScaffR.Security</RootNamespace>
-    <AssemblyName>ScaffR.Security</AssemblyName>
+    <RootNamespace>ScaffR.Users.Service</RootNamespace>
+    <AssemblyName>ScaffR.Users.Service</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -46,36 +46,19 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\Security.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\SecurityLevel.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Configuration\SecurityElement.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Configuration\CoreSection.Security.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\ApplicationClaims.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\ApplicationIdentity.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\AuthorizationManager.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\ClaimsTransformationHttpModule.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\ClaimsTransformer.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Interfaces\IUserService.Security.cs.t4" />
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Services\UserService.Security.cs.t4" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildPublishPackage.cmd" />
-    <None Include="content\App.config.transform">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\ScaffR.Security.ps1" />
-    <None Include="content\identity.config.transform" />
-    <None Include="content\identityServices.config.transform" />
-    <None Include="content\Web.config.transform">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Users.Service\ScaffR.Users.Service.ps1" />
     <None Include="Package.nuspec" />
     <None Include="tools\init.ps1" />
     <None Include="tools\install.ps1" />
     <None Include="tools\uninstall.ps1" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="NuGet.exe" />
   </ItemGroup>

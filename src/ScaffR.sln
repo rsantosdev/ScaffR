@@ -50,6 +50,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Environment", "Scaff
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Security", "ScaffR.Security\ScaffR.Security.csproj", "{B9254E1C-89D4-422B-ADE3-03A5439FF480}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Users.Core", "ScaffR.Users.Core\ScaffR.Users.Core.csproj", "{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{07B83C28-0275-479E-8E52-048FE33C7F99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Users.Service", "ScaffR.Users.Service\ScaffR.Users.Service.csproj", "{388D231C-A29A-433C-8F58-6ADED16BB3C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -144,8 +150,20 @@ Global
 		{B9254E1C-89D4-422B-ADE3-03A5439FF480}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9254E1C-89D4-422B-ADE3-03A5439FF480}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9254E1C-89D4-422B-ADE3-03A5439FF480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388D231C-A29A-433C-8F58-6ADED16BB3C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388D231C-A29A-433C-8F58-6ADED16BB3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388D231C-A29A-433C-8F58-6ADED16BB3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388D231C-A29A-433C-8F58-6ADED16BB3C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3} = {07B83C28-0275-479E-8E52-048FE33C7F99}
+		{388D231C-A29A-433C-8F58-6ADED16BB3C2} = {07B83C28-0275-479E-8E52-048FE33C7F99}
 	EndGlobalSection
 EndGlobal

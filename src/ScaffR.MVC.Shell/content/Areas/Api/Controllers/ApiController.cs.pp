@@ -14,7 +14,7 @@ namespace $rootnamespace$.Areas.Api.Controllers
     {
         protected IService<T> Service;
 
-        public HttpResponseMessage Get(int id)
+        public virtual HttpResponseMessage Get(int id)
         {
             T item = Service.GetById(id);
             var response = Request.CreateResponse(HttpStatusCode.Created, item);
@@ -26,18 +26,18 @@ namespace $rootnamespace$.Areas.Api.Controllers
             return response;
         }
 
-        public IEnumerable<T> Get()
+        public virtual IEnumerable<T> Get()
         {
             return Service.GetAll();
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             T entity = Service.GetById(id);
             Service.Delete(entity);
         }
 
-        public HttpResponseMessage Post(T entity)
+        public virtual HttpResponseMessage Post(T entity)
         {
             Service.SaveOrUpdate(entity);
             var response = new HttpResponseMessage(HttpStatusCode.Created);
@@ -46,7 +46,7 @@ namespace $rootnamespace$.Areas.Api.Controllers
             return Get(entity.Id);
         }
 
-        public HttpResponseMessage Put(T entity)
+        public virtual HttpResponseMessage Put(T entity)
         {
             Service.SaveOrUpdate(entity);
             var response = Request.CreateResponse(HttpStatusCode.Created, entity);

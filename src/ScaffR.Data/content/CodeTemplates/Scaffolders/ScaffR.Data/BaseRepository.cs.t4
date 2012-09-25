@@ -7,10 +7,11 @@ namespace <#= Model.Namespace #>.Data
     using System.Data;
     using System.Data.Entity;
     using System.Linq;
-    using <#= Model.Namespace #>.Core.Common.Paging;
-    using <#= Model.Namespace #>.Core.Interfaces.Data;
-    using <#= Model.Namespace #>.Core.Interfaces.Paging;
-    using <#= Model.Namespace #>.Core.Model;
+
+    using Core.Common.Paging;
+    using Core.Interfaces.Data;
+    using Core.Interfaces.Paging;
+    using Core.Model;
 
     /// <summary>
     /// An abstract baseclass handling basic CRUD operations against the context.
@@ -18,19 +19,19 @@ namespace <#= Model.Namespace #>.Data
     /// <typeparam name="T"></typeparam>
     public abstract class BaseRepository<T> : IDisposable, IRepository<T> where T : PersistentEntity
     {        
-        private readonly IDbSet<T> _dbset;
-        private readonly IDatabaseFactory _databaseFactory;
-        private IDataContext _context;
+        protected readonly IDbSet<T> Dbset;
+        protected readonly IDatabaseFactory DatabaseFactory;
+        protected IDataContext Context;
 
         protected BaseRepository(IDatabaseFactory databaseFactory)
         {
-            this._databaseFactory = databaseFactory;            
-            this._dbset = this.DataContext.DbSet<T>();
+            this.DatabaseFactory = databaseFactory;            
+            this.Dbset = this.DataContext.DbSet<T>();
         }
 
         public IDataContext DataContext
         {
-            get { return this._context ?? (this._context = this._databaseFactory.Get()); }
+            get { return this.Context ?? (this.Context = this.DatabaseFactory.Get()); }
         }
 
         protected string EntitySetName { get; set; }
@@ -42,39 +43,39 @@ namespace <#= Model.Namespace #>.Data
                 this.DataContext.Entry(entity).State = EntityState.Modified;
             }
             else
-                this._dbset.Add(entity);
+                this.Dbset.Add(entity);
         }
 
         public virtual T GetById(int id)
         {
-            return this._dbset.Find(id);
+            return this.Dbset.Find(id);
         }
 
         public virtual IQueryable<T> GetAll()
         {
-            return this._dbset;
+            return this.Dbset;
         }
 
         public virtual IQueryable<T> GetAllReadOnly()
         {
-            return this._dbset.AsNoTracking();
+            return this.Dbset.AsNoTracking();
         }
 
         public virtual void Delete(T entity)
         {
-            this._dbset.Remove(entity);
+            this.Dbset.Remove(entity);
         }
 
         public virtual IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> expression, int maxHits = 100)
         {
-            return this._dbset.Where(expression).Take(maxHits);
+            return this.Dbset.Where(expression).Take(maxHits);
         }
 
         public IPage<T> Page(int page = 1, int pageSize = 10)
         {
             var internalPage = page - 1;
-            var data = this._dbset.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
-            return new Page<T>(data, this._dbset.Count(), pageSize, page);
+            var data = this.Dbset.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
+            return new Page<T>(data, this.Dbset.Count(), pageSize, page);
         }
 
         public void Dispose()

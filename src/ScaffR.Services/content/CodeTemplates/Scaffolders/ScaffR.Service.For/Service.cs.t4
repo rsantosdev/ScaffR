@@ -2,9 +2,9 @@
 <#@ Output Extension="cs" #>
 namespace <#= Model.Namespace #>.Service
 { 
-    using <#= Model.Namespace #>.Core.Interfaces.Data;
-	using <#= Model.Namespace #>.Core.Interfaces.Service;
-    using <#= Model.Namespace #>.Core.Model;
+    using Core.Interfaces.Data;
+	using Core.Interfaces.Service;
+    using Core.Model;
 
     public partial class <#= Model.ClassName #>Service : BaseService<<#= Model.ClassName #>>, I<#= Model.ClassName #>Service
     {

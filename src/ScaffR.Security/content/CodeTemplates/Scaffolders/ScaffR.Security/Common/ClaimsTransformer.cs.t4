@@ -1,0 +1,51 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.IdentityModel.Services;
+using System.IdentityModel.Tokens;
+using System.Linq;
+using System.Security.Claims;
+using System.Web;
+using System.Web.Mvc;
+using <#= Model.Namespace #>.Core.Interfaces.Service;
+
+namespace <#= Model.Namespace #>.Core.Common.Security
+{
+    class ClaimsTransformer : ClaimsAuthenticationManager
+    {
+        public override ClaimsPrincipal Authenticate(string resourceName, ClaimsPrincipal incomingPrincipal)
+        {
+            if (!incomingPrincipal.Identity.IsAuthenticated)
+            {
+                return incomingPrincipal;
+            }
+
+            var newPrincipal = Transform(incomingPrincipal);
+
+            EstablishSession(newPrincipal);
+
+            return newPrincipal;
+        }
+
+        ClaimsPrincipal Transform(ClaimsPrincipal incomingPrincipal)
+        {
+            var nameClaim = incomingPrincipal.Identities.First().FindFirst(ClaimTypes.Name);
+
+            var userService = DependencyResolver.Current.GetService<IUserService>();
+
+            var user = userService.GetByUsername(nameClaim.Value);
+
+            var id = new ApplicationIdentity(user);
+
+            return new ClaimsPrincipal(id);
+        }        
+
+        private void EstablishSession(ClaimsPrincipal principal)
+        {
+            if (HttpContext.Current != null)
+            {
+                var sessionToken = new SessionSecurityToken(principal);
+                FederatedAuthentication.SessionAuthenticationModule.WriteSessionTokenToCookie(sessionToken);
+            }
+        }
+    }
+}

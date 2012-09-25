@@ -1,0 +1,6 @@
+﻿<system.identityModel>
+  <identityConfiguration>
+    <claimsAuthenticationManager type="$rootnamespace$.Core.Common.Security.ClaimsTransformer, $rootnamespace$.Core"/>
+    <claimsAuthorizationManager type="$rootnamespace$.Core.Common.Security.AuthorizationManager, $rootnamespace$.Core"/>
+  </identityConfiguration>
+</system.identityModel>

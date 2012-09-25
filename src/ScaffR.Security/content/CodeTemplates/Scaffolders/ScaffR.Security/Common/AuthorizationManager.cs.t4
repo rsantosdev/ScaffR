@@ -1,0 +1,28 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Linq;
+using System.Security.Claims;
+
+namespace <#= Model.Namespace #>.Core.Common.Security
+{
+    public class AuthorizationManager : ClaimsAuthorizationManager
+    {
+        public override bool CheckAccess(AuthorizationContext context)
+        {
+            var resource = context.Resource.First().Value;
+            var action = context.Action.First().Value;
+
+            if (resource == "asdf" && action == "asdf")
+            {
+                return context.Principal.HasClaim("asdf", "asdf");
+            }
+
+            return base.CheckAccess(context);
+        }        
+
+        public override void LoadCustomConfiguration(System.Xml.XmlNodeList nodelist)
+        {
+            base.LoadCustomConfiguration(nodelist);
+        }
+    }
+}

@@ -17,6 +17,7 @@
     <tags></tags>
     <dependencies>
       <dependency id="ScaffR.Core"/>
+      <dependency id="ScaffR.Users.Service"/>
     </dependencies>
   </metadata>
   <files>
