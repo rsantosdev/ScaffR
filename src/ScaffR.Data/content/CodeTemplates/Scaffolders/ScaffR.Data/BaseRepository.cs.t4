@@ -29,6 +29,11 @@ namespace <#= Model.Namespace #>.Data
             this.Dbset = this.DataContext.DbSet<T>();
         }
 
+		public virtual IQueryable<T> Query
+        {
+            get { return _dbset; }
+        }
+
         public IDataContext DataContext
         {
             get { return this.Context ?? (this.Context = this.DatabaseFactory.Get()); }
@@ -48,17 +53,17 @@ namespace <#= Model.Namespace #>.Data
 
         public virtual T GetById(int id)
         {
-            return this.Dbset.Find(id);
+            return this.Query.SingleOrDefault(e => e.Id == id);
         }
 
         public virtual IQueryable<T> GetAll()
         {
-            return this.Dbset;
+            return this.Query;
         }
 
         public virtual IQueryable<T> GetAllReadOnly()
         {
-            return this.Dbset.AsNoTracking();
+            return this.Query.AsNoTracking();
         }
 
         public virtual void Delete(T entity)
@@ -68,13 +73,13 @@ namespace <#= Model.Namespace #>.Data
 
         public virtual IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> expression, int maxHits = 100)
         {
-            return this.Dbset.Where(expression).Take(maxHits);
+            return this.Query.Where(expression).Take(maxHits);
         }
 
         public IPage<T> Page(int page = 1, int pageSize = 10)
         {
             var internalPage = page - 1;
-            var data = this.Dbset.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
+            var data = this.Query.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
             return new Page<T>(data, this.Dbset.Count(), pageSize, page);
         }
 
