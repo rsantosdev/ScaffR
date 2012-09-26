@@ -80,11 +80,7 @@ namespace <#= Model.Namespace #>.Data
         {
             var internalPage = page - 1;
             var data = this.Query.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
-<<<<<<< HEAD
-            return new Page<T>(data, this.Dbset.Count(), pageSize, page);
-=======
             return new Page<T>(data, this._dbset.Count(), pageSize, page);
->>>>>>> 5f142780f7bd04a056bad25130064af44d5616ef
         }
 
         public void Dispose()
