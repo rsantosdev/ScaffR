@@ -1,17 +1,19 @@
 ﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
 <#@ Output Extension="cs" #>
-using System.IdentityModel.Services;
-using System.IdentityModel.Tokens;
-using System.Linq;
-using System.Security.Claims;
-using System.Web;
-using System.Web.Mvc;
-using <#= Model.Namespace #>.Core.Interfaces.Service;
-
 namespace <#= Model.Namespace #>.Core.Common.Security
 {
-    class ClaimsTransformer : ClaimsAuthenticationManager
+    using System.IdentityModel.Services;
+    using System.IdentityModel.Tokens;
+    using System.Linq;
+    using System.Security.Claims;
+    using System.Web;
+    using System.Web.Mvc;
+    using Interfaces.Service;
+
+    public partial class ClaimsTransformer : ClaimsAuthenticationManager
     {
+        partial void SetCustomPrincipalClaims(IUserService userService, ref ClaimsPrincipal principal);
+
         public override ClaimsPrincipal Authenticate(string resourceName, ClaimsPrincipal incomingPrincipal)
         {
             if (!incomingPrincipal.Identity.IsAuthenticated)
@@ -36,7 +38,11 @@ namespace <#= Model.Namespace #>.Core.Common.Security
 
             var id = new ApplicationIdentity(user);
 
-            return new ClaimsPrincipal(id);
+            var principal = new ClaimsPrincipal(id);
+
+            SetCustomPrincipalClaims(userService, ref principal);
+
+            return principal;
         }        
 
         private void EstablishSession(ClaimsPrincipal principal)

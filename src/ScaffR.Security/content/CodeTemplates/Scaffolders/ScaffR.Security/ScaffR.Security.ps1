@@ -7,7 +7,7 @@ param(
 )
 
  $templates = 
- 	@("ApplicationClaims","ApplicationIdentity","AuthorizationManager","ClaimsTransformationHttpModule","ClaimsTransformer","Security","SecurityLevel")
+ 	@("ApplicationClaims","ApplicationIdentity","AuthorizationManager","ClaimsTransformationHttpModule","ClaimsTransformer","PolicyReader","ResourceAction","Security","SecurityLevel")
 
 foreach ($tml in $templates){
 	$outputPath = "Common\Security\$tml"

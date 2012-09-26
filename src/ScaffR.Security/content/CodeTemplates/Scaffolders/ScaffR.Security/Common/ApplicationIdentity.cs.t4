@@ -1,29 +1,24 @@
 ﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
 <#@ Output Extension="cs" #>
-using System;
-using System.Globalization;
-using System.Security.Claims;
-using <#= Model.Namespace #>.Core.Model;
-
 namespace <#= Model.Namespace #>.Core.Common.Security
 {
-    public sealed class ApplicationIdentity : ClaimsIdentity
+    using System;
+    using System.Globalization;
+    using System.Security.Claims;
+
+    using Model;
+
+    public sealed partial class ApplicationIdentity : ClaimsIdentity
     {
-        private readonly User _user;
+        partial void SetCustomIdentityClaims(User user);
 
         public ApplicationIdentity(User user) : base("Application")
         {
-            _user = user;
             AddClaim(new Claim(ClaimTypes.Name, user.Username));     
             AddClaim(new Claim(ApplicationClaimTypes.UserId, user.Id.ToString(CultureInfo.InvariantCulture)));
-            AddClaim(new Claim(ApplicationClaimTypes.FirstName, user.FirstName));
-            AddClaim(new Claim(ApplicationClaimTypes.LastName, user.LastName));
             AddClaim(new Claim("Time", DateTime.Now.ToString()));
-        }
 
-        public User User
-        {
-            get { return _user; }
+            SetCustomIdentityClaims(user);
         }
 
         public int UserId
