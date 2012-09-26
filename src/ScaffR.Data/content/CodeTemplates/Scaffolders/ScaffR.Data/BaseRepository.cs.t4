@@ -19,14 +19,19 @@ namespace <#= Model.Namespace #>.Data
     /// <typeparam name="T"></typeparam>
     public abstract class BaseRepository<T> : IDisposable, IRepository<T> where T : PersistentEntity
     {        
-        protected readonly IDbSet<T> Dbset;
-        protected readonly IDatabaseFactory DatabaseFactory;
-        protected IDataContext Context;
+        protected readonly IDbSet<T> _dbset;
+        protected readonly IDatabaseFactory _databaseFactory;
+        private IDataContext _context;
 
         protected BaseRepository(IDatabaseFactory databaseFactory)
         {
-            this.DatabaseFactory = databaseFactory;            
-            this.Dbset = this.DataContext.DbSet<T>();
+            this._databaseFactory = databaseFactory;            
+            this._dbset = this.DataContext.DbSet<T>();
+        }
+
+        public virtual IQueryable<T> Query
+        {
+            get { return _dbset; }
         }
 
 		public virtual IQueryable<T> Query
@@ -36,7 +41,7 @@ namespace <#= Model.Namespace #>.Data
 
         public IDataContext DataContext
         {
-            get { return this.Context ?? (this.Context = this.DatabaseFactory.Get()); }
+            get { return this._context ?? (this._context = this._databaseFactory.Get()); }
         }
 
         protected string EntitySetName { get; set; }
@@ -48,7 +53,7 @@ namespace <#= Model.Namespace #>.Data
                 this.DataContext.Entry(entity).State = EntityState.Modified;
             }
             else
-                this.Dbset.Add(entity);
+                this._dbset.Add(entity);
         }
 
         public virtual T GetById(int id)
@@ -68,7 +73,7 @@ namespace <#= Model.Namespace #>.Data
 
         public virtual void Delete(T entity)
         {
-            this.Dbset.Remove(entity);
+            this._dbset.Remove(entity);
         }
 
         public virtual IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> expression, int maxHits = 100)
@@ -80,7 +85,11 @@ namespace <#= Model.Namespace #>.Data
         {
             var internalPage = page - 1;
             var data = this.Query.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
+<<<<<<< HEAD
             return new Page<T>(data, this.Dbset.Count(), pageSize, page);
+=======
+            return new Page<T>(data, this._dbset.Count(), pageSize, page);
+>>>>>>> 5f142780f7bd04a056bad25130064af44d5616ef
         }
 
         public void Dispose()
