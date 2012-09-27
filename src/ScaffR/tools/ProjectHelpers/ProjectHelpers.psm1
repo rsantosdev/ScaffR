@@ -4,15 +4,6 @@
 #https://entlibcontrib.svn.codeplex.com/svn/Application%20Block%20Factory/BlockFactory/BlockFactory/Helpers/ProjectItemHelper.cs
 #http://msdn.microsoft.com/en-us/library/envdte.vscmtyperef(v=vs.100).aspx
 
-# initialize the global variables
-$global:baseProject = Get-Project
-$global:namespace = $baseProject.Properties.Item("DefaultNamespace").Value
-$global:rootNamespace = $namespace
-
-if ($namespace.LastIndexOf('.') -gt 0){ 
-	$global:rootNamespace = $namespace.Substring(0,$namespace.LastIndexOf('.'))
-}
-
 function With-Reference($references){
     
     begin { $project }
@@ -242,6 +233,9 @@ function Add-Project($projectName){
         
         get-project $projectName
 	}
+	else{
+		get-project $projectName
+	}	
 }
 
 function Find-AllClasses(){
