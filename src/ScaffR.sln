@@ -56,6 +56,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{07B83C28
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Users.Service", "ScaffR.Users.Service\ScaffR.Users.Service.csproj", "{388D231C-A29A-433C-8F58-6ADED16BB3C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Lists", "ScaffR.Lists\ScaffR.Lists.csproj", "{E89EC831-52EE-47D9-A5F8-5F02166E1280}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lists", "Lists", "{3E5CA46F-A7BA-4F15-9EAF-FDFC5065FBBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffR.Lists.Dropdowns", "ScaffR.Lists.Dropdowns\ScaffR.Lists.Dropdowns.csproj", "{56244AAC-A6F1-4BCB-931A-F9BB9370A52B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -158,6 +164,14 @@ Global
 		{388D231C-A29A-433C-8F58-6ADED16BB3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{388D231C-A29A-433C-8F58-6ADED16BB3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{388D231C-A29A-433C-8F58-6ADED16BB3C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E89EC831-52EE-47D9-A5F8-5F02166E1280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E89EC831-52EE-47D9-A5F8-5F02166E1280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E89EC831-52EE-47D9-A5F8-5F02166E1280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E89EC831-52EE-47D9-A5F8-5F02166E1280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56244AAC-A6F1-4BCB-931A-F9BB9370A52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56244AAC-A6F1-4BCB-931A-F9BB9370A52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56244AAC-A6F1-4BCB-931A-F9BB9370A52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56244AAC-A6F1-4BCB-931A-F9BB9370A52B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -165,5 +179,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2BDEA833-2EE0-4C8F-B4BD-07D2585C32F3} = {07B83C28-0275-479E-8E52-048FE33C7F99}
 		{388D231C-A29A-433C-8F58-6ADED16BB3C2} = {07B83C28-0275-479E-8E52-048FE33C7F99}
+		{E89EC831-52EE-47D9-A5F8-5F02166E1280} = {3E5CA46F-A7BA-4F15-9EAF-FDFC5065FBBE}
+		{56244AAC-A6F1-4BCB-931A-F9BB9370A52B} = {3E5CA46F-A7BA-4F15-9EAF-FDFC5065FBBE}
 	EndGlobalSection
 EndGlobal

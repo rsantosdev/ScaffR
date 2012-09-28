@@ -222,20 +222,20 @@ function Add-Project($projectName){
         		
 		(get-solution).object.AddFromTemplate($templatePath, $path+$projectName,$projectName)
         
-		Get-ProjectItem "Class1.cs" `
-			-Project $projectName | % { $_.Delete() }
+		
         
 		Install-Package EntityFramework `
 			-ProjectName $projectName -Version 5.0.0
 		
-		Get-ProjectItem "App.Config" `
-			-Project $projectName | % { $_.Delete() }
-        
-        get-project $projectName
+		Install-Package ScaffR.Extensions `
+			-ProjectName $projectName
+
+		$items = @("Class1.cs", "App.Config")
+
+		$items | % { (get-projectitem $_ -Project $projectName).Delete() }
+           
 	}
-	else{
-		get-project $projectName
-	}	
+	get-project $projectName
 }
 
 function Find-AllClasses(){
