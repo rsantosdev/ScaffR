@@ -2,10 +2,8 @@
 <#@ Output Extension="cs" #>
 namespace <#= Model.Namespace #>.Core.Common.Security
 {
-    public static class ApplicationClaimTypes
+    public  static partial class ApplicationClaimTypes
     {
         public const string UserId = "http://claims/userId";
-        public const string FirstName = "http://claims/firstname";
-        public const string LastName = "http://claims/lastname";
     }
 }

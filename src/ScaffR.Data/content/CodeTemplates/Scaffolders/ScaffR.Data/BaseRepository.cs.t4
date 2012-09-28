@@ -29,7 +29,7 @@ namespace <#= Model.Namespace #>.Data
             this._dbset = this.DataContext.DbSet<T>();
         }
 
-        public virtual IQueryable<T> Query
+		public virtual IQueryable<T> Query
         {
             get { return _dbset; }
         }
