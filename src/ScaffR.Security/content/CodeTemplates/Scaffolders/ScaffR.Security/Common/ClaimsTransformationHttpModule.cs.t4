@@ -1,13 +1,13 @@
 ﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
 <#@ Output Extension="cs" #>
-using System;
-using System.IdentityModel.Services;
-using System.Security.Claims;
-using System.Threading;
-using System.Web;
-
 namespace <#= Model.Namespace #>.Core.Common.Security
 {
+	using System;
+	using System.IdentityModel.Services;
+	using System.Security.Claims;
+	using System.Threading;
+	using System.Web;
+
     public class ClaimsTransformationHttpModule : IHttpModule
     {
         public void Init(HttpApplication context)

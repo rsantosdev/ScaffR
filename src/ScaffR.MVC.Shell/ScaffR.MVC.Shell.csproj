@@ -47,8 +47,9 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\Application\WebApplication.cs.t4" />
-    <None Include="content\Helpers\HtmlHelpers.cs.pp" />
-    <None Include="content\Helpers\UrlHelpers.cs.pp" />
+    <None Include="content\Helpers\HtmlHelpers.Common.cs.pp" />
+    <None Include="content\Helpers\UrlHelpers.AbsoluteAction.cs.pp" />
+    <None Include="content\Helpers\HtmlHelpers.EnumDropdown.cs.pp" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,7 +73,7 @@
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\RouteConfig.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Website\ScaffR.Website.ps1" />
     <None Include="content\Controllers\BaseController.cs.pp" />
-    <None Include="content\Web.config.transform">
+    <None Include="content\Views\Web.config.transform">
       <SubType>Designer</SubType>
     </None>
     <None Include="Package.nuspec" />
@@ -80,9 +81,7 @@
     <None Include="tools\install.ps1" />
     <None Include="tools\uninstall.ps1" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="NuGet.exe" />
   </ItemGroup>

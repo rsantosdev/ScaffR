@@ -11,8 +11,8 @@ namespace <#= Model.Namespace #>.Core.Interfaces.Data
     public interface IDataContext
     {
         ObjectContext ObjectContext();
-        IDbSet<T> DbSet<T>() where T : PersistentEntity;
-        DbEntityEntry Entry<T>(T entity) where T : PersistentEntity;
+        IDbSet<T> DbSet<T>() where T : DomainObject;
+        DbEntityEntry Entry<T>(T entity) where T : DomainObject;
         void Dispose();
     }
 }

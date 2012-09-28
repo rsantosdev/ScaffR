@@ -14,6 +14,11 @@ namespace <#= Model.Namespace #>.Core.Common.Security
 
         public ApplicationIdentity(User user) : base("Application")
         {
+            if (user== null)
+            {
+                throw new ArgumentException("user");
+            }
+
             AddClaim(new Claim(ClaimTypes.Name, user.Username));     
             AddClaim(new Claim(ApplicationClaimTypes.UserId, user.Id.ToString(CultureInfo.InvariantCulture)));
             AddClaim(new Claim("Time", DateTime.Now.ToString()));

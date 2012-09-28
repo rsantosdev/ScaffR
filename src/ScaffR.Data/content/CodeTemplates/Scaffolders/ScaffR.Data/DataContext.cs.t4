@@ -28,12 +28,12 @@ namespace <#= Model.Namespace #>.Data
             return ((IObjectContextAdapter)this).ObjectContext;
         }
 
-        public virtual IDbSet<T> DbSet<T>() where T : PersistentEntity
+        public virtual IDbSet<T> DbSet<T>() where T : DomainObject
         {
             return Set<T>();
         }
 
-        public new DbEntityEntry Entry<T>(T entity) where T : PersistentEntity
+        public new DbEntityEntry Entry<T>(T entity) where T : DomainObject
         {
             return base.Entry(entity);
         }

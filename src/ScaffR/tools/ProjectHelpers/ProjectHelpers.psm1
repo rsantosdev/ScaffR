@@ -4,15 +4,6 @@
 #https://entlibcontrib.svn.codeplex.com/svn/Application%20Block%20Factory/BlockFactory/BlockFactory/Helpers/ProjectItemHelper.cs
 #http://msdn.microsoft.com/en-us/library/envdte.vscmtyperef(v=vs.100).aspx
 
-# initialize the global variables
-$global:baseProject = Get-Project
-$global:namespace = $baseProject.Properties.Item("DefaultNamespace").Value
-$global:rootNamespace = $namespace
-
-if ($namespace.LastIndexOf('.') -gt 0){ 
-	$global:rootNamespace = $namespace.Substring(0,$namespace.LastIndexOf('.'))
-}
-
 function With-Reference($references){
     
     begin { $project }
@@ -231,17 +222,20 @@ function Add-Project($projectName){
         		
 		(get-solution).object.AddFromTemplate($templatePath, $path+$projectName,$projectName)
         
-		Get-ProjectItem "Class1.cs" `
-			-Project $projectName | % { $_.Delete() }
+		
         
 		Install-Package EntityFramework `
 			-ProjectName $projectName -Version 5.0.0
 		
-		Get-ProjectItem "App.Config" `
-			-Project $projectName | % { $_.Delete() }
-        
-        get-project $projectName
+		Install-Package ScaffR.Extensions `
+			-ProjectName $projectName
+
+		$items = @("Class1.cs", "App.Config")
+
+		$items | % { (get-projectitem $_ -Project $projectName).Delete() }
+           
 	}
+	get-project $projectName
 }
 
 function Find-AllClasses(){

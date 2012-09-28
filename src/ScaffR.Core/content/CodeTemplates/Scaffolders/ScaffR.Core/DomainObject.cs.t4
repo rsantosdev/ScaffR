@@ -5,9 +5,8 @@ namespace <#= Model.Namespace #>.Core.Model
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Runtime.Serialization;
 
-    public abstract class PersistentEntity : IValidatableObject
+    public abstract class DomainObject : IValidatableObject
     {
         public int Id { get; set; }
 
