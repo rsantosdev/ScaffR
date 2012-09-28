@@ -3,7 +3,6 @@
 namespace <#= Model.Namespace #>.Core.Model
 {
 	using System;
-	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 
 	[DisplayColumn("Username")]

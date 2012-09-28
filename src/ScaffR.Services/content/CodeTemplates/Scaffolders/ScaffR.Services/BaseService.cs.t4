@@ -18,7 +18,7 @@ namespace <#= Model.Namespace #>.Service
     /// override these methods in inherited classes and implement the logic there.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BaseService<T> : IService<T> where T : PersistentEntity
+    public abstract class BaseService<T> : IService<T> where T : DomainObject
     {
         protected IRepository<T> Repository;
 

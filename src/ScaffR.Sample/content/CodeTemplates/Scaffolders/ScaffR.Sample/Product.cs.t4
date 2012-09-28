@@ -11,7 +11,7 @@ namespace <#= Model.Namespace #>.Core.Model
     [Serializable]
     [DataContract]
     [DisplayColumn("Name")]
-    public partial class Product : PersistentEntity
+    public partial class Product : DomainObject
     {
         [DataMember]
         [MaxLength(50)]

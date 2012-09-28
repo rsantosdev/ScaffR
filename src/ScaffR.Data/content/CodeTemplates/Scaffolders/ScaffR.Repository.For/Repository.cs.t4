@@ -2,8 +2,8 @@
 <#@ Output Extension="cs" #>
 namespace <#= Model.Namespace #>.Data
 { 
-	using <#= Model.Namespace #>.Core.Interfaces.Data;
-	using <#= Model.Namespace #>.Core.Model;
+	using Core.Interfaces.Data;
+	using Core.Model;
 
 	public partial class <#= Model.ClassName #>Repository : BaseRepository<<#= Model.ClassName #>>, I<#= Model.ClassName #>Repository
     {

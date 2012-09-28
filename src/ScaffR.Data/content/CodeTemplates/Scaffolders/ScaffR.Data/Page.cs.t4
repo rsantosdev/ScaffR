@@ -9,7 +9,7 @@ namespace <#= Model.Namespace #>.Core.Common.Paging
     using <#= Model.Namespace #>.Core.Model;
 
     [Serializable]
-    public partial class Page<T> : IPage<T> where T : PersistentEntity
+    public partial class Page<T> : IPage<T> where T : DomainObject
     {
         public int CurrentPage { get; set; }
         public int PagesCount { get; set; }

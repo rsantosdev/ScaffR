@@ -14,10 +14,10 @@ namespace <#= Model.Namespace #>.Core.Common.Validation
         /// <summary>
         /// Will validate an entity that implements IValidatableObject and DataAnnotations
         /// </summary>
-        /// <typeparam name="T">The type that inherits the abstract basetype PersistentEntity</typeparam>
+        /// <typeparam name="T">The type that inherits the abstract basetype DomainObject</typeparam>
         /// <param name="entity">The Entity to validate</param>
         /// <returns></returns>
-        public static IValidationContainer<T> GetValidationContainer<T>(this T entity) where T : PersistentEntity
+        public static IValidationContainer<T> GetValidationContainer<T>(this T entity) where T : DomainObject
         {
             var brokenrules = new Dictionary<string, IList<string>>();
 
