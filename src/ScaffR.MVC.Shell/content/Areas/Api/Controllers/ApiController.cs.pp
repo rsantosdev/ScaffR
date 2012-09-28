@@ -10,7 +10,7 @@ namespace $rootnamespace$.Areas.Api.Controllers
     using Core.Interfaces.Service;
     using Core.Model;
 
-    public abstract class ApiController<T> : ApiController where T : PersistentEntity
+    public abstract class ApiController<T> : ApiController where T : DomainObject
     {
         protected IService<T> Service;
 

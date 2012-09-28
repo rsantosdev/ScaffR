@@ -10,7 +10,7 @@ namespace <#= Model.Namespace #>.Core.Model
     [Serializable]
     [DataContract]
     [DisplayColumn("Name")]
-    public partial class ProductCategory : PersistentEntity
+    public partial class ProductCategory : DomainObject
     {
         [DataMember]
         [Required]

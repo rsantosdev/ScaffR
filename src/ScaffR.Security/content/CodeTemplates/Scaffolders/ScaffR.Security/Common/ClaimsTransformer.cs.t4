@@ -2,6 +2,7 @@
 <#@ Output Extension="cs" #>
 namespace <#= Model.Namespace #>.Core.Common.Security
 {
+    using System;
     using System.IdentityModel.Services;
     using System.IdentityModel.Tokens;
     using System.Linq;
@@ -21,11 +22,21 @@ namespace <#= Model.Namespace #>.Core.Common.Security
                 return incomingPrincipal;
             }
 
-            var newPrincipal = Transform(incomingPrincipal);
+            try
+            {
+                var newPrincipal = Transform(incomingPrincipal);
 
-            EstablishSession(newPrincipal);
+                EstablishSession(newPrincipal);
 
-            return newPrincipal;
+                return newPrincipal;
+            }
+            catch (InvalidOperationException)
+            {
+                var authenticationService = DependencyResolver.Current.GetService<IAuthenticationService>();
+                authenticationService.SignOut();
+            }
+
+            return null;
         }
 
         ClaimsPrincipal Transform(ClaimsPrincipal incomingPrincipal)
@@ -35,6 +46,11 @@ namespace <#= Model.Namespace #>.Core.Common.Security
             var userService = DependencyResolver.Current.GetService<IUserService>();
 
             var user = userService.GetByUsername(nameClaim.Value);
+
+            if (user == null)
+            {
+                throw new InvalidOperationException("Cannot initialize user");
+            }
 
             var id = new ApplicationIdentity(user);
 

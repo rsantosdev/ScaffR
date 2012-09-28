@@ -57,6 +57,8 @@
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\ClaimsTransformer.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Interfaces\IUserService.Security.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Services\UserService.Security.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\PolicyReader.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\ResourceAction.cs.t4" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

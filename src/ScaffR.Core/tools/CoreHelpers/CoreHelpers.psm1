@@ -5,7 +5,7 @@
 }
 
 function Get-Domain(){
-	Find-SuperClasses "$coreProjectName.Model.PersistentEntity"
+	Find-SuperClasses "$coreProjectName.Model.DomainObject"
 }
 
 Export-ModuleMember -Function *

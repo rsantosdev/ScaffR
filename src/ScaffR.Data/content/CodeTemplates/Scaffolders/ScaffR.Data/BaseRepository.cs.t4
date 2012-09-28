@@ -17,7 +17,7 @@ namespace <#= Model.Namespace #>.Data
     /// An abstract baseclass handling basic CRUD operations against the context.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BaseRepository<T> : IDisposable, IRepository<T> where T : PersistentEntity
+    public abstract class BaseRepository<T> : IDisposable, IRepository<T> where T : DomainObject
     {        
         protected readonly IDbSet<T> _dbset;
         protected readonly IDatabaseFactory _databaseFactory;

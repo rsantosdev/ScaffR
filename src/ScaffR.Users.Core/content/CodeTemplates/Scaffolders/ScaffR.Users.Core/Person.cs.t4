@@ -4,7 +4,7 @@ namespace <#= Model.Namespace #>.Core.Model
 {
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Person : PersistentEntity
+    public partial class Person : DomainObject
     {
         [Required]
         [DataType(DataType.EmailAddress)]        
@@ -15,5 +15,10 @@ namespace <#= Model.Namespace #>.Core.Model
         public virtual string LastName { get; set; }
         
         public Gender Gender { get; set; }
+
+		public string FullName
+        {
+            get { return FirstName + " " + LastName; }
+        }
     }
 }

@@ -16,23 +16,24 @@
     <copyright>ScaffR, 2012</copyright>
     <tags></tags>
     <dependencies>
-      <dependency id="ScaffR" version="1.1.2" />
-      <dependency id="ScaffR.Backend" version="1.1.2" />
-      <dependency id="jQuery.UI.Combined" version="1.8.20" />
-      <dependency id="jQuery" version="1.7.2" />
-      <dependency id="knockoutjs" version="2.1.0"/>
-      <dependency id="AutoMapper" version="2.1.267"/>
-      <dependency id="SignalR" version="0.5.2" />
-      <dependency id="SignalR.Client" version="0.5.2" />
-      <dependency id="SignalR.Hosting.AspNet" version="0.5.2" />
-      <dependency id="SignalR.Hosting.Common" version="0.5.2" />
-      <dependency id="SignalR.Js" version="0.5.2" />
-      <dependency id="SignalR.Server" version="0.5.2" />
-      <dependency id="ScaffR.Ninject" />      
+      <dependency id="ScaffR" />
+      <dependency id="ScaffR.Backend" />
+      <dependency id="jQuery.UI.Combined" />
+      <dependency id="jQuery" version="1.8.2" />
+      <dependency id="knockoutjs" />
+      <dependency id="AutoMapper" />
+      <dependency id="SignalR" />
+      <dependency id="SignalR.Client" />
+      <dependency id="SignalR.Hosting.AspNet" />
+      <dependency id="SignalR.Hosting.Common" />
+      <dependency id="SignalR.Js" />
+      <dependency id="SignalR.Server" />
+      <dependency id="ScaffR.Ninject" />
+      <dependency id="ScaffR.Extensions"/>
+      <dependency id="ScaffR.Security"/>
     </dependencies>
   </metadata>
   <files>
-    <file src="lib\**" target="lib" />
     <file src="tools\**" target="tools" />
     <file src="content\**" target="content" />
   </files>

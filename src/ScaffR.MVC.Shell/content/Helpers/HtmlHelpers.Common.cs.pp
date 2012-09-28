@@ -1,8 +1,8 @@
-using System.Web.Mvc;
-
 namespace $rootnamespace$.Helpers
 {
-    public static class HtmlHelpers
+    using System.Web.Mvc;
+
+    public static partial class HtmlHelpers
     {
         public static MvcHtmlString AddClass(this HtmlHelper helper, string className, bool active)
         {

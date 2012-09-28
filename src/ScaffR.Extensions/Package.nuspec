@@ -9,7 +9,7 @@
     <iconUrl>http://www.scaffr.com/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Provdies a useful set of extension methods.
+      The only compiled code in scaffR.  This is just simplify some of the code.  This is designed to have "NO" dependencies whatsoever, just provies extension methods and such.
     </description>
     <releaseNotes>
     </releaseNotes>
