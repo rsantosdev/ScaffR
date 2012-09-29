@@ -2,7 +2,7 @@
 
 get-project $coreProjectName | with-reference 'System.IdentityModel,System.IdentityModel.Services,System.Web.Mvc'
 
-get-project $serviceProjectName | with-reference 'System.IdentityModel,System.IdentityModel.Services'
+get-project $serviceProjectName | with-reference 'System.IdentityModel,System.IdentityModel.Services,System.Web'
 
 get-project | with-reference 'System.IdentityModel,System.IdentityModel.Services'
 

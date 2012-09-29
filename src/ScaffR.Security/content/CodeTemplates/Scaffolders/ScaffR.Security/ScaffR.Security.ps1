@@ -31,7 +31,7 @@ foreach ($tml in $templates){
 }
 
  $templates = 
- 	@("IUserService.Security")
+ 	@("IUserService.Security", "IAuthenticationService")
 
 foreach ($tml in $templates){
 	$outputPath = "Interfaces\Service\$tml"
@@ -39,7 +39,7 @@ foreach ($tml in $templates){
 }
 
  $templates = 
- 	@("UserService.Security")
+ 	@("UserService.Security", "AuthenticationService")
 
 foreach ($tml in $templates){
 	add-template $serviceProjectName $tml $tml -Force:$Force $TemplateFolders

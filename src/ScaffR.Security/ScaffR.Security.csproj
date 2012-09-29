@@ -55,7 +55,9 @@
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\AuthorizationManager.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\ClaimsTransformationHttpModule.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\ClaimsTransformer.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Interfaces\IAuthenticationService.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Interfaces\IUserService.Security.cs.t4" />
+    <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Services\AuthenticationService.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Services\UserService.Security.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\PolicyReader.cs.t4" />
     <None Include="content\CodeTemplates\Scaffolders\ScaffR.Security\Common\ResourceAction.cs.t4" />
