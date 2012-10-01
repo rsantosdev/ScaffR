@@ -1,0 +1,15 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.App_Start
+{
+    using Core.Model;
+    using Models;
+    
+    public class AutoMapperConfig
+    {
+        public static void RegisterMappings()
+        {
+            
+        }
+    }
+}
